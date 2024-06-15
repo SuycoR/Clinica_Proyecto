@@ -6,7 +6,7 @@ package hola;
 
 /**
  *
- * @author PC
+ * @author Miguel Alejandro Giron Altamirano
  */
 public class hola {
     
