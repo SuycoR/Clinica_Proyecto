@@ -8,7 +8,7 @@ package dA_MenuUsuario;
  *
  * @author Miguel Aljeandro Giron Altamirano
  */
-public class Fabrica_Usuario {
+public class FabricaUsuario {
     public Usuario crearUsuario(String tipo){
         if(tipo.equalsIgnoreCase("DOCTOR")){
             return new Doctor();
