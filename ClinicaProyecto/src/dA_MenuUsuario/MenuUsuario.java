@@ -11,9 +11,9 @@ package dA_MenuUsuario;
 public class MenuUsuario {
     public static void main(String[] args){
         //Constructor generico
-        Fabrica_Usuario objFabrica_Usuario = new Fabrica_Usuario();
+        FabricaUsuario objFabricaUsuario = new FabricaUsuario();
         
-        Usuario giron = objFabrica_Usuario.crearUsuario("DOCTOR");
+        Usuario giron = objFabricaUsuario.crearUsuario("DOCTOR");
         giron.ingresar();
     }
 }
