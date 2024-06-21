@@ -13,18 +13,24 @@ import Vista_Ventana.*;
 public class ProgMenu {
 
     public VentanaLogin objVentanaLogin;
-
+    public VentanaInicio objVentanaInicio;
+    
     public ProgMenu() {
+        //Objeto de la ventana login
         objVentanaLogin = new VentanaLogin();
+        
+        //Objeto de la ventana inicio
+        objVentanaInicio = new VentanaInicio();
     }
 
     public static void main(String[] args) {
+        //Objeto del ProgMenu
         ProgMenu objMenu = new ProgMenu();
-        objMenu.mostrarVentanaLogin();
+        objMenu.mostrarVentanaInicio();
     }
     
-    public void mostrarVentanaLogin(){
-        objVentanaLogin.setVisible(true);
+    public void mostrarVentanaInicio(){
+        objVentanaInicio.setVisible(true);
     }
 
 }
