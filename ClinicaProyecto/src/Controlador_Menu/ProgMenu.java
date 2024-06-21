@@ -10,16 +10,16 @@ import Vista_Ventana.*;
  *
  * @author PC
  */
-public class Menu {
+public class ProgMenu {
 
     public VentanaLogin objVentanaLogin;
 
-    public Menu() {
+    public ProgMenu() {
         objVentanaLogin = new VentanaLogin();
     }
 
     public static void main(String[] args) {
-        Menu objMenu = new Menu();
+        ProgMenu objMenu = new ProgMenu();
         objMenu.mostrarVentanaLogin();
     }
     
