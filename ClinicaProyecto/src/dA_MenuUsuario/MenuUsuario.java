@@ -9,11 +9,10 @@ package dA_MenuUsuario;
  * @author Miguel Aljeandro Giron Altamirano
  */
 public class MenuUsuario {
-    public static void main(String[] args){
-        //Constructor generico
-        FabricaUsuario objFabricaUsuario = new FabricaUsuario();
-        
-        Usuario giron = objFabricaUsuario.crearUsuario("PACIENTE");
-        giron.ingresar();
+
+    public MenuUsuario() {
+       
     }
+
+    
 }
