@@ -13,7 +13,7 @@ public class MenuUsuario {
         //Constructor generico
         FabricaUsuario objFabricaUsuario = new FabricaUsuario();
         
-        Usuario giron = objFabricaUsuario.crearUsuario("DOCTOR");
+        Usuario giron = objFabricaUsuario.crearUsuario("PACIENTE");
         giron.ingresar();
     }
 }
