@@ -4,7 +4,9 @@
  */
 package Controlador_Menu;
 
+import java.sql.Connection;
 import Vista_Ventana.*;
+import Modelo_Menu.Menu;
 
 /**
  *
@@ -12,24 +14,33 @@ import Vista_Ventana.*;
  */
 public class ProgMenu {
 
-    public VentanaLogin objVentanaLogin;
+    //Objeto de la ventana inicio
     public VentanaInicio objVentanaInicio;
-    
+    public Menu objMenu;
+
     public ProgMenu() {
-        //Objeto de la ventana login
-        objVentanaLogin = new VentanaLogin();
-        
         //Objeto de la ventana inicio
         objVentanaInicio = new VentanaInicio();
+
+        //Objeto del menu
+        objMenu = new Menu();
     }
 
     public static void main(String[] args) {
+        ProgMenu objProgMenu = new ProgMenu();
+
+        //Conectar base de datos 
+        objProgMenu.conectarBaseDatos();
+        
         //Objeto del ProgMenu
-        ProgMenu objMenu = new ProgMenu();
-        objMenu.mostrarVentanaInicio();
+        objProgMenu.mostrarVentanaInicio();
     }
-    
-    public void mostrarVentanaInicio(){
+
+    public void conectarBaseDatos() {
+        Connection bd = objMenu.ConectarBD();
+    }   
+
+    public void mostrarVentanaInicio() {
         objVentanaInicio.setVisible(true);
     }
 

@@ -9,7 +9,7 @@ package Vista_Ventana;
  * @author PC
  */
 public class VentanaInicio extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form VentanaInicio
      */
@@ -118,6 +118,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonRegistrarseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarseActionPerformed
