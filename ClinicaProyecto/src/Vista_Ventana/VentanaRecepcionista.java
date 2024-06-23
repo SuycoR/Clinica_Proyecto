@@ -8,12 +8,12 @@ package Vista_Ventana;
  *
  * @author PC
  */
-public class VentanaInicio extends javax.swing.JFrame {
-    
+public class VentanaRecepcionista extends javax.swing.JFrame {
+
     /**
-     * Creates new form VentanaInicio
+     * Creates new form VentanaRecepcionista
      */
-    public VentanaInicio() {
+    public VentanaRecepcionista() {
         initComponents();
     }
 
@@ -27,21 +27,29 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
+        jButtonRegistrarPaciente = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jButtonConoceMas = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButtonIniciarSesionPaciente = new javax.swing.JButton();
-        jButtonIniciarSesionPersonal = new javax.swing.JButton();
+        jButtonRegistrarPaciente1 = new javax.swing.JButton();
+        jButtonAgendarCita = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(153, 255, 153));
         setLocationByPlatform(true);
-        setUndecorated(true);
-        setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButtonRegistrarPaciente.setBackground(new java.awt.Color(60, 91, 111));
+        jButtonRegistrarPaciente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonRegistrarPaciente.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistrarPaciente.setText("Registrar paciente");
+        jButtonRegistrarPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarPacienteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonRegistrarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 320, 50));
 
         jButtonSalir.setBackground(new java.awt.Color(60, 91, 111));
         jButtonSalir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -52,23 +60,12 @@ public class VentanaInicio extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 310, 60));
+        jPanel2.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 320, 50));
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Clínica Capitan Peru");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, 40));
-
-        jButtonConoceMas.setBackground(new java.awt.Color(60, 91, 111));
-        jButtonConoceMas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonConoceMas.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonConoceMas.setText("Conoce sobre nosotros");
-        jButtonConoceMas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConoceMasActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButtonConoceMas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 310, 60));
 
         jPanel1.setBackground(new java.awt.Color(21, 52, 72));
 
@@ -85,27 +82,27 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 270, 580));
 
-        jButtonIniciarSesionPaciente.setBackground(new java.awt.Color(60, 91, 111));
-        jButtonIniciarSesionPaciente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonIniciarSesionPaciente.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciarSesionPaciente.setText("Iniciar sesión como paciente");
-        jButtonIniciarSesionPaciente.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistrarPaciente1.setBackground(new java.awt.Color(60, 91, 111));
+        jButtonRegistrarPaciente1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonRegistrarPaciente1.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistrarPaciente1.setText("Registrar doctor");
+        jButtonRegistrarPaciente1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarSesionPacienteActionPerformed(evt);
+                jButtonRegistrarPaciente1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonIniciarSesionPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 310, 60));
+        jPanel2.add(jButtonRegistrarPaciente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 320, 50));
 
-        jButtonIniciarSesionPersonal.setBackground(new java.awt.Color(60, 91, 111));
-        jButtonIniciarSesionPersonal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonIniciarSesionPersonal.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciarSesionPersonal.setText("Iniciar sesión como personal");
-        jButtonIniciarSesionPersonal.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAgendarCita.setBackground(new java.awt.Color(60, 91, 111));
+        jButtonAgendarCita.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonAgendarCita.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAgendarCita.setText("Agendar cita");
+        jButtonAgendarCita.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarSesionPersonalActionPerformed(evt);
+                jButtonAgendarCitaActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonIniciarSesionPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 310, 60));
+        jPanel2.add(jButtonAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 320, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,29 +118,25 @@ public class VentanaInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonConoceMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConoceMasActionPerformed
+    private void jButtonRegistrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarPacienteActionPerformed
         // TODO add your handling code here:
+        VentanaRegister objVentanaRegister = new VentanaRegister();
+        objVentanaRegister.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButtonConoceMasActionPerformed
+    }//GEN-LAST:event_jButtonRegistrarPacienteActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButtonIniciarSesionPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionPacienteActionPerformed
+    private void jButtonRegistrarPaciente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarPaciente1ActionPerformed
         // TODO add your handling code here:
-        VentanaLoginPaciente objVentanaLoginPaciente = new VentanaLoginPaciente();
-        objVentanaLoginPaciente.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonIniciarSesionPacienteActionPerformed
+    }//GEN-LAST:event_jButtonRegistrarPaciente1ActionPerformed
 
-    private void jButtonIniciarSesionPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionPersonalActionPerformed
+    private void jButtonAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendarCitaActionPerformed
         // TODO add your handling code here:
-        VentanaLoginPersonal objVentanaLoginPersonal = new VentanaLoginPersonal();
-        objVentanaLoginPersonal.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonIniciarSesionPersonalActionPerformed
+    }//GEN-LAST:event_jButtonAgendarCitaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,28 +155,28 @@ public class VentanaInicio extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaInicio().setVisible(true);
+                new VentanaRecepcionista().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonConoceMas;
-    private javax.swing.JButton jButtonIniciarSesionPaciente;
-    private javax.swing.JButton jButtonIniciarSesionPersonal;
+    private javax.swing.JButton jButtonAgendarCita;
+    private javax.swing.JButton jButtonRegistrarPaciente;
+    private javax.swing.JButton jButtonRegistrarPaciente1;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;

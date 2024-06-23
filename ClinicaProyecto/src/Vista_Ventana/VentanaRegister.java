@@ -3,13 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista_Ventana;
+
 import Modelo_Menu.Menu;
+
 /**
  *
  * @author PC
  */
 public class VentanaRegister extends javax.swing.JFrame {
+
     public Menu objMenu;
+
     /**
      * Creates new form VentanaRegister
      */
@@ -17,7 +21,7 @@ public class VentanaRegister extends javax.swing.JFrame {
         objMenu = new Menu();
         initComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,69 +31,71 @@ public class VentanaRegister extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        Background = new javax.swing.JPanel();
+        Nombres = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jTextFieldRegisterContrasena = new javax.swing.JTextField();
         jSeparatorUsuario = new javax.swing.JSeparator();
-        jTextFieldRegisterNombre = new javax.swing.JTextField();
+        CampoNombres = new javax.swing.JTextField();
         jSeparatorNombre1 = new javax.swing.JSeparator();
         jTextFieldRegisterUsuario = new javax.swing.JTextField();
         jSeparatorUsuario1 = new javax.swing.JSeparator();
-        jComboBoxTipoUsuario = new javax.swing.JComboBox<>();
         jButtonBorrar = new javax.swing.JButton();
         jButtonCrear = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
+        jSeparatorNombre2 = new javax.swing.JSeparator();
+        jComboBoxTipoUsuario = new javax.swing.JComboBox<>();
+        CampoApellidos = new javax.swing.JTextField();
+        InformacionPersonal = new javax.swing.JLabel();
+        Apellidos = new javax.swing.JLabel();
+        CampoDNI = new javax.swing.JTextField();
+        jSeparatorNombre5 = new javax.swing.JSeparator();
+        Direccion = new javax.swing.JLabel();
+        CampoDireccion = new javax.swing.JTextField();
+        jSeparatorNombre6 = new javax.swing.JSeparator();
+        Correo = new javax.swing.JLabel();
+        CampoCorreo = new javax.swing.JTextField();
+        jSeparatorNombre7 = new javax.swing.JSeparator();
+        NumeroDeCelular = new javax.swing.JLabel();
+        CampoNumero = new javax.swing.JTextField();
+        jSeparatorNombre8 = new javax.swing.JSeparator();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jTextFieldRegisterNombre1 = new javax.swing.JTextField();
+        jSeparatorNombre3 = new javax.swing.JSeparator();
+        jTextFieldRegisterNombre3 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        InformacionContacto = new javax.swing.JLabel();
+        jSeparatorNombre4 = new javax.swing.JSeparator();
+        Apellidos1 = new javax.swing.JLabel();
+        jSeparatorNombre9 = new javax.swing.JSeparator();
+        jLabel17 = new javax.swing.JLabel();
+        jTextFieldRegisterNombre8 = new javax.swing.JTextField();
+        InformacionContacto1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setResizable(false);
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Background.setBackground(new java.awt.Color(255, 255, 255));
+        Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Tipo de usuario:");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
-
-        jPanel1.setBackground(new java.awt.Color(21, 52, 72));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 580, Short.MAX_VALUE)
-        );
-
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 270, 580));
-
-        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 34)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("CREA TU CUENTA");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("Nombre:");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+        Nombres.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        Nombres.setForeground(new java.awt.Color(0, 0, 0));
+        Nombres.setText("Nombres:");
+        Background.add(Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, 30));
 
         jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Usuario:");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 210, -1, -1));
+        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Contraseña");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, 30));
 
         jTextFieldRegisterContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jTextFieldRegisterContrasena.setForeground(new java.awt.Color(153, 153, 153));
@@ -99,31 +105,34 @@ public class VentanaRegister extends javax.swing.JFrame {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTextFieldRegisterContrasenaMousePressed(evt);
             }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTextFieldRegisterContrasenaMouseReleased(evt);
+            }
         });
-        jPanel2.add(jTextFieldRegisterContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 230, 40));
+        Background.add(jTextFieldRegisterContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 230, 30));
 
         jSeparatorUsuario.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparatorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 230, 20));
+        Background.add(jSeparatorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 230, 20));
 
-        jTextFieldRegisterNombre.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextFieldRegisterNombre.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldRegisterNombre.setText("Ingresa tu nombre...");
-        jTextFieldRegisterNombre.setBorder(null);
-        jTextFieldRegisterNombre.addMouseListener(new java.awt.event.MouseAdapter() {
+        CampoNombres.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoNombres.setForeground(new java.awt.Color(153, 153, 153));
+        CampoNombres.setText("Ingrese nombre...");
+        CampoNombres.setBorder(null);
+        CampoNombres.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldRegisterNombreMousePressed(evt);
+                CampoNombresMousePressed(evt);
             }
         });
-        jPanel2.add(jTextFieldRegisterNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 230, 40));
+        Background.add(CampoNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 230, 30));
 
         jSeparatorNombre1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorNombre1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparatorNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 230, 20));
+        Background.add(jSeparatorNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 230, -1));
 
         jTextFieldRegisterUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         jTextFieldRegisterUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldRegisterUsuario.setText("Ingresa tu nombre...");
+        jTextFieldRegisterUsuario.setText("Ingrese usuario...");
         jTextFieldRegisterUsuario.setBorder(null);
         jTextFieldRegisterUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -135,24 +144,11 @@ public class VentanaRegister extends javax.swing.JFrame {
                 jTextFieldRegisterUsuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldRegisterUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 230, 40));
+        Background.add(jTextFieldRegisterUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, 230, 30));
 
         jSeparatorUsuario1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorUsuario1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparatorUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 230, 20));
-
-        jComboBoxTipoUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBoxTipoUsuario.setForeground(new java.awt.Color(204, 204, 204));
-        jComboBoxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paciente", "Doctor", "Recepcionista" }));
-        jComboBoxTipoUsuario.setBorder(null);
-        jComboBoxTipoUsuario.setName(""); // NOI18N
-        jComboBoxTipoUsuario.setOpaque(true);
-        jComboBoxTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxTipoUsuarioActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jComboBoxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 230, 40));
+        Background.add(jSeparatorUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 230, 20));
 
         jButtonBorrar.setBackground(new java.awt.Color(223, 208, 184));
         jButtonBorrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -164,7 +160,7 @@ public class VentanaRegister extends javax.swing.JFrame {
                 jButtonBorrarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 490, 110, 40));
+        Background.add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 640, 110, 40));
 
         jButtonCrear.setBackground(new java.awt.Color(223, 208, 184));
         jButtonCrear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -176,17 +172,224 @@ public class VentanaRegister extends javax.swing.JFrame {
                 jButtonCrearActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 110, 40));
+        Background.add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 630, 110, 40));
+
+        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 34)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("REGISTRANDO PACIENTE");
+        Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
+
+        jSeparatorNombre2.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre2.setForeground(new java.awt.Color(0, 0, 0));
+        Background.add(jSeparatorNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 230, 10));
+
+        jComboBoxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Background.add(jComboBoxTipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 530, -1, -1));
+
+        CampoApellidos.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoApellidos.setForeground(new java.awt.Color(153, 153, 153));
+        CampoApellidos.setText("Ingrese nombre...");
+        CampoApellidos.setBorder(null);
+        CampoApellidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CampoApellidosMousePressed(evt);
+            }
+        });
+        Background.add(CampoApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 230, 30));
+
+        InformacionPersonal.setFont(new java.awt.Font("Bahnschrift", 1, 25)); // NOI18N
+        InformacionPersonal.setForeground(new java.awt.Color(0, 0, 0));
+        InformacionPersonal.setText("1. Información personal");
+        Background.add(InformacionPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        Apellidos.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        Apellidos.setForeground(new java.awt.Color(0, 0, 0));
+        Apellidos.setText("Apellidos:");
+        Background.add(Apellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, -1, 30));
+
+        CampoDNI.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoDNI.setForeground(new java.awt.Color(153, 153, 153));
+        CampoDNI.setText("Ingrese nombre...");
+        CampoDNI.setBorder(null);
+        CampoDNI.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CampoDNIMousePressed(evt);
+            }
+        });
+        Background.add(CampoDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, 230, 30));
+
+        jSeparatorNombre5.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre5.setForeground(new java.awt.Color(0, 0, 0));
+        Background.add(jSeparatorNombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 230, 10));
+
+        Direccion.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        Direccion.setForeground(new java.awt.Color(0, 0, 0));
+        Direccion.setText("DNI:");
+        Background.add(Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, 30));
+
+        CampoDireccion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoDireccion.setForeground(new java.awt.Color(153, 153, 153));
+        CampoDireccion.setText("Ingrese nombre...");
+        CampoDireccion.setBorder(null);
+        CampoDireccion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CampoDireccionMousePressed(evt);
+            }
+        });
+        Background.add(CampoDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 230, 30));
+
+        jSeparatorNombre6.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre6.setForeground(new java.awt.Color(0, 0, 0));
+        Background.add(jSeparatorNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 420, 230, 10));
+
+        Correo.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        Correo.setForeground(new java.awt.Color(0, 0, 0));
+        Correo.setText("Correo:");
+        Background.add(Correo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 430, -1, 30));
+
+        CampoCorreo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoCorreo.setForeground(new java.awt.Color(153, 153, 153));
+        CampoCorreo.setText("Ingrese nombre...");
+        CampoCorreo.setBorder(null);
+        CampoCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CampoCorreoMousePressed(evt);
+            }
+        });
+        Background.add(CampoCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 230, 30));
+
+        jSeparatorNombre7.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre7.setForeground(new java.awt.Color(0, 0, 0));
+        Background.add(jSeparatorNombre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, 230, 10));
+
+        NumeroDeCelular.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        NumeroDeCelular.setForeground(new java.awt.Color(0, 0, 0));
+        NumeroDeCelular.setText("Número de celular");
+        Background.add(NumeroDeCelular, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 490, -1, 30));
+
+        CampoNumero.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoNumero.setForeground(new java.awt.Color(153, 153, 153));
+        CampoNumero.setText("Ingrese nombre...");
+        CampoNumero.setBorder(null);
+        CampoNumero.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CampoNumeroMousePressed(evt);
+            }
+        });
+        Background.add(CampoNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, 230, 30));
+
+        jSeparatorNombre8.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre8.setForeground(new java.awt.Color(0, 0, 0));
+        Background.add(jSeparatorNombre8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 540, 230, 10));
+
+        jPanel3.setBackground(new java.awt.Color(21, 52, 72));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 930, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 60, Short.MAX_VALUE)
+        );
+
+        Background.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 0, 930, 60));
+
+        jLabel14.setFont(new java.awt.Font("Bahnschrift", 1, 25)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel14.setText("1. Información personal");
+        Background.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("Nombres:");
+        Background.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, 30));
+
+        jTextFieldRegisterNombre1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jTextFieldRegisterNombre1.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldRegisterNombre1.setText("Ingrese nombre...");
+        jTextFieldRegisterNombre1.setBorder(null);
+        jTextFieldRegisterNombre1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextFieldRegisterNombre1MousePressed(evt);
+            }
+        });
+        Background.add(jTextFieldRegisterNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 230, 30));
+
+        jSeparatorNombre3.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre3.setForeground(new java.awt.Color(0, 0, 0));
+        Background.add(jSeparatorNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 230, -1));
+
+        jTextFieldRegisterNombre3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jTextFieldRegisterNombre3.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldRegisterNombre3.setText("Ingrese nombre...");
+        jTextFieldRegisterNombre3.setBorder(null);
+        jTextFieldRegisterNombre3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextFieldRegisterNombre3MousePressed(evt);
+            }
+        });
+        Background.add(jTextFieldRegisterNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 230, 30));
+
+        jLabel15.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel15.setText("Nombres de contacto:");
+        Background.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 240, 30));
+
+        InformacionContacto.setFont(new java.awt.Font("Bahnschrift", 1, 25)); // NOI18N
+        InformacionContacto.setForeground(new java.awt.Color(0, 0, 0));
+        InformacionContacto.setText("3. Crear cuenta");
+        Background.add(InformacionContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, -1, -1));
+
+        jSeparatorNombre4.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre4.setForeground(new java.awt.Color(0, 0, 0));
+        Background.add(jSeparatorNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 230, -1));
+
+        Apellidos1.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        Apellidos1.setForeground(new java.awt.Color(0, 0, 0));
+        Apellidos1.setText("Apellidos:");
+        Background.add(Apellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, 30));
+
+        jSeparatorNombre9.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre9.setForeground(new java.awt.Color(0, 0, 0));
+        Background.add(jSeparatorNombre9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 230, -1));
+
+        jLabel17.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("Número de emergencia:");
+        Background.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 240, 30));
+
+        jTextFieldRegisterNombre8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jTextFieldRegisterNombre8.setForeground(new java.awt.Color(153, 153, 153));
+        jTextFieldRegisterNombre8.setText("Ingrese nombre...");
+        jTextFieldRegisterNombre8.setBorder(null);
+        jTextFieldRegisterNombre8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextFieldRegisterNombre8MousePressed(evt);
+            }
+        });
+        Background.add(jTextFieldRegisterNombre8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 230, 30));
+
+        InformacionContacto1.setFont(new java.awt.Font("Bahnschrift", 1, 25)); // NOI18N
+        InformacionContacto1.setForeground(new java.awt.Color(0, 0, 0));
+        InformacionContacto1.setText("2. Información de contacto");
+        Background.add(InformacionContacto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         pack();
@@ -195,40 +398,95 @@ public class VentanaRegister extends javax.swing.JFrame {
     private void jTextFieldRegisterContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterContrasenaMousePressed
         // TODO add your handling code here:
         jTextFieldRegisterContrasena.setText("");
+        if (CampoNombres.getText().trim().isEmpty()) {
+            CampoNombres.setText("Ingresa tu nombre...");
+        }
+        if (jTextFieldRegisterUsuario.getText().trim().isEmpty()) {
+            jTextFieldRegisterUsuario.setText("Ingresa tu usuario...");
+        }
+        
     }//GEN-LAST:event_jTextFieldRegisterContrasenaMousePressed
 
-    private void jTextFieldRegisterNombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterNombreMousePressed
+    private void CampoNombresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNombresMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRegisterNombreMousePressed
+        CampoNombres.setText("");
+        if (jTextFieldRegisterContrasena.getText().trim().isEmpty()) {
+            jTextFieldRegisterContrasena.setText("Ingresa tu contraseña...");
+        }
+        if (jTextFieldRegisterUsuario.getText().trim().isEmpty()) {
+            jTextFieldRegisterUsuario.setText("Ingresa tu usuario...");
+        }
+        
+    }//GEN-LAST:event_CampoNombresMousePressed
 
     private void jTextFieldRegisterUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterUsuarioMousePressed
         // TODO add your handling code here:
+        jTextFieldRegisterUsuario.setText("");
+        if (jTextFieldRegisterContrasena.getText().trim().isEmpty()) {
+            jTextFieldRegisterContrasena.setText("Ingresa tu contraseña...");
+        }
+        if (CampoNombres.getText().trim().isEmpty()) {
+            CampoNombres.setText("Ingresa tu contraseña...");
+        }
+        
     }//GEN-LAST:event_jTextFieldRegisterUsuarioMousePressed
 
     private void jTextFieldRegisterUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRegisterUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldRegisterUsuarioActionPerformed
 
-    private void jComboBoxTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxTipoUsuarioActionPerformed
-
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
-        
-        
-        
+
+
     }//GEN-LAST:event_jButtonBorrarActionPerformed
 
     private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
         // TODO add your handling code here:
-        String nombre = jTextFieldRegisterNombre.getText();
+        String nombre = CampoNombres.getText();
         String usuario = jTextFieldRegisterUsuario.getText();
         String contrasena = jTextFieldRegisterContrasena.getText();
         String tipo_usuario = jComboBoxTipoUsuario.getSelectedItem().toString();
-        
+
         objMenu.enviarElementosUsuario(nombre, usuario, contrasena, tipo_usuario);
     }//GEN-LAST:event_jButtonCrearActionPerformed
+
+    private void jTextFieldRegisterContrasenaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterContrasenaMouseReleased
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextFieldRegisterContrasenaMouseReleased
+
+    private void CampoApellidosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoApellidosMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoApellidosMousePressed
+
+    private void CampoDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoDNIMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoDNIMousePressed
+
+    private void CampoDireccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoDireccionMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoDireccionMousePressed
+
+    private void CampoCorreoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoCorreoMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoCorreoMousePressed
+
+    private void CampoNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNumeroMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoNumeroMousePressed
+
+    private void jTextFieldRegisterNombre1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterNombre1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldRegisterNombre1MousePressed
+
+    private void jTextFieldRegisterNombre3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterNombre3MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldRegisterNombre3MousePressed
+
+    private void jTextFieldRegisterNombre8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterNombre8MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldRegisterNombre8MousePressed
 
     /**
      * @param args the command line arguments
@@ -266,21 +524,48 @@ public class VentanaRegister extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Apellidos;
+    private javax.swing.JLabel Apellidos1;
+    private javax.swing.JPanel Background;
+    private javax.swing.JTextField CampoApellidos;
+    private javax.swing.JTextField CampoCorreo;
+    private javax.swing.JTextField CampoDNI;
+    private javax.swing.JTextField CampoDireccion;
+    private javax.swing.JTextField CampoNombres;
+    private javax.swing.JTextField CampoNumero;
+    private javax.swing.JLabel Correo;
+    private javax.swing.JLabel Direccion;
+    private javax.swing.JLabel InformacionContacto;
+    private javax.swing.JLabel InformacionContacto1;
+    private javax.swing.JLabel InformacionPersonal;
+    private javax.swing.JLabel Nombres;
+    private javax.swing.JLabel NumeroDeCelular;
     private javax.swing.JButton jButtonBorrar;
     private javax.swing.JButton jButtonCrear;
     private javax.swing.JComboBox<String> jComboBoxTipoUsuario;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparatorNombre1;
+    private javax.swing.JSeparator jSeparatorNombre2;
+    private javax.swing.JSeparator jSeparatorNombre3;
+    private javax.swing.JSeparator jSeparatorNombre4;
+    private javax.swing.JSeparator jSeparatorNombre5;
+    private javax.swing.JSeparator jSeparatorNombre6;
+    private javax.swing.JSeparator jSeparatorNombre7;
+    private javax.swing.JSeparator jSeparatorNombre8;
+    private javax.swing.JSeparator jSeparatorNombre9;
     private javax.swing.JSeparator jSeparatorUsuario;
     private javax.swing.JSeparator jSeparatorUsuario1;
     private javax.swing.JTextField jTextFieldRegisterContrasena;
-    private javax.swing.JTextField jTextFieldRegisterNombre;
+    private javax.swing.JTextField jTextFieldRegisterNombre1;
+    private javax.swing.JTextField jTextFieldRegisterNombre3;
+    private javax.swing.JTextField jTextFieldRegisterNombre8;
     private javax.swing.JTextField jTextFieldRegisterUsuario;
     // End of variables declaration//GEN-END:variables
 }
