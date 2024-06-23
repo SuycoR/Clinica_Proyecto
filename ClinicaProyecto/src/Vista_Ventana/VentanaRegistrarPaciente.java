@@ -10,14 +10,14 @@ import Modelo_Menu.Menu;
  *
  * @author PC
  */
-public class VentanaRegister extends javax.swing.JFrame {
+public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
     public Menu objMenu;
 
     /**
      * Creates new form VentanaRegister
      */
-    public VentanaRegister() {
+    public VentanaRegistrarPaciente() {
         objMenu = new Menu();
         initComponents();
     }
@@ -35,11 +35,11 @@ public class VentanaRegister extends javax.swing.JFrame {
         Nombres = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldRegisterContrasena = new javax.swing.JTextField();
+        CampoContrasena = new javax.swing.JTextField();
         jSeparatorUsuario = new javax.swing.JSeparator();
         CampoNombres = new javax.swing.JTextField();
         jSeparatorNombre1 = new javax.swing.JSeparator();
-        jTextFieldRegisterUsuario = new javax.swing.JTextField();
+        CampoUsuario = new javax.swing.JTextField();
         jSeparatorUsuario1 = new javax.swing.JSeparator();
         jButtonBorrar = new javax.swing.JButton();
         jButtonCrear = new javax.swing.JButton();
@@ -65,14 +65,14 @@ public class VentanaRegister extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextFieldRegisterNombre1 = new javax.swing.JTextField();
         jSeparatorNombre3 = new javax.swing.JSeparator();
-        jTextFieldRegisterNombre3 = new javax.swing.JTextField();
+        CampoNombreContacto = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         InformacionContacto = new javax.swing.JLabel();
         jSeparatorNombre4 = new javax.swing.JSeparator();
         Apellidos1 = new javax.swing.JLabel();
         jSeparatorNombre9 = new javax.swing.JSeparator();
         jLabel17 = new javax.swing.JLabel();
-        jTextFieldRegisterNombre8 = new javax.swing.JTextField();
+        CampoNumeroContacto = new javax.swing.JTextField();
         InformacionContacto1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,30 +90,30 @@ public class VentanaRegister extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Usuario:");
-        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, 30));
+        Background.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, 30));
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Contraseña");
-        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, 30));
+        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, -1, 30));
 
-        jTextFieldRegisterContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextFieldRegisterContrasena.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldRegisterContrasena.setText("Ingresa tu contraseña...");
-        jTextFieldRegisterContrasena.setBorder(null);
-        jTextFieldRegisterContrasena.addMouseListener(new java.awt.event.MouseAdapter() {
+        CampoContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoContrasena.setForeground(new java.awt.Color(153, 153, 153));
+        CampoContrasena.setText("Ingresa tu contraseña...");
+        CampoContrasena.setBorder(null);
+        CampoContrasena.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldRegisterContrasenaMousePressed(evt);
+                CampoContrasenaMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jTextFieldRegisterContrasenaMouseReleased(evt);
+                CampoContrasenaMouseReleased(evt);
             }
         });
-        Background.add(jTextFieldRegisterContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 230, 30));
+        Background.add(CampoContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 230, 30));
 
         jSeparatorUsuario.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        Background.add(jSeparatorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 230, 20));
+        Background.add(jSeparatorUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 230, 20));
 
         CampoNombres.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoNombres.setForeground(new java.awt.Color(153, 153, 153));
@@ -130,49 +130,49 @@ public class VentanaRegister extends javax.swing.JFrame {
         jSeparatorNombre1.setForeground(new java.awt.Color(0, 0, 0));
         Background.add(jSeparatorNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 230, -1));
 
-        jTextFieldRegisterUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextFieldRegisterUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldRegisterUsuario.setText("Ingrese usuario...");
-        jTextFieldRegisterUsuario.setBorder(null);
-        jTextFieldRegisterUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        CampoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        CampoUsuario.setText("Ingrese usuario...");
+        CampoUsuario.setBorder(null);
+        CampoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldRegisterUsuarioMousePressed(evt);
+                CampoUsuarioMousePressed(evt);
             }
         });
-        jTextFieldRegisterUsuario.addActionListener(new java.awt.event.ActionListener() {
+        CampoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldRegisterUsuarioActionPerformed(evt);
+                CampoUsuarioActionPerformed(evt);
             }
         });
-        Background.add(jTextFieldRegisterUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, 230, 30));
+        Background.add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 230, 30));
 
         jSeparatorUsuario1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorUsuario1.setForeground(new java.awt.Color(0, 0, 0));
-        Background.add(jSeparatorUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 420, 230, 20));
+        Background.add(jSeparatorUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 410, 230, 20));
 
         jButtonBorrar.setBackground(new java.awt.Color(223, 208, 184));
-        jButtonBorrar.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonBorrar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonBorrar.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonBorrar.setText("Borrar");
+        jButtonBorrar.setText("Salir");
         jButtonBorrar.setBorder(null);
         jButtonBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBorrarActionPerformed(evt);
             }
         });
-        Background.add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 640, 110, 40));
+        Background.add(jButtonBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 620, 110, 40));
 
         jButtonCrear.setBackground(new java.awt.Color(223, 208, 184));
-        jButtonCrear.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButtonCrear.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonCrear.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonCrear.setText("Crear");
+        jButtonCrear.setText("Registrar");
         jButtonCrear.setBorder(null);
         jButtonCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonCrearActionPerformed(evt);
             }
         });
-        Background.add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 630, 110, 40));
+        Background.add(jButtonCrear, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 620, 110, 40));
 
         jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
@@ -322,21 +322,21 @@ public class VentanaRegister extends javax.swing.JFrame {
         jSeparatorNombre3.setForeground(new java.awt.Color(0, 0, 0));
         Background.add(jSeparatorNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 230, -1));
 
-        jTextFieldRegisterNombre3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextFieldRegisterNombre3.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldRegisterNombre3.setText("Ingrese nombre...");
-        jTextFieldRegisterNombre3.setBorder(null);
-        jTextFieldRegisterNombre3.addMouseListener(new java.awt.event.MouseAdapter() {
+        CampoNombreContacto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoNombreContacto.setForeground(new java.awt.Color(153, 153, 153));
+        CampoNombreContacto.setText("Ingrese nombre...");
+        CampoNombreContacto.setBorder(null);
+        CampoNombreContacto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldRegisterNombre3MousePressed(evt);
+                CampoNombreContactoMousePressed(evt);
             }
         });
-        Background.add(jTextFieldRegisterNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 210, 230, 30));
+        Background.add(CampoNombreContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 230, 30));
 
         jLabel15.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Nombres de contacto:");
-        Background.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 240, 30));
+        Background.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 240, 30));
 
         InformacionContacto.setFont(new java.awt.Font("Bahnschrift", 1, 25)); // NOI18N
         InformacionContacto.setForeground(new java.awt.Color(0, 0, 0));
@@ -345,7 +345,7 @@ public class VentanaRegister extends javax.swing.JFrame {
 
         jSeparatorNombre4.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorNombre4.setForeground(new java.awt.Color(0, 0, 0));
-        Background.add(jSeparatorNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 230, -1));
+        Background.add(jSeparatorNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 230, -1));
 
         Apellidos1.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         Apellidos1.setForeground(new java.awt.Color(0, 0, 0));
@@ -354,23 +354,23 @@ public class VentanaRegister extends javax.swing.JFrame {
 
         jSeparatorNombre9.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorNombre9.setForeground(new java.awt.Color(0, 0, 0));
-        Background.add(jSeparatorNombre9, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 230, -1));
+        Background.add(jSeparatorNombre9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 230, -1));
 
         jLabel17.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Número de emergencia:");
-        Background.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 250, 240, 30));
+        Background.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 240, 30));
 
-        jTextFieldRegisterNombre8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jTextFieldRegisterNombre8.setForeground(new java.awt.Color(153, 153, 153));
-        jTextFieldRegisterNombre8.setText("Ingrese nombre...");
-        jTextFieldRegisterNombre8.setBorder(null);
-        jTextFieldRegisterNombre8.addMouseListener(new java.awt.event.MouseAdapter() {
+        CampoNumeroContacto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoNumeroContacto.setForeground(new java.awt.Color(153, 153, 153));
+        CampoNumeroContacto.setText("Ingrese nombre...");
+        CampoNumeroContacto.setBorder(null);
+        CampoNumeroContacto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTextFieldRegisterNombre8MousePressed(evt);
+                CampoNumeroContactoMousePressed(evt);
             }
         });
-        Background.add(jTextFieldRegisterNombre8, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 230, 30));
+        Background.add(CampoNumeroContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 230, 30));
 
         InformacionContacto1.setFont(new java.awt.Font("Bahnschrift", 1, 25)); // NOI18N
         InformacionContacto1.setForeground(new java.awt.Color(0, 0, 0));
@@ -395,45 +395,45 @@ public class VentanaRegister extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldRegisterContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterContrasenaMousePressed
+    private void CampoContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMousePressed
         // TODO add your handling code here:
-        jTextFieldRegisterContrasena.setText("");
+        CampoContrasena.setText("");
         if (CampoNombres.getText().trim().isEmpty()) {
             CampoNombres.setText("Ingresa tu nombre...");
         }
-        if (jTextFieldRegisterUsuario.getText().trim().isEmpty()) {
-            jTextFieldRegisterUsuario.setText("Ingresa tu usuario...");
+        if (CampoUsuario.getText().trim().isEmpty()) {
+            CampoUsuario.setText("Ingresa tu usuario...");
         }
         
-    }//GEN-LAST:event_jTextFieldRegisterContrasenaMousePressed
+    }//GEN-LAST:event_CampoContrasenaMousePressed
 
     private void CampoNombresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNombresMousePressed
         // TODO add your handling code here:
         CampoNombres.setText("");
-        if (jTextFieldRegisterContrasena.getText().trim().isEmpty()) {
-            jTextFieldRegisterContrasena.setText("Ingresa tu contraseña...");
+        if (CampoContrasena.getText().trim().isEmpty()) {
+            CampoContrasena.setText("Ingresa tu contraseña...");
         }
-        if (jTextFieldRegisterUsuario.getText().trim().isEmpty()) {
-            jTextFieldRegisterUsuario.setText("Ingresa tu usuario...");
+        if (CampoUsuario.getText().trim().isEmpty()) {
+            CampoUsuario.setText("Ingresa tu usuario...");
         }
         
     }//GEN-LAST:event_CampoNombresMousePressed
 
-    private void jTextFieldRegisterUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterUsuarioMousePressed
+    private void CampoUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoUsuarioMousePressed
         // TODO add your handling code here:
-        jTextFieldRegisterUsuario.setText("");
-        if (jTextFieldRegisterContrasena.getText().trim().isEmpty()) {
-            jTextFieldRegisterContrasena.setText("Ingresa tu contraseña...");
+        CampoUsuario.setText("");
+        if (CampoContrasena.getText().trim().isEmpty()) {
+            CampoContrasena.setText("Ingresa tu contraseña...");
         }
         if (CampoNombres.getText().trim().isEmpty()) {
             CampoNombres.setText("Ingresa tu contraseña...");
         }
         
-    }//GEN-LAST:event_jTextFieldRegisterUsuarioMousePressed
+    }//GEN-LAST:event_CampoUsuarioMousePressed
 
-    private void jTextFieldRegisterUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldRegisterUsuarioActionPerformed
+    private void CampoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRegisterUsuarioActionPerformed
+    }//GEN-LAST:event_CampoUsuarioActionPerformed
 
     private void jButtonBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBorrarActionPerformed
         // TODO add your handling code here:
@@ -444,17 +444,17 @@ public class VentanaRegister extends javax.swing.JFrame {
     private void jButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCrearActionPerformed
         // TODO add your handling code here:
         String nombre = CampoNombres.getText();
-        String usuario = jTextFieldRegisterUsuario.getText();
-        String contrasena = jTextFieldRegisterContrasena.getText();
+        String usuario = CampoUsuario.getText();
+        String contrasena = CampoContrasena.getText();
         String tipo_usuario = jComboBoxTipoUsuario.getSelectedItem().toString();
 
         objMenu.enviarElementosUsuario(nombre, usuario, contrasena, tipo_usuario);
     }//GEN-LAST:event_jButtonCrearActionPerformed
 
-    private void jTextFieldRegisterContrasenaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterContrasenaMouseReleased
+    private void CampoContrasenaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMouseReleased
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_jTextFieldRegisterContrasenaMouseReleased
+    }//GEN-LAST:event_CampoContrasenaMouseReleased
 
     private void CampoApellidosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoApellidosMousePressed
         // TODO add your handling code here:
@@ -480,13 +480,13 @@ public class VentanaRegister extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldRegisterNombre1MousePressed
 
-    private void jTextFieldRegisterNombre3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterNombre3MousePressed
+    private void CampoNombreContactoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNombreContactoMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRegisterNombre3MousePressed
+    }//GEN-LAST:event_CampoNombreContactoMousePressed
 
-    private void jTextFieldRegisterNombre8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterNombre8MousePressed
+    private void CampoNumeroContactoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNumeroContactoMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRegisterNombre8MousePressed
+    }//GEN-LAST:event_CampoNumeroContactoMousePressed
 
     /**
      * @param args the command line arguments
@@ -505,20 +505,21 @@ public class VentanaRegister extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaRegister().setVisible(true);
+                new VentanaRegistrarPaciente().setVisible(true);
             }
         });
     }
@@ -528,11 +529,15 @@ public class VentanaRegister extends javax.swing.JFrame {
     private javax.swing.JLabel Apellidos1;
     private javax.swing.JPanel Background;
     private javax.swing.JTextField CampoApellidos;
+    private javax.swing.JTextField CampoContrasena;
     private javax.swing.JTextField CampoCorreo;
     private javax.swing.JTextField CampoDNI;
     private javax.swing.JTextField CampoDireccion;
+    private javax.swing.JTextField CampoNombreContacto;
     private javax.swing.JTextField CampoNombres;
     private javax.swing.JTextField CampoNumero;
+    private javax.swing.JTextField CampoNumeroContacto;
+    private javax.swing.JTextField CampoUsuario;
     private javax.swing.JLabel Correo;
     private javax.swing.JLabel Direccion;
     private javax.swing.JLabel InformacionContacto;
@@ -562,10 +567,6 @@ public class VentanaRegister extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorNombre9;
     private javax.swing.JSeparator jSeparatorUsuario;
     private javax.swing.JSeparator jSeparatorUsuario1;
-    private javax.swing.JTextField jTextFieldRegisterContrasena;
     private javax.swing.JTextField jTextFieldRegisterNombre1;
-    private javax.swing.JTextField jTextFieldRegisterNombre3;
-    private javax.swing.JTextField jTextFieldRegisterNombre8;
-    private javax.swing.JTextField jTextFieldRegisterUsuario;
     // End of variables declaration//GEN-END:variables
 }

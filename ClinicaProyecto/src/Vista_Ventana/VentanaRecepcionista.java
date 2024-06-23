@@ -120,8 +120,8 @@ public class VentanaRecepcionista extends javax.swing.JFrame {
 
     private void jButtonRegistrarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarPacienteActionPerformed
         // TODO add your handling code here:
-        VentanaRegister objVentanaRegister = new VentanaRegister();
-        objVentanaRegister.setVisible(true);
+        VentanaRegistrarPaciente objVentanaRegistrarPaciente = new VentanaRegistrarPaciente();
+        objVentanaRegistrarPaciente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonRegistrarPacienteActionPerformed
 
