@@ -46,7 +46,6 @@ public class VentanaRegister extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setUndecorated(true);
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -143,7 +142,7 @@ public class VentanaRegister extends javax.swing.JFrame {
         jPanel2.add(jSeparatorUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 230, 20));
 
         jComboBoxTipoUsuario.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBoxTipoUsuario.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBoxTipoUsuario.setForeground(new java.awt.Color(204, 204, 204));
         jComboBoxTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Paciente", "Doctor", "Recepcionista" }));
         jComboBoxTipoUsuario.setBorder(null);
         jComboBoxTipoUsuario.setName(""); // NOI18N
