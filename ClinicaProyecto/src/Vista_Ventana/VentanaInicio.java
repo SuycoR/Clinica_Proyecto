@@ -111,8 +111,8 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
         // TODO add your handling code here:
-        VentanaLogin objVentanaLogin = new VentanaLogin();
-        objVentanaLogin.setVisible(true);
+        
+        
         this.dispose();
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
