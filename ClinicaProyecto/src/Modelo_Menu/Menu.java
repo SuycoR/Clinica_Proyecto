@@ -10,6 +10,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -55,6 +57,7 @@ public class Menu {
             objPreparedStatement.setString(9, u);
             objPreparedStatement.setString(10, c);
             objPreparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Paciente registrado");
             
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
@@ -76,6 +79,7 @@ public class Menu {
             objPreparedStatement.setString(8, c);
             objPreparedStatement.setString(9, o);
             objPreparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Paciente registrado");
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }

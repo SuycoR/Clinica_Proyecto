@@ -94,7 +94,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Contraseña");
-        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, -1, 30));
+        Background.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 420, 110, 30));
 
         CampoContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoContrasena.setForeground(new java.awt.Color(153, 153, 153));
@@ -106,6 +106,11 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 CampoContrasenaMouseReleased(evt);
+            }
+        });
+        CampoContrasena.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoContrasenaActionPerformed(evt);
             }
         });
         Background.add(CampoContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 280, 30));
@@ -552,6 +557,8 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         if (CampoContrasena.getText().trim().isEmpty()) {
             CampoContrasena.setText("Ingrese contraseña...");
         }
+        
+        
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void CampoContrasenaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMouseReleased
@@ -797,6 +804,11 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
     private void jButtonRegistrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonRegistrarMousePressed
+
+    private void CampoContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoContrasenaActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_CampoContrasenaActionPerformed
 
     /**
      * @param args the command line arguments

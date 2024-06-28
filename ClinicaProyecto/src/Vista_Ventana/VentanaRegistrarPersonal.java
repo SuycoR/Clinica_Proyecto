@@ -173,7 +173,7 @@ public class VentanaRegistrarPersonal extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("REGISTRANDO PACIENTE");
+        jLabel6.setText("REGISTRANDO PERSONAL");
         Background.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
 
         jSeparatorNombre2.setBackground(new java.awt.Color(0, 0, 0));
@@ -512,6 +512,8 @@ public class VentanaRegistrarPersonal extends javax.swing.JFrame {
         CampoNumero.setText("Ingrese número...");
         CampoUsuario.setText("Ingrese usuario...");
         CampoContrasena.setText("Ingrese contraseña...");
+        
+   
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void jButtonRegistrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMousePressed

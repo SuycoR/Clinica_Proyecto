@@ -37,7 +37,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 153));
-        setLocationByPlatform(true);
+        setPreferredSize(new java.awt.Dimension(900, 580));
         setResizable(false);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
@@ -131,6 +131,10 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private void jButtonConoceMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConoceMasActionPerformed
         // TODO add your handling code here:
+        VentanaConoceInfo objVentanaConoceInfo = new VentanaConoceInfo();
+        objVentanaConoceInfo.setSize(900,580);
+        objVentanaConoceInfo.setLocationRelativeTo(null);
+        objVentanaConoceInfo.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonConoceMasActionPerformed
 
@@ -142,6 +146,8 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void jButtonIniciarSesionPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionPacienteActionPerformed
         // TODO add your handling code here:
         VentanaLoginPaciente objVentanaLoginPaciente = new VentanaLoginPaciente();
+        objVentanaLoginPaciente.setSize(900,580);
+        objVentanaLoginPaciente.setLocationRelativeTo(null);
         objVentanaLoginPaciente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonIniciarSesionPacienteActionPerformed
@@ -149,6 +155,8 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void jButtonIniciarSesionPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionPersonalActionPerformed
         // TODO add your handling code here:
         VentanaLoginPersonal objVentanaLoginPersonal = new VentanaLoginPersonal();
+        objVentanaLoginPersonal.setSize(900,580);
+        objVentanaLoginPersonal.setLocationRelativeTo(null);
         objVentanaLoginPersonal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonIniciarSesionPersonalActionPerformed
@@ -156,6 +164,8 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         VentanaRegistrarPersonal objVentanaRegistrarPaciente = new VentanaRegistrarPersonal();
+        objVentanaRegistrarPaciente.setSize(900,580);
+        objVentanaRegistrarPaciente.setLocationRelativeTo(null);
         objVentanaRegistrarPaciente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

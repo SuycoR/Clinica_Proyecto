@@ -41,6 +41,8 @@ public class ProgMenu {
     }   
 
     public void mostrarVentanaInicio() {
+        objVentanaInicio.setSize(900,580);
+        objVentanaInicio.setLocationRelativeTo(null);
         objVentanaInicio.setVisible(true);
     }
 
