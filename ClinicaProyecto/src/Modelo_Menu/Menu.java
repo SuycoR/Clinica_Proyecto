@@ -39,15 +39,21 @@ public class Menu {
         return objConnection;
     }
     
-    public void enviarElementosUsuario(String n, String u, String c, String t) {
+    public void enviarElementosUsuario(String nom, String ap, String dni, String dir, String corr, String cel, String nomC, String celEm, String u, String c) {
         
         PreparedStatement objPreparedStatement;
         try {
-            objPreparedStatement = objConnection.prepareStatement("insert into usuario(nombre,usuario,contrasena,tipo_usuario)values(?,?,?,?)");
-            objPreparedStatement.setString(1, n);
-            objPreparedStatement.setString(2, u);
-            objPreparedStatement.setString(3, c);
-            objPreparedStatement.setString(4, t);
+            objPreparedStatement = objConnection.prepareStatement("insert into paciente(nombre,apellido,dni,direccion,correo,celular,nombreContacto,celularEmergencia,usuario,contrasena)values(?,?,?,?,?,?,?,?,?,?)");
+            objPreparedStatement.setString(1, nom);
+            objPreparedStatement.setString(2, ap);
+            objPreparedStatement.setString(3, dni);
+            objPreparedStatement.setString(4, dir);
+            objPreparedStatement.setString(5, corr);
+            objPreparedStatement.setString(6, cel);
+            objPreparedStatement.setString(7, nomC);
+            objPreparedStatement.setString(8, celEm);
+            objPreparedStatement.setString(9, u);
+            objPreparedStatement.setString(10, c);
             objPreparedStatement.executeUpdate();
             
         } catch (SQLException ex) {
