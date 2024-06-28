@@ -3,23 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista_Ventana;
-
 import Modelo_Menu.Menu;
 
 /**
  *
  * @author PC
  */
-public class VentanaRegistrarPaciente extends javax.swing.JFrame {
-
+public class VentanaRegistrarPersonal extends javax.swing.JFrame {
     public Menu objMenu;
-
+    
     /**
-     * Creates new form VentanaRegister
+     * Creates new form VentanaRegistrarPersonal
      */
-    public VentanaRegistrarPaciente() {
+    public VentanaRegistrarPersonal() {
         objMenu = new Menu();
         initComponents();
+        
     }
 
     /**
@@ -64,19 +63,13 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jTextFieldRegisterNombre1 = new javax.swing.JTextField();
         jSeparatorNombre3 = new javax.swing.JSeparator();
-        CampoNombreContacto = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
         InformacionContacto = new javax.swing.JLabel();
-        jSeparatorNombre4 = new javax.swing.JSeparator();
         Apellidos1 = new javax.swing.JLabel();
-        jSeparatorNombre9 = new javax.swing.JSeparator();
-        jLabel17 = new javax.swing.JLabel();
-        CampoNumeroContacto = new javax.swing.JTextField();
         InformacionContacto1 = new javax.swing.JLabel();
+        CampoOcupacion = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setResizable(false);
 
         Background.setBackground(new java.awt.Color(255, 255, 255));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -323,60 +316,26 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         jSeparatorNombre3.setForeground(new java.awt.Color(0, 0, 0));
         Background.add(jSeparatorNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 230, -1));
 
-        CampoNombreContacto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        CampoNombreContacto.setForeground(new java.awt.Color(153, 153, 153));
-        CampoNombreContacto.setText("Ingrese nombre...");
-        CampoNombreContacto.setBorder(null);
-        CampoNombreContacto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                CampoNombreContactoMousePressed(evt);
-            }
-        });
-        Background.add(CampoNombreContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 280, 30));
-
-        jLabel15.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("Nombres de contacto:");
-        Background.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 240, 30));
-
         InformacionContacto.setFont(new java.awt.Font("Bahnschrift", 1, 25)); // NOI18N
         InformacionContacto.setForeground(new java.awt.Color(0, 0, 0));
         InformacionContacto.setText("3. Crear cuenta");
         Background.add(InformacionContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, -1, -1));
-
-        jSeparatorNombre4.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparatorNombre4.setForeground(new java.awt.Color(0, 0, 0));
-        Background.add(jSeparatorNombre4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 280, -1));
 
         Apellidos1.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         Apellidos1.setForeground(new java.awt.Color(0, 0, 0));
         Apellidos1.setText("Apellidos:");
         Background.add(Apellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, 30));
 
-        jSeparatorNombre9.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparatorNombre9.setForeground(new java.awt.Color(0, 0, 0));
-        Background.add(jSeparatorNombre9, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 300, 280, -1));
-
-        jLabel17.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel17.setText("Número de emergencia:");
-        Background.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 250, 240, 30));
-
-        CampoNumeroContacto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        CampoNumeroContacto.setForeground(new java.awt.Color(153, 153, 153));
-        CampoNumeroContacto.setText("Ingrese número de contacto de emergencia");
-        CampoNumeroContacto.setBorder(null);
-        CampoNumeroContacto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                CampoNumeroContactoMousePressed(evt);
-            }
-        });
-        Background.add(CampoNumeroContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 280, 30));
-
         InformacionContacto1.setFont(new java.awt.Font("Bahnschrift", 1, 25)); // NOI18N
         InformacionContacto1.setForeground(new java.awt.Color(0, 0, 0));
-        InformacionContacto1.setText("2. Información de contacto");
+        InformacionContacto1.setText("2. Ocupación");
         Background.add(InformacionContacto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, -1, -1));
+
+        CampoOcupacion.setBackground(new java.awt.Color(255, 255, 255));
+        CampoOcupacion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoOcupacion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recepcionista", "Doctor" }));
+        CampoOcupacion.setBorder(null);
+        Background.add(CampoOcupacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 260, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -392,9 +351,13 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CampoContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMousePressed
+    private void jTextFieldRegisterNombre1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterNombre1MousePressed
         // TODO add your handling code here:
-        CampoContrasena.setText("");
+    }//GEN-LAST:event_jTextFieldRegisterNombre1MousePressed
+
+    private void CampoNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNumeroMousePressed
+        // TODO add your handling code here:
+        CampoNumero.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
             CampoNombres.setText("Ingrese nombres...");
@@ -411,27 +374,101 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         if (CampoCorreo.getText().trim().isEmpty()) {
             CampoCorreo.setText("Ingrese correo...");
         }
+        if (CampoUsuario.getText().trim().isEmpty()) {
+            CampoUsuario.setText("Ingrese usuario...");
+        }
+        if (CampoContrasena.getText().trim().isEmpty()) {
+            CampoContrasena.setText("Ingrese contraseña...");
+        }
+    }//GEN-LAST:event_CampoNumeroMousePressed
+
+    private void CampoCorreoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoCorreoMousePressed
+        // TODO add your handling code here:
+        CampoCorreo.setText("");
+
+        if (CampoNombres.getText().trim().isEmpty()) {
+            CampoNombres.setText("Ingrese nombres...");
+        }
+        if (CampoApellidos.getText().trim().isEmpty()) {
+            CampoApellidos.setText("Ingrese apellidos...");
+        }
+        if (CampoDNI.getText().trim().isEmpty()) {
+            CampoDNI.setText("Ingrese DNI...");
+        }
+        if (CampoDireccion.getText().trim().isEmpty()) {
+            CampoDireccion.setText("Ingrese dirección...");
+        }
         if (CampoNumero.getText().trim().isEmpty()) {
             CampoNumero.setText("Ingrese número...");
-        }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
         }
         if (CampoUsuario.getText().trim().isEmpty()) {
             CampoUsuario.setText("Ingrese usuario...");
         }
+        if (CampoContrasena.getText().trim().isEmpty()) {
+            CampoContrasena.setText("Ingrese contraseña...");
+        }
+    }//GEN-LAST:event_CampoCorreoMousePressed
 
-    }//GEN-LAST:event_CampoContrasenaMousePressed
-
-    private void CampoNombresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNombresMousePressed
+    private void CampoDireccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoDireccionMousePressed
         // TODO add your handling code here:
-        CampoNombres.setText("");
+        CampoDireccion.setText("");
 
+        if (CampoNombres.getText().trim().isEmpty()) {
+            CampoNombres.setText("Ingrese nombres...");
+        }
         if (CampoApellidos.getText().trim().isEmpty()) {
             CampoApellidos.setText("Ingrese apellidos...");
+        }
+        if (CampoDNI.getText().trim().isEmpty()) {
+            CampoDNI.setText("Ingrese DNI...");
+        }
+        if (CampoCorreo.getText().trim().isEmpty()) {
+            CampoCorreo.setText("Ingrese correo...");
+        }
+        if (CampoNumero.getText().trim().isEmpty()) {
+            CampoNumero.setText("Ingrese número...");
+        }
+        if (CampoUsuario.getText().trim().isEmpty()) {
+            CampoUsuario.setText("Ingrese usuario...");
+        }
+        if (CampoContrasena.getText().trim().isEmpty()) {
+            CampoContrasena.setText("Ingrese contraseña...");
+        }
+    }//GEN-LAST:event_CampoDireccionMousePressed
+
+    private void CampoDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoDNIMousePressed
+        // TODO add your handling code here:
+        CampoDNI.setText("");
+
+        if (CampoNombres.getText().trim().isEmpty()) {
+            CampoNombres.setText("Ingrese nombres...");
+        }
+        if (CampoApellidos.getText().trim().isEmpty()) {
+            CampoApellidos.setText("Ingrese apellidos...");
+        }
+        if (CampoDireccion.getText().trim().isEmpty()) {
+            CampoDireccion.setText("Ingrese dirección...");
+        }
+        if (CampoCorreo.getText().trim().isEmpty()) {
+            CampoCorreo.setText("Ingrese correo...");
+        }
+        if (CampoNumero.getText().trim().isEmpty()) {
+            CampoNumero.setText("Ingrese número...");
+        }
+        if (CampoUsuario.getText().trim().isEmpty()) {
+            CampoUsuario.setText("Ingrese usuario...");
+        }
+        if (CampoContrasena.getText().trim().isEmpty()) {
+            CampoContrasena.setText("Ingrese contraseña...");
+        }
+    }//GEN-LAST:event_CampoDNIMousePressed
+
+    private void CampoApellidosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoApellidosMousePressed
+        // TODO add your handling code here:
+        CampoApellidos.setText("");
+
+        if (CampoNombres.getText().trim().isEmpty()) {
+            CampoNombres.setText("Ingrese nombres...");
         }
         if (CampoDNI.getText().trim().isEmpty()) {
             CampoDNI.setText("Ingrese DNI...");
@@ -445,21 +482,49 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         if (CampoNumero.getText().trim().isEmpty()) {
             CampoNumero.setText("Ingrese número...");
         }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
-        }
         if (CampoUsuario.getText().trim().isEmpty()) {
             CampoUsuario.setText("Ingrese usuario...");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
             CampoContrasena.setText("Ingrese contraseña...");
         }
+    }//GEN-LAST:event_CampoApellidosMousePressed
 
+    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
+        // TODO add your handling code here:
+        String nombre = CampoNombres.getText();
+        String apellido = CampoApellidos.getText();
+        String dni = CampoDNI.getText();
+        String direccion = CampoDireccion.getText();
+        String correo = CampoCorreo.getText();
+        String celular = CampoNumero.getText();
+        String usuario = CampoUsuario.getText();
+        String contrasena = CampoContrasena.getText();
+        String ocupacion = CampoOcupacion.getSelectedItem().toString();
+        
+        objMenu.enviarElementosPersonal(nombre, apellido, dni, direccion, correo, celular, usuario, contrasena, ocupacion);
+        
+        CampoNombres.setText("Ingrese nombres...");
+        CampoApellidos.setText("Ingrese apellidos...");
+        CampoDNI.setText("Ingrese DNI...");
+        CampoDireccion.setText("Ingrese dirección...");
+        CampoCorreo.setText("Ingrese correo...");
+        CampoNumero.setText("Ingrese número...");
+        CampoUsuario.setText("Ingrese usuario...");
+        CampoContrasena.setText("Ingrese contraseña...");
+    }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
-    }//GEN-LAST:event_CampoNombresMousePressed
+    private void jButtonRegistrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRegistrarMousePressed
+
+    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSalirActionPerformed
+
+    private void CampoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoUsuarioActionPerformed
 
     private void CampoUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoUsuarioMousePressed
         // TODO add your handling code here:
@@ -483,48 +548,15 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         if (CampoNumero.getText().trim().isEmpty()) {
             CampoNumero.setText("Ingrese número...");
         }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
-        }
         if (CampoContrasena.getText().trim().isEmpty()) {
             CampoContrasena.setText("Ingrese contraseña...");
         }
-
     }//GEN-LAST:event_CampoUsuarioMousePressed
 
-    private void CampoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoUsuarioActionPerformed
+    private void CampoNombresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNombresMousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CampoUsuarioActionPerformed
-
-    private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
-        // TODO add your handling code here:
-
-
-    }//GEN-LAST:event_jButtonSalirActionPerformed
-
-    private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
-        // TODO add your handling code here:
-        String nombre = CampoNombres.getText();
-        String apellido = CampoApellidos.getText();
-        String dni = CampoDNI.getText();
-        String direccion = CampoDireccion.getText();
-        String correo = CampoCorreo.getText();
-        String celular = CampoNumero.getText();
-        String nombreContacto = CampoNombreContacto.getText();
-        String celularEmergencia = CampoNumeroContacto.getText();
-        String usuario = CampoUsuario.getText();
-        String contrasena = CampoContrasena.getText();
-
-        objMenu.enviarElementosPaciente(nombre, apellido, dni, direccion, correo, celular, nombreContacto, celularEmergencia, usuario, contrasena);
-
         CampoNombres.setText("");
 
-        if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
-        }
         if (CampoApellidos.getText().trim().isEmpty()) {
             CampoApellidos.setText("Ingrese apellidos...");
         }
@@ -540,197 +572,21 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         if (CampoNumero.getText().trim().isEmpty()) {
             CampoNumero.setText("Ingrese número...");
         }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
-        }
         if (CampoUsuario.getText().trim().isEmpty()) {
             CampoUsuario.setText("Ingrese usuario...");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
             CampoContrasena.setText("Ingrese contraseña...");
         }
-    }//GEN-LAST:event_jButtonRegistrarActionPerformed
+    }//GEN-LAST:event_CampoNombresMousePressed
 
     private void CampoContrasenaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMouseReleased
         // TODO add your handling code here:
-
     }//GEN-LAST:event_CampoContrasenaMouseReleased
 
-    private void CampoApellidosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoApellidosMousePressed
+    private void CampoContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMousePressed
         // TODO add your handling code here:
-        CampoApellidos.setText("");
-
-        if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
-        }
-        if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
-        }
-        if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
-        }
-        if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
-        }
-        if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
-        }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
-        }
-        if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
-        }
-        if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
-        }
-    }//GEN-LAST:event_CampoApellidosMousePressed
-
-    private void CampoDNIMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoDNIMousePressed
-        // TODO add your handling code here:
-        CampoDNI.setText("");
-
-        if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
-        }
-        if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
-        }
-        if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
-        }
-        if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
-        }
-        if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
-        }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
-        }
-        if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
-        }
-        if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
-        }
-    }//GEN-LAST:event_CampoDNIMousePressed
-
-    private void CampoDireccionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoDireccionMousePressed
-        // TODO add your handling code here:
-        CampoDireccion.setText("");
-
-        if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
-        }
-        if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
-        }
-        if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
-        }
-        if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
-        }
-        if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
-        }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
-        }
-        if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
-        }
-        if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
-        }
-    }//GEN-LAST:event_CampoDireccionMousePressed
-
-    private void CampoCorreoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoCorreoMousePressed
-        // TODO add your handling code here:
-        CampoCorreo.setText("");
-
-        if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
-        }
-        if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
-        }
-        if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
-        }
-        if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
-        }
-        if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
-        }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
-        }
-        if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
-        }
-        if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
-        }
-    }//GEN-LAST:event_CampoCorreoMousePressed
-
-    private void CampoNumeroMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNumeroMousePressed
-        // TODO add your handling code here:
-        CampoNumero.setText("");
-
-        if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
-        }
-        if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
-        }
-        if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
-        }
-        if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
-        }
-        if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
-        }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
-        }
-        if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
-        }
-        if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
-        }
-    }//GEN-LAST:event_CampoNumeroMousePressed
-
-    private void jTextFieldRegisterNombre1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldRegisterNombre1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldRegisterNombre1MousePressed
-
-    private void CampoNombreContactoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNombreContactoMousePressed
-        // TODO add your handling code here:
-        CampoNombreContacto.setText("");
+        CampoContrasena.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
             CampoNombres.setText("Ingrese nombres...");
@@ -750,53 +606,10 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         if (CampoNumero.getText().trim().isEmpty()) {
             CampoNumero.setText("Ingrese número...");
         }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
-        }
         if (CampoUsuario.getText().trim().isEmpty()) {
             CampoUsuario.setText("Ingrese usuario...");
         }
-        if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
-        }
-    }//GEN-LAST:event_CampoNombreContactoMousePressed
-
-    private void CampoNumeroContactoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNumeroContactoMousePressed
-        // TODO add your handling code here:
-        CampoNumeroContacto.setText("");
-
-        if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
-        }
-        if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
-        }
-        if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
-        }
-        if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
-        }
-        if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
-        }
-        if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
-        }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
-        }
-        if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
-        }
-    }//GEN-LAST:event_CampoNumeroContactoMousePressed
-
-    private void jButtonRegistrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRegistrarMousePressed
+    }//GEN-LAST:event_CampoContrasenaMousePressed
 
     /**
      * @param args the command line arguments
@@ -815,21 +628,20 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarPersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarPersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarPersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarPersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaRegistrarPaciente().setVisible(true);
+                new VentanaRegistrarPersonal().setVisible(true);
             }
         });
     }
@@ -843,10 +655,9 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
     private javax.swing.JTextField CampoCorreo;
     private javax.swing.JTextField CampoDNI;
     private javax.swing.JTextField CampoDireccion;
-    private javax.swing.JTextField CampoNombreContacto;
     private javax.swing.JTextField CampoNombres;
     private javax.swing.JTextField CampoNumero;
-    private javax.swing.JTextField CampoNumeroContacto;
+    private javax.swing.JComboBox<String> CampoOcupacion;
     private javax.swing.JTextField CampoUsuario;
     private javax.swing.JLabel Correo;
     private javax.swing.JLabel Direccion;
@@ -858,8 +669,6 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRegistrar;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -868,12 +677,10 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparatorNombre1;
     private javax.swing.JSeparator jSeparatorNombre2;
     private javax.swing.JSeparator jSeparatorNombre3;
-    private javax.swing.JSeparator jSeparatorNombre4;
     private javax.swing.JSeparator jSeparatorNombre5;
     private javax.swing.JSeparator jSeparatorNombre6;
     private javax.swing.JSeparator jSeparatorNombre7;
     private javax.swing.JSeparator jSeparatorNombre8;
-    private javax.swing.JSeparator jSeparatorNombre9;
     private javax.swing.JSeparator jSeparatorUsuario;
     private javax.swing.JSeparator jSeparatorUsuario1;
     private javax.swing.JTextField jTextFieldRegisterNombre1;

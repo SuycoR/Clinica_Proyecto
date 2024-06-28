@@ -39,7 +39,7 @@ public class Menu {
         return objConnection;
     }
     
-    public void enviarElementosUsuario(String nom, String ap, String dni, String dir, String corr, String cel, String nomC, String celEm, String u, String c) {
+    public void enviarElementosPaciente(String nom, String ap, String dni, String dir, String corr, String cel, String nomC, String celEm, String u, String c) {
         
         PreparedStatement objPreparedStatement;
         try {
@@ -59,6 +59,25 @@ public class Menu {
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
             
+        }
+    }
+    
+    public void enviarElementosPersonal(String nom, String ap, String dni, String dir, String corr, String cel, String u, String c, String o){
+        PreparedStatement objPreparedStatement;
+        try {
+            objPreparedStatement = objConnection.prepareStatement("insert into personal(nombre,apellido,dni,direccion,correo,celular,usuario,contrasena,ocupacion)values(?,?,?,?,?,?,?,?,?)");
+            objPreparedStatement.setString(1, nom);
+            objPreparedStatement.setString(2, ap);
+            objPreparedStatement.setString(3, dni);
+            objPreparedStatement.setString(4, dir);
+            objPreparedStatement.setString(5, corr);
+            objPreparedStatement.setString(6, cel);
+            objPreparedStatement.setString(7, u);
+            objPreparedStatement.setString(8, c);
+            objPreparedStatement.setString(9, o);
+            objPreparedStatement.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
  

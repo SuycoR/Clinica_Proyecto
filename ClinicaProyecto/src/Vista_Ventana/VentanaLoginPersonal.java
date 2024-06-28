@@ -26,22 +26,193 @@ public class VentanaLoginPersonal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        Nombres = new javax.swing.JLabel();
+        CampoUsuario = new javax.swing.JTextField();
+        jSeparatorNombre1 = new javax.swing.JSeparator();
+        Apellidos1 = new javax.swing.JLabel();
+        CampoContraseña = new javax.swing.JTextField();
+        jSeparatorNombre2 = new javax.swing.JSeparator();
+        jButtonIniciarSesion = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
+        Apellidos2 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Clínica Capitan Peru");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, 40));
+
+        jPanel1.setBackground(new java.awt.Color(21, 52, 72));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 270, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 580, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 270, 580));
+
+        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 34)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel6.setText("Ingresa tus datos");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 40));
+
+        Nombres.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        Nombres.setForeground(new java.awt.Color(0, 0, 0));
+        Nombres.setText("Usuario:");
+        jPanel2.add(Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, 30));
+
+        CampoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoUsuario.setForeground(new java.awt.Color(153, 153, 153));
+        CampoUsuario.setText("Ingrese nombre...");
+        CampoUsuario.setBorder(null);
+        CampoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CampoUsuarioMousePressed(evt);
+            }
+        });
+        CampoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoUsuarioActionPerformed(evt);
+            }
+        });
+        jPanel2.add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 260, 30));
+
+        jSeparatorNombre1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre1.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jSeparatorNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 260, -1));
+
+        Apellidos1.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        Apellidos1.setForeground(new java.awt.Color(0, 0, 0));
+        Apellidos1.setText("Contraseña:");
+        jPanel2.add(Apellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, 30));
+
+        CampoContraseña.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoContraseña.setForeground(new java.awt.Color(153, 153, 153));
+        CampoContraseña.setText("Ingrese nombre...");
+        CampoContraseña.setBorder(null);
+        CampoContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CampoContraseñaMousePressed(evt);
+            }
+        });
+        jPanel2.add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 260, 30));
+
+        jSeparatorNombre2.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre2.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jSeparatorNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 260, 10));
+
+        jButtonIniciarSesion.setBackground(new java.awt.Color(223, 208, 184));
+        jButtonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonIniciarSesion.setText("Iniciar sesión");
+        jButtonIniciarSesion.setBorder(null);
+        jButtonIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonIniciarSesionMousePressed(evt);
+            }
+        });
+        jButtonIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarSesionActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 130, 40));
+
+        jButtonCancelar.setBackground(new java.awt.Color(223, 208, 184));
+        jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.setBorder(null);
+        jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonCancelarMousePressed(evt);
+            }
+        });
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 130, 40));
+
+        Apellidos2.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        Apellidos2.setForeground(new java.awt.Color(0, 0, 0));
+        Apellidos2.setText("Ocupación:");
+        jPanel2.add(Apellidos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, 30));
+
+        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recepcionista", "Doctor" }));
+        jComboBox1.setBorder(null);
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 260, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CampoUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoUsuarioMousePressed
+        // TODO add your handling code here:
+        CampoUsuario.setText("");
+
+        if (CampoContraseña.getText().trim().isEmpty()) {
+            CampoContraseña.setText("Ingrese apellidos...");
+        }
+    }//GEN-LAST:event_CampoUsuarioMousePressed
+
+    private void CampoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoUsuarioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoUsuarioActionPerformed
+
+    private void CampoContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContraseñaMousePressed
+        // TODO add your handling code here:
+        CampoContraseña.setText("");
+
+        if (CampoUsuario.getText().trim().isEmpty()) {
+            CampoUsuario.setText("Ingrese nombres...");
+        }
+    }//GEN-LAST:event_CampoContraseñaMousePressed
+
+    private void jButtonIniciarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonIniciarSesionMousePressed
+
+    private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
+
+    private void jButtonCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCancelarMousePressed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +250,19 @@ public class VentanaLoginPersonal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Apellidos1;
+    private javax.swing.JLabel Apellidos2;
+    private javax.swing.JTextField CampoContraseña;
+    private javax.swing.JTextField CampoUsuario;
+    private javax.swing.JLabel Nombres;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonIniciarSesion;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JSeparator jSeparatorNombre1;
+    private javax.swing.JSeparator jSeparatorNombre2;
     // End of variables declaration//GEN-END:variables
 }

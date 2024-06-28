@@ -31,7 +31,7 @@ public class VentanaRecepcionista extends javax.swing.JFrame {
         jButtonSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButtonRegistrarPaciente1 = new javax.swing.JButton();
+        jButtonRegistrarPersonal = new javax.swing.JButton();
         jButtonAgendarCita = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -82,16 +82,16 @@ public class VentanaRecepcionista extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 270, 580));
 
-        jButtonRegistrarPaciente1.setBackground(new java.awt.Color(60, 91, 111));
-        jButtonRegistrarPaciente1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonRegistrarPaciente1.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRegistrarPaciente1.setText("Registrar doctor");
-        jButtonRegistrarPaciente1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistrarPersonal.setBackground(new java.awt.Color(60, 91, 111));
+        jButtonRegistrarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonRegistrarPersonal.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistrarPersonal.setText("Registrar personal");
+        jButtonRegistrarPersonal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarPaciente1ActionPerformed(evt);
+                jButtonRegistrarPersonalActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonRegistrarPaciente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 320, 50));
+        jPanel2.add(jButtonRegistrarPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 320, 50));
 
         jButtonAgendarCita.setBackground(new java.awt.Color(60, 91, 111));
         jButtonAgendarCita.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -130,9 +130,12 @@ public class VentanaRecepcionista extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButtonRegistrarPaciente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarPaciente1ActionPerformed
+    private void jButtonRegistrarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarPersonalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRegistrarPaciente1ActionPerformed
+        VentanaRegistrarPersonal objVentanaRegistrarPersonal = new VentanaRegistrarPersonal();
+        objVentanaRegistrarPersonal.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonRegistrarPersonalActionPerformed
 
     private void jButtonAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendarCitaActionPerformed
         // TODO add your handling code here:
@@ -176,7 +179,7 @@ public class VentanaRecepcionista extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgendarCita;
     private javax.swing.JButton jButtonRegistrarPaciente;
-    private javax.swing.JButton jButtonRegistrarPaciente1;
+    private javax.swing.JButton jButtonRegistrarPersonal;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
