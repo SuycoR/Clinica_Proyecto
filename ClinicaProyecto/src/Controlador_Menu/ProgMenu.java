@@ -15,29 +15,29 @@ import Modelo_Menu.Menu;
 public class ProgMenu {
 
     //Objeto de la ventana inicio
-    public VentanaRegistrarRecepcionista objVentanaInicio;
-    public Menu objMenu;
+    public VentanaInicio objVentanaInicio;
+    public Menu objMenuInicio;
 
     public ProgMenu() {
         //Objeto de la ventana inicio
-        objVentanaInicio = new VentanaRegistrarRecepcionista();
+        objVentanaInicio = new VentanaInicio();
 
         //Objeto del menu
-        objMenu = new Menu();
+        objMenuInicio = new Menu();
     }
 
     public static void main(String[] args) {
-        ProgMenu objProgMenu = new ProgMenu();
+        ProgMenu objProgMenuInicio = new ProgMenu();
 
         //Conectar base de datos 
-        objProgMenu.conectarBaseDatos();
+        objProgMenuInicio.conectarBaseDatos();
         
         //Objeto del ProgMenu
-        objProgMenu.mostrarVentanaInicio();
+        objProgMenuInicio.mostrarVentanaInicio();
     }
 
     public void conectarBaseDatos() {
-        Connection bd = objMenu.ConectarBD();
+        Connection bd = objMenuInicio.ConectarBD();
     }   
 
     public void mostrarVentanaInicio() {
