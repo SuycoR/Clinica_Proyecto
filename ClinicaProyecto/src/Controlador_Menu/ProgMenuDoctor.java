@@ -5,29 +5,29 @@
 package Controlador_Menu;
 
 import Modelo_Menu.Menu;
-import Vista_Ventana.VentanaRegistrarRecepcionista;
+import Vista_Ventana.VentanaRegistrarDoctor;
 import java.sql.Connection;
 
 /**
  *
- * @author migue
+ * @author andre
  */
-public class ProgMenuPruebas {
+public class ProgMenuDoctor {
     
     //Objeto de la ventana inicio
-    public VentanaRegistrarRecepcionista objVentanaInicio;
+    public VentanaRegistrarDoctor objVentanaInicio;
     public Menu objMenu;
 
-    public ProgMenuPruebas() {
+    public ProgMenuDoctor() {
         //Objeto de la ventana inicio
-        objVentanaInicio = new VentanaRegistrarRecepcionista();
+        objVentanaInicio = new VentanaRegistrarDoctor();
 
         //Objeto del menu
         objMenu = new Menu();
     }
 
     public static void main(String[] args) {
-        ProgMenu objProgMenu = new ProgMenu();
+        ProgMenuDoctor objProgMenu = new ProgMenuDoctor();
 
         //Conectar base de datos 
         objProgMenu.conectarBaseDatos();
