@@ -4,21 +4,21 @@
  */
 package Controlador_Menu;
 
-import java.sql.Connection;
-import Vista_Ventana.*;
 import Modelo_Menu.Menu;
+import Vista_Ventana.VentanaRegistrarRecepcionista;
+import java.sql.Connection;
 
 /**
  *
- * @author PC
+ * @author migue
  */
-public class ProgMenu {
-
+public class ProgMenuPruebas {
+    
     //Objeto de la ventana inicio
     public VentanaRegistrarRecepcionista objVentanaInicio;
     public Menu objMenu;
 
-    public ProgMenu() {
+    public ProgMenuPruebas() {
         //Objeto de la ventana inicio
         objVentanaInicio = new VentanaRegistrarRecepcionista();
 
@@ -35,7 +35,7 @@ public class ProgMenu {
         //Objeto del ProgMenu
         objProgMenu.mostrarVentanaInicio();
     }
-
+    
     public void conectarBaseDatos() {
         Connection bd = objMenu.ConectarBD();
     }   
@@ -45,5 +45,4 @@ public class ProgMenu {
         objVentanaInicio.setLocationRelativeTo(null);
         objVentanaInicio.setVisible(true);
     }
-
 }
