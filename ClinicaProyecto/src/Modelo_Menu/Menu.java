@@ -105,5 +105,26 @@ public class Menu {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void enviarElementosDoctor(String nom, String ap, String dni, String dir, String corr, String cel,  String u, String c, String cost){
+        PreparedStatement objPreparedStatement;
+        try {
+            objPreparedStatement = objConnection.prepareStatement("insert into doctor(nombre,apellido,dni,direccion,correo,celular,usuario,contrasena,costo)values(?,?,?,?,?,?,?,?,?)");
+            objPreparedStatement.setString(1, nom);
+            objPreparedStatement.setString(2, ap);
+            objPreparedStatement.setString(3, dni);
+            objPreparedStatement.setString(4, dir);
+            objPreparedStatement.setString(5, corr);
+            objPreparedStatement.setString(6, cel);
+            objPreparedStatement.setString(7, u);
+            objPreparedStatement.setString(8, c);
+            objPreparedStatement.setString(9, cost);
+
+            objPreparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Doctor registrado");
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
    
 }
