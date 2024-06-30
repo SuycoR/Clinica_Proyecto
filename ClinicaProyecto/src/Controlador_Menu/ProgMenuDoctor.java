@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package Controlador_Menu;
 
 import Modelo_Menu.Menu;
 import Vista_Ventana.VentanaRegistrarDoctor;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -45,4 +44,25 @@ public class ProgMenuDoctor {
         objVentanaInicio.setLocationRelativeTo(null);
         objVentanaInicio.setVisible(true);
     }
+    
+    //actualizar (NO TERMINADO)
+    
+//    public boolean actualizar(ProgMenuDoctor objeto, int idCita) {
+//        boolean respuesta = false;
+//        Connection cn = Menu.ConectarBD();
+//        try {
+//
+//            PreparedStatement consulta = cn.prepareStatement("update doctor set lunes = ? martes = ? miercoles = ? jueves = ? viernes = ? sabado = ? where idDoctor ='" + idCita + "'");
+//            consulta.setString(10, objeto.getLunes());
+//            
+//           
+//            if (consulta.executeUpdate() > 0) {
+//                respuesta = true;
+//            }
+//            cn.close();
+//        } catch (SQLException e) {
+//            System.out.println("Error al actualizar cita: " + e);
+//        }
+//        return respuesta;
+//    }
 }
