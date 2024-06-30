@@ -4,7 +4,7 @@
  */
 package Controlador_Menu;
 
-import Modelo_Menu.Menu;
+import Modelo_Menu.*;
 import Vista_Ventana.VentanaRegistrarRecepcionista;
 import java.sql.Connection;
 
@@ -17,13 +17,16 @@ public class ProgMenuRecepcionista {
     //Objeto de la ventana inicio
     public VentanaRegistrarRecepcionista objVentanaInicio;
     public Menu objMenu;
-
+    public ModeloCita objGrabarCita;
     public ProgMenuRecepcionista() {
         //Objeto de la ventana inicio
         objVentanaInicio = new VentanaRegistrarRecepcionista();
 
         //Objeto del menu
         objMenu = new Menu();
+        
+        //Necitamos guardar la info de la cita que genere
+        objGrabarCita = new ModeloCita();
     }
 
     public static void main(String[] args) {

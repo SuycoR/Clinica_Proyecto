@@ -3,20 +3,24 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista_Ventana;
-
+import Modelo_Menu.*;
 /**
  *
  * @author PC
  */
 public class VentanaRecepcionista extends javax.swing.JFrame {
-
+    ModeloCita objInfoCita;
     /**
      * Creates new form VentanaRecepcionista
      */
     public VentanaRecepcionista() {
         initComponents();
+        objInfoCita = new ModeloCita();
+        //Aun no ahy login personal
+        //Ingresas el id con el que se logeo el recepcionista
+        //obj.setidRecepcionista
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,14 +77,14 @@ public class VentanaRecepcionista extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 580, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 270, 580));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 250, 580));
 
         jButtonRegistrarPersonal.setBackground(new java.awt.Color(60, 91, 111));
         jButtonRegistrarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -139,6 +143,7 @@ public class VentanaRecepcionista extends javax.swing.JFrame {
 
     private void jButtonAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendarCitaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButtonAgendarCitaActionPerformed
 
     /**

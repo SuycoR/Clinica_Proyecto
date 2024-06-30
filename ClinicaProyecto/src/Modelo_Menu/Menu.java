@@ -138,5 +138,22 @@ public class Menu {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   
+   public void enviarElementosCita(String idRec, String idDoc, String idPac, String fCita, String fRegistro, String cTotal, String Estado){
+        PreparedStatement objPreparedStatement;
+        try {
+            objPreparedStatement = objConnection.prepareStatement("insert into recepcionista(idRecepcionista,idDoctor,idPaciente,fechaCita,fechaRegistro,costoTotal,estado)values(?,?,?,?,?,?,?)");
+            objPreparedStatement.setString(1, idRec);
+            objPreparedStatement.setString(2, idDoc);
+            objPreparedStatement.setString(3, idPac);
+            objPreparedStatement.setString(4, fCita);
+            objPreparedStatement.setString(5, fRegistro);
+            objPreparedStatement.setString(6, cTotal);
+            objPreparedStatement.setString(7, Estado);
+
+            objPreparedStatement.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Cita registrada");
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

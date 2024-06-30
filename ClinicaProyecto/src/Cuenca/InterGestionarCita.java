@@ -22,16 +22,19 @@ import javax.swing.table.DefaultTableModel;
  */
 public class InterGestionarCita extends javax.swing.JInternalFrame {
 
-    private long idCita;
-
+    private long idDoctor;
+    private String idDoctorString; 
+    
     private long lunes;
     private long martes;
     private long miercoles;
     private long jueves;
     private long viernes;
     private long sabado;
-
+    Menu objMenuCita;
     public InterGestionarCita() {
+        objMenuCita = new Menu();
+        
         initComponents();
         this.setSize(new Dimension(900, 500));
         this.setTitle("Gestionar Citas");
@@ -194,7 +197,7 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
                 }
 
                 //Consulta para actualizar segun la eleccion del JComboDia
-                PreparedStatement consulta = con.prepareStatement("update doctor set lunes = ?, martes = ?, miercoles = ?, jueves = ?, viernes = ?, sabado = ? where idDoctor ='" + idCita + "'");
+                PreparedStatement consulta = con.prepareStatement("update doctor set lunes = ?, martes = ?, miercoles = ?, jueves = ?, viernes = ?, sabado = ? where idDoctor ='" + idDoctor + "'");
 
                 if (jComboBox_dia.getSelectedItem() == "Lunes") {
                     lunes++;
@@ -217,11 +220,17 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
                 consulta.setLong(5, viernes);
                 consulta.setLong(6, sabado);
 
-                consulta.executeUpdate();
+                consulta.executeUpdate(); 
 
             }
             con.close();
-
+            //Carga Datos a Tabla Citas Recepcionista Doctor Paciente
+            idDoctorString = Long.toString(idDoctor);
+            //objMenu.ConectarBD();
+            //objMenuCita.enviarElementosCita("Recepcionista", idDoctorString, "Paciente", "0", "0", "0", "Pendiente");
+            //Necesita saber el id para eos necesitamos mostrar paceintes por id
+            
+            
             //mostrar tabla actualizada
             CargarTablaCita();
 
@@ -302,8 +311,8 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
                 int columna_point = 0;
 
                 if (fila_point > -1) {
-                    idCita = (Long) model.getValueAt(fila_point, columna_point);
-                    EnviarDatosCitaSeleccionada(idCita);
+                    idDoctor = (Long) model.getValueAt(fila_point, columna_point);
+                    EnviarDatosCitaSeleccionada(idDoctor);
                 }
             }
         });
@@ -315,11 +324,11 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
      * Metodo que envia datos del doctor seleccionado al cuadro de texto
      * **************************************************
      */
-    private void EnviarDatosCitaSeleccionada(long idCita) {
+    private void EnviarDatosCitaSeleccionada(long idDoctor) {
         try {
             Connection con = Menu.ConectarBD();
             PreparedStatement pst = con.prepareStatement(
-                    "select * from doctor where idDoctor = '" + idCita + "'");
+                    "select * from doctor where idDoctor = '" + idDoctor + "'");
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 txt_nombre.setText(rs.getString("nombre"));
