@@ -28,6 +28,10 @@ public class Menu {
     
     static Connection objConnection;
     
+    /*
+        Coneccion a la base de datos
+    */
+    
     public static Connection ConectarBD() {
         objConnection = null;
         
@@ -44,6 +48,10 @@ public class Menu {
         }
         return objConnection;
     }
+    
+    /*
+        Métodos para enviar datos a sus respectivas tablas
+    */
     
     public void enviarElementosPaciente(String nom, String ap, String dni, String dir, String corr, String cel, String nomC, String celEm, String u, String c) {
         
