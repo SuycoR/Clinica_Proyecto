@@ -476,7 +476,7 @@ public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
         String celular = CampoNumero.getText();
         String usuario = CampoUsuario.getText();
         String contrasena = CampoContrasena1.getText();
-        String costo = CampoCosto.getText();
+        int costo = Integer.parseInt(CampoCosto.getText());
 
         objMenuRecepcionista.enviarElementosRecepcionista(nombre, apellido, dni, direccion, correo, celular, usuario, contrasena, costo);
         

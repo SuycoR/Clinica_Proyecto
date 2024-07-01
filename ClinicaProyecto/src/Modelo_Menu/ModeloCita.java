@@ -21,11 +21,12 @@ public class ModeloCita {
         this.costoTotal=0;
     }
 
-    public ModeloCita(int idRecepcionista, int idDoctor, int idPaciente, int costoTotal) {
+    public ModeloCita(int idRecepcionista, int idDoctor, int idPaciente, int costoTotal, Date specificDate) {
         this.idRecepcionista = idRecepcionista;
         this.idDoctor = idDoctor;
         this.idPaciente = idPaciente;
         this.costoTotal = costoTotal;
+        this.specificDate = specificDate;
     }
     public void setFecha(String fecha){
         this.specificDate =  Date.valueOf(fecha);

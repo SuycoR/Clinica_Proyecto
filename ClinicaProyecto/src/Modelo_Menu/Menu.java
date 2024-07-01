@@ -97,7 +97,7 @@ public class Menu {
         }
     }
     
-    public void enviarElementosRecepcionista(String nom, String ap, String dni, String dir, String corr, String cel,  String u, String c, String cost){
+    public void enviarElementosRecepcionista(String nom, String ap, String dni, String dir, String corr, String cel,  String u, String c, int cost){
         PreparedStatement objPreparedStatement;
         try {
             objPreparedStatement = objConnection.prepareStatement("insert into recepcionista(nombre,apellido,dni,direccion,correo,celular,usuario,contrasena,costo)values(?,?,?,?,?,?,?,?,?)");
@@ -109,7 +109,7 @@ public class Menu {
             objPreparedStatement.setString(6, cel);
             objPreparedStatement.setString(7, u);
             objPreparedStatement.setString(8, c);
-            objPreparedStatement.setString(9, cost);
+            objPreparedStatement.setInt(9, cost);
 
             objPreparedStatement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Recepcionista registrado");
@@ -118,7 +118,7 @@ public class Menu {
         }
     }
     
-    public void enviarElementosDoctor(String nom, String ap, String dni, String dir, String corr, String cel,  String u, String c, String cost){
+    public void enviarElementosDoctor(String nom, String ap, String dni, String dir, String corr, String cel,  String u, String c, int cost){
         PreparedStatement objPreparedStatement;
         try {
             objPreparedStatement = objConnection.prepareStatement("insert into doctor(nombre,apellido,dni,direccion,correo,celular,usuario,contrasena,costo)values(?,?,?,?,?,?,?,?,?)");
@@ -130,7 +130,7 @@ public class Menu {
             objPreparedStatement.setString(6, cel);
             objPreparedStatement.setString(7, u);
             objPreparedStatement.setString(8, c);
-            objPreparedStatement.setString(9, cost);
+            objPreparedStatement.setInt(9, cost);
 
             objPreparedStatement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Doctor registrado");
@@ -138,7 +138,7 @@ public class Menu {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   public void enviarElementosCita(String idRec, String idDoc, String idPac, Date fCita, String fRegistro, String cTotal, String Estado){
+   public void enviarElementosCita(String idRec, String idDoc, String idPac, Date fCita, Date fRegistro, int cTotal, String Estado){
         PreparedStatement objPreparedStatement;
         try {
             objPreparedStatement = objConnection.prepareStatement("insert into cita(idRecepcionista,idDoctor,idPaciente,fechaCita,fechaRegistro,costoTotal,estado)values(?,?,?,?,?,?,?)");
@@ -146,8 +146,8 @@ public class Menu {
             objPreparedStatement.setString(2, idDoc);
             objPreparedStatement.setString(3, idPac);
             objPreparedStatement.setDate(4, fCita);
-            objPreparedStatement.setString(5, fRegistro);
-            objPreparedStatement.setString(6, cTotal);
+            objPreparedStatement.setDate(5, fRegistro);
+            objPreparedStatement.setInt(6, cTotal);
             objPreparedStatement.setString(7, Estado);
 
             objPreparedStatement.executeUpdate();

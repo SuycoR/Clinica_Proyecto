@@ -13,7 +13,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JTextField;
 import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 /**
  *
@@ -25,9 +28,12 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
     public int idPaciente;
     private String idDoctorString;
     private String idPacienteString;
-    
+    private int costo;
+    private int costoRecepcionista;
+    private int costoTotal;
+
     private String fechaRegistro;
-    private Date fechaRegistros;
+    private String fechaCita;
     private long lunes;
     private long martes;
     private long miercoles;
@@ -42,7 +48,7 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
         objMenuCita = new Menu();
 
         initComponents();
-        this.setSize(new Dimension(900, 500));
+        this.setSize(new Dimension(1500, 500));
         this.setTitle("Gestionar Citas");
         //Cargar tabla
         this.CargarTablaCita();
@@ -62,8 +68,7 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
         jButton_elegirPaciente = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel_Fecha = new javax.swing.JLabel();
-        jTextField_Fecha = new javax.swing.JTextField();
-        jButton_Fecha = new javax.swing.JButton();
+        jDateChooserFecha = new com.toedter.calendar.JDateChooser();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
@@ -117,7 +122,7 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
                 jComboBox_pacienteActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 110, -1));
+        jPanel2.add(jComboBox_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 110, -1));
 
         jButton_elegirPaciente.setBackground(new java.awt.Color(51, 204, 0));
         jButton_elegirPaciente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -127,28 +132,18 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
                 jButton_elegirPacienteActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton_elegirPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 100, 40));
+        jPanel2.add(jButton_elegirPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 100, 40));
 
         jLabel6.setText("Paciente:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel_Fecha.setText("Fecha");
-        jPanel2.add(jLabel_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        jPanel2.add(jLabel_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        jTextField_Fecha.setText("Ingrese...");
-        jPanel2.add(jTextField_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 100, -1));
+        jDateChooserFecha.setDateFormatString("yyyy-MM-dd");
+        jPanel2.add(jDateChooserFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 180, 40));
 
-        jButton_Fecha.setBackground(new java.awt.Color(51, 204, 0));
-        jButton_Fecha.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jButton_Fecha.setText("Envie");
-        jButton_Fecha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_FechaActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 130, 270));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 220, 270));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -182,6 +177,11 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
         jPanel3.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 170, -1));
 
         txt_costo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_costo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_costoActionPerformed(evt);
+            }
+        });
         jPanel3.add(txt_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 170, -1));
 
         jComboBox_dia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -219,7 +219,9 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
 
         Connection con = Menu.ConectarBD();
         String sql = "select idDoctor, nombre, apellido, costo, lunes, martes, miercoles, jueves, viernes, sabado from doctor";
+        String sqlRecepcionista = "select * from recepcionista";
         Statement st;
+        Statement stRecepcionista;
 
         try {
             st = con.createStatement();
@@ -231,6 +233,7 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
 
                     fila[i] = rs.getObject(i + 1);
                     switch (i) {
+     
                         case 4 ->
                             lunes = (Long) fila[i];
                         case 5 ->
@@ -245,6 +248,7 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
                             sabado = (Long) fila[i];
 
                     }
+                    
 
                 }
 
@@ -275,21 +279,50 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
                 consulta.executeUpdate();
 
             }
-
+            
             //Convertir id a string para usarlo como parametro en enviarElementos
             idDoctorString = Long.toString(idDoctor);
             idPacienteString = Integer.toString(idPaciente);
-            fechaRegistro = jTextField_Fecha.getText();
-            fechaRegistros = Date.valueOf(fechaRegistro);
-            //ActualizarDate
-            objMenuCita.enviarElementosCita("6", idDoctorString, idPacienteString, fechaRegistros, "f", "f", "Pendiente");
+//            fechaRegistro = jTextField_Fecha.getText();
+//            fechaRegistros = Date.valueOf(fechaRegistro);
+            fechaCita = ((JTextField) jDateChooserFecha.getDateEditor().getUiComponent()).getText();
 
-            //mostrar tabla actualizada
-            CargarTablaCita();
+            //Obtener la fecha actual
+            LocalDate fechaActual = LocalDate.now();
 
-        } catch (SQLException e) {
-            System.out.println("Error al actualizar la tabla citas: " + e);
-        }
+            // Formateador de fecha para obtener el formato deseado
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+            // Formatear la fecha actual como un String en el formato especificado
+            String fechaRegistro = fechaActual.format(formatter);
+
+            //Sumar costo entre recepcionista y doctor
+            try {
+
+                stRecepcionista = con.createStatement();
+                ResultSet rsRecepcionista = stRecepcionista.executeQuery(sqlRecepcionista);
+
+                while (rsRecepcionista.next()) {          
+                    
+                    //Cambiar el 6 al idRecepcionista obtenido en el login (MELENDEZ)
+                    if(6==rsRecepcionista.getInt("idRecepcionista")){
+                        costoRecepcionista = rsRecepcionista.getInt("costo");
+                        break;
+                    }
+                }
+            } catch(SQLException ex){
+                System.out.println("Error al entrar a la tabla recepcionista");
+            }
+
+                //ActualizarDate
+                objMenuCita.enviarElementosCita("6", idDoctorString, idPacienteString, Date.valueOf(fechaCita), Date.valueOf(fechaRegistro), costo+costoRecepcionista, "Pendiente");
+
+                //mostrar tabla actualizada
+                CargarTablaCita();
+
+            } catch (SQLException e) {
+                System.out.println("Error al actualizar la tabla citas: " + e);
+            }
     }//GEN-LAST:event_jButton_actualizarDiaActionPerformed
 
     private void jComboBox_diaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_diaActionPerformed
@@ -337,19 +370,17 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton_elegirPacienteActionPerformed
 
-    private void jButton_FechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_FechaActionPerformed
+    private void txt_costoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_costoActionPerformed
         // TODO add your handling code here:
-        fechaRegistro = jTextField_Fecha.getText();
-        objMenuCitaPaciente.setFecha(fechaRegistro);
-    }//GEN-LAST:event_jButton_FechaActionPerformed
+    }//GEN-LAST:event_txt_costoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton_Fecha;
     private javax.swing.JButton jButton_actualizarDia;
     private javax.swing.JButton jButton_elegirPaciente;
     private javax.swing.JComboBox<String> jComboBox_dia;
     private javax.swing.JComboBox<String> jComboBox_paciente;
+    private com.toedter.calendar.JDateChooser jDateChooserFecha;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -363,7 +394,6 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable_citas;
-    private javax.swing.JTextField jTextField_Fecha;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_costo;
     private javax.swing.JTextField txt_nombre;
@@ -442,7 +472,12 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
 
                 if (fila_point > -1) {
                     idDoctor = (Long) model.getValueAt(fila_point, columna_point);
+                    
                     EnviarDatosCitaSeleccionada(idDoctor);
+                }
+                if (fila_point > -1) {
+                    costo = (int) model.getValueAt(fila_point, 3);
+                    
                 }
             }
         });
