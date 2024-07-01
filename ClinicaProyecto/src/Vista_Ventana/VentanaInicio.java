@@ -56,7 +56,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         jPanel2.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 330, 60));
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Clínica Capitan Peru");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, 40));
 

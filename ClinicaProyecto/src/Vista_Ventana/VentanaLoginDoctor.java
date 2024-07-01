@@ -12,7 +12,8 @@ package Vista_Ventana;
 import javax.swing.JOptionPane;
 import Modelo_Menu.Menu;
 import Modelo_Menu.Doctor;
-
+import Controlador_Menu_SuycoDoctor.Ventana_LoginMenuDoctor;
+        
 public class VentanaLoginDoctor extends javax.swing.JFrame {
 public Menu objMenu;
 public Doctor objDoctor;
@@ -191,10 +192,10 @@ public Doctor objDoctor;
 
         if(objMenu.loginUserDoctor(objDoctor)){
             this.dispose();
-            VentanaMenuRecepcionista objVentanaRecepcionista = new VentanaMenuRecepcionista();
-            objVentanaRecepcionista.setSize(900,580);
-            objVentanaRecepcionista.setLocationRelativeTo(null);
-            objVentanaRecepcionista.setVisible(true);
+            Ventana_LoginMenuDoctor objVentana_LoginMenuDoctor = new Ventana_LoginMenuDoctor();
+            objVentana_LoginMenuDoctor.setSize(900,580);
+            objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
+            objVentana_LoginMenuDoctor.setVisible(true);
         }else{
             JOptionPane.showMessageDialog(null, "Datos incorrectos");
         }
