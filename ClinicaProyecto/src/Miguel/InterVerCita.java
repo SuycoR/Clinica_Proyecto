@@ -1,6 +1,7 @@
-package Cuenca;
+package Miguel;
 
 // Proyecto Clinica
+//import Cuenca.*;
 import Modelo_Menu.*;
 
 import java.awt.Dimension;
