@@ -8,13 +8,21 @@ package Vista_Ventana;
  *
  * @author PC
  */
-public class VentanaLoginPersonal extends javax.swing.JFrame {
 
+import javax.swing.JOptionPane;
+import Modelo_Menu.Menu;
+import Modelo_Menu.Doctor;
+
+public class VentanaLoginDoctor extends javax.swing.JFrame {
+public Menu objMenu;
+public Doctor objDoctor;
     /**
-     * Creates new form VentanaLoginPersonal
+     * Creates new form VentanaLoginDoctor
      */
-    public VentanaLoginPersonal() {
+    public VentanaLoginDoctor() {
         initComponents();
+        objMenu = new Menu();
+        objDoctor = new Doctor();
     }
 
     /**
@@ -34,15 +42,12 @@ public class VentanaLoginPersonal extends javax.swing.JFrame {
         CampoUsuario = new javax.swing.JTextField();
         jSeparatorNombre1 = new javax.swing.JSeparator();
         Apellidos1 = new javax.swing.JLabel();
-        CampoContraseña = new javax.swing.JTextField();
-        jSeparatorNombre2 = new javax.swing.JSeparator();
         jButtonIniciarSesion = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
-        Apellidos2 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        CampoContrasena = new javax.swing.JPasswordField();
+        jSeparatorNombre3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setLocationByPlatform(true);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,21 +107,6 @@ public class VentanaLoginPersonal extends javax.swing.JFrame {
         Apellidos1.setText("Contraseña:");
         jPanel2.add(Apellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, 30));
 
-        CampoContraseña.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        CampoContraseña.setForeground(new java.awt.Color(153, 153, 153));
-        CampoContraseña.setText("Ingrese nombre...");
-        CampoContraseña.setBorder(null);
-        CampoContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                CampoContraseñaMousePressed(evt);
-            }
-        });
-        jPanel2.add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 260, 30));
-
-        jSeparatorNombre2.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparatorNombre2.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparatorNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 260, 10));
-
         jButtonIniciarSesion.setBackground(new java.awt.Color(223, 208, 184));
         jButtonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
@@ -132,7 +122,7 @@ public class VentanaLoginPersonal extends javax.swing.JFrame {
                 jButtonIniciarSesionActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 130, 40));
+        jPanel2.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 130, 40));
 
         jButtonCancelar.setBackground(new java.awt.Color(223, 208, 184));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -149,18 +139,16 @@ public class VentanaLoginPersonal extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, 130, 40));
+        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 130, 40));
 
-        Apellidos2.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        Apellidos2.setForeground(new java.awt.Color(0, 0, 0));
-        Apellidos2.setText("Ocupación:");
-        jPanel2.add(Apellidos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, 30));
+        CampoContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoContrasena.setText("jPasswordField1");
+        CampoContrasena.setBorder(null);
+        jPanel2.add(CampoContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 260, 30));
 
-        jComboBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Recepcionista", "Doctor" }));
-        jComboBox1.setBorder(null);
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 350, 260, 30));
+        jSeparatorNombre3.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jSeparatorNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 260, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,8 +168,8 @@ public class VentanaLoginPersonal extends javax.swing.JFrame {
         // TODO add your handling code here:
         CampoUsuario.setText("");
 
-        if (CampoContraseña.getText().trim().isEmpty()) {
-            CampoContraseña.setText("Ingrese apellidos...");
+        if (CampoContrasena.getText().trim().isEmpty()) {
+            CampoContrasena.setText("Ingrese apellidos...");
         }
     }//GEN-LAST:event_CampoUsuarioMousePressed
 
@@ -189,21 +177,27 @@ public class VentanaLoginPersonal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoUsuarioActionPerformed
 
-    private void CampoContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContraseñaMousePressed
-        // TODO add your handling code here:
-        CampoContraseña.setText("");
-
-        if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese nombres...");
-        }
-    }//GEN-LAST:event_CampoContraseñaMousePressed
-
     private void jButtonIniciarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonIniciarSesionMousePressed
 
     private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
         // TODO add your handling code here:
+        String usuario = CampoUsuario.getText().trim();
+        String contrasena = CampoContrasena.getText().trim();
+
+        objDoctor.setUsuario(usuario);
+        objDoctor.setContrasena(contrasena);
+
+        if(objMenu.loginUserDoctor(objDoctor)){
+            this.dispose();
+            VentanaMenuRecepcionista objVentanaRecepcionista = new VentanaMenuRecepcionista();
+            objVentanaRecepcionista.setSize(900,580);
+            objVentanaRecepcionista.setLocationRelativeTo(null);
+            objVentanaRecepcionista.setVisible(true);
+        }else{
+            JOptionPane.showMessageDialog(null, "Datos incorrectos");
+        }
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
     private void jButtonCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMousePressed
@@ -212,6 +206,7 @@ public class VentanaLoginPersonal extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
@@ -231,38 +226,36 @@ public class VentanaLoginPersonal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaLoginPersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaLoginDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaLoginPersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaLoginDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaLoginPersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaLoginDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaLoginPersonal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaLoginDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaLoginPersonal().setVisible(true);
+                new VentanaLoginDoctor().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Apellidos1;
-    private javax.swing.JLabel Apellidos2;
-    private javax.swing.JTextField CampoContraseña;
+    private javax.swing.JPasswordField CampoContrasena;
     private javax.swing.JTextField CampoUsuario;
     private javax.swing.JLabel Nombres;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonIniciarSesion;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparatorNombre1;
-    private javax.swing.JSeparator jSeparatorNombre2;
+    private javax.swing.JSeparator jSeparatorNombre3;
     // End of variables declaration//GEN-END:variables
 }

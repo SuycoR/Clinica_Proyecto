@@ -185,24 +185,20 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
 
     private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
         // TODO add your handling code here:
-        System.out.println("Vista_Ventana.VentanaLoginPaciente.jButtonIniciarSesionActionPerformed()");
         String usuario = CampoUsuario.getText().trim();
         String contrasena = CampoContrasena.getText().trim();
 
         objPaciente.setUsuario(usuario);
         objPaciente.setContrasena(contrasena);
         
-        if(objMenu.loginUser(objPaciente)){
-            System.out.print("hola");
+        if(objMenu.loginUserPaciente(objPaciente)){
             this.dispose();
-            VentanaRecepcionista objVentanaRecepcionista = new VentanaRecepcionista();
+            VentanaMenuRecepcionista objVentanaRecepcionista = new VentanaMenuRecepcionista();
             objVentanaRecepcionista.setSize(900,580);
             objVentanaRecepcionista.setLocationRelativeTo(null);
             objVentanaRecepcionista.setVisible(true);
-            JOptionPane.showMessageDialog(null, "Login correcto");
         }else{
-            System.out.print("holaaaaaa");
-            JOptionPane.showMessageDialog(null, "Login incorrecto");
+            JOptionPane.showMessageDialog(null, "Datos incorrectos");
         }
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 

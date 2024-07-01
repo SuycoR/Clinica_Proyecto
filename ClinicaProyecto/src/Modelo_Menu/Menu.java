@@ -16,6 +16,9 @@ import java.sql.Date;
 import java.sql.ResultSet;
 
 import Modelo_Menu.Paciente;
+import Modelo_Menu.Doctor;
+import Modelo_Menu.Recepcionista;
+import Modelo_Menu.Recepcionista;
 import com.mysql.cj.protocol.Resultset;
 
 /**
@@ -160,12 +163,69 @@ public class Menu {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
-    public boolean loginUser(Paciente objeto) {
+    
+    // Para login de paciente
+    public boolean loginUserPaciente(Paciente objeto) {
         boolean respuesta = false;
 
         Connection objConnection = Menu.ConectarBD();
         String sql = "select usuario, contrasena from paciente where usuario=? and contrasena=?";
+        ResultSet objResultset;
+
+        try {
+            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+
+            objPreparedStatement.setString(1, objeto.getUsuario());
+            objPreparedStatement.setString(2, objeto.getContrasena());
+
+            objResultset = objPreparedStatement.executeQuery();
+            
+            while(objResultset.next()){
+                respuesta = true;
+            }   
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al iniciar sesión");
+        }
+
+        return respuesta;
+    }
+    
+    // Para login de doctor
+    public boolean loginUserDoctor(Doctor objeto) {
+        boolean respuesta = false;
+
+        Connection objConnection = Menu.ConectarBD();
+        String sql = "select usuario, contrasena from doctor where usuario=? and contrasena=?";
+        ResultSet objResultset;
+
+        try {
+            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+
+            objPreparedStatement.setString(1, objeto.getUsuario());
+            objPreparedStatement.setString(2, objeto.getContrasena());
+
+            objResultset = objPreparedStatement.executeQuery();
+            
+            while(objResultset.next()){
+                respuesta = true;
+            }   
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al iniciar sesión");
+        }
+
+        return respuesta;
+    }
+    
+    // Para login de recepcionistas
+    public boolean loginUserRecepcionista(Recepcionista objeto) {
+        boolean respuesta = false;
+
+        Connection objConnection = Menu.ConectarBD();
+        String sql = "select usuario, contrasena from recepcionista where usuario=? and contrasena=?";
         ResultSet objResultset;
 
         try {

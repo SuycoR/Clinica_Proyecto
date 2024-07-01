@@ -9,7 +9,7 @@ package Vista_Ventana;
  * @author PC
  */
 public class VentanaInicio extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form VentanaInicio
      */
@@ -32,8 +32,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButtonConoceMas = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButtonIniciarSesionPaciente = new javax.swing.JButton();
-        jButtonIniciarSesionPersonal = new javax.swing.JButton();
+        jButtonIniciarSesionDoctor = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButtonIniciarSesionDoctor1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 255, 153));
@@ -52,7 +53,7 @@ public class VentanaInicio extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 310, 60));
+        jPanel2.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 450, 330, 60));
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -68,7 +69,7 @@ public class VentanaInicio extends javax.swing.JFrame {
                 jButtonConoceMasActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonConoceMas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 310, 60));
+        jPanel2.add(jButtonConoceMas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, 330, 60));
 
         jPanel1.setBackground(new java.awt.Color(21, 52, 72));
 
@@ -94,18 +95,18 @@ public class VentanaInicio extends javax.swing.JFrame {
                 jButtonIniciarSesionPacienteActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonIniciarSesionPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 310, 60));
+        jPanel2.add(jButtonIniciarSesionPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 330, 60));
 
-        jButtonIniciarSesionPersonal.setBackground(new java.awt.Color(60, 91, 111));
-        jButtonIniciarSesionPersonal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonIniciarSesionPersonal.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonIniciarSesionPersonal.setText("Iniciar sesión como personal");
-        jButtonIniciarSesionPersonal.addActionListener(new java.awt.event.ActionListener() {
+        jButtonIniciarSesionDoctor.setBackground(new java.awt.Color(60, 91, 111));
+        jButtonIniciarSesionDoctor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonIniciarSesionDoctor.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIniciarSesionDoctor.setText("Iniciar sesión como doctor");
+        jButtonIniciarSesionDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIniciarSesionPersonalActionPerformed(evt);
+                jButtonIniciarSesionDoctorActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonIniciarSesionPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 250, 310, 60));
+        jPanel2.add(jButtonIniciarSesionDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, 330, 60));
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,6 +115,17 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, -1));
+
+        jButtonIniciarSesionDoctor1.setBackground(new java.awt.Color(60, 91, 111));
+        jButtonIniciarSesionDoctor1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonIniciarSesionDoctor1.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonIniciarSesionDoctor1.setText("Iniciar sesión como recepcionista");
+        jButtonIniciarSesionDoctor1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIniciarSesionDoctor1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonIniciarSesionDoctor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, 330, 60));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,8 +143,8 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private void jButtonConoceMasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConoceMasActionPerformed
         // TODO add your handling code here:
-        VentanaConoceInfo objVentanaConoceInfo = new VentanaConoceInfo();
-        objVentanaConoceInfo.setSize(900,580);
+        VentanaMenuConoceInfo objVentanaConoceInfo = new VentanaMenuConoceInfo();
+        objVentanaConoceInfo.setSize(900, 580);
         objVentanaConoceInfo.setLocationRelativeTo(null);
         objVentanaConoceInfo.setVisible(true);
         this.dispose();
@@ -146,29 +158,31 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void jButtonIniciarSesionPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionPacienteActionPerformed
         // TODO add your handling code here:
         VentanaLoginPaciente objVentanaLoginPaciente = new VentanaLoginPaciente();
-        objVentanaLoginPaciente.setSize(900,580);
         objVentanaLoginPaciente.setLocationRelativeTo(null);
         objVentanaLoginPaciente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonIniciarSesionPacienteActionPerformed
 
-    private void jButtonIniciarSesionPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionPersonalActionPerformed
+    private void jButtonIniciarSesionDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionDoctorActionPerformed
         // TODO add your handling code here:
-        VentanaLoginPersonal objVentanaLoginPersonal = new VentanaLoginPersonal();
-        objVentanaLoginPersonal.setSize(900,580);
-        objVentanaLoginPersonal.setLocationRelativeTo(null);
-        objVentanaLoginPersonal.setVisible(true);
+        VentanaLoginDoctor objVentanaLoginDoctor = new VentanaLoginDoctor();
+        objVentanaLoginDoctor.setLocationRelativeTo(null);
+        objVentanaLoginDoctor.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButtonIniciarSesionPersonalActionPerformed
+    }//GEN-LAST:event_jButtonIniciarSesionDoctorActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        VentanaRegistrarPersonal objVentanaRegistrarPaciente = new VentanaRegistrarPersonal();
-        objVentanaRegistrarPaciente.setSize(900,580);
-        objVentanaRegistrarPaciente.setLocationRelativeTo(null);
-        objVentanaRegistrarPaciente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButtonIniciarSesionDoctor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionDoctor1ActionPerformed
+        // TODO add your handling code here:
+        VentanaLoginRecepcionista objVentanaLoginRecepcionista = new VentanaLoginRecepcionista();
+        objVentanaLoginRecepcionista.setLocationRelativeTo(null);
+        objVentanaLoginRecepcionista.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonIniciarSesionDoctor1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,8 +222,9 @@ public class VentanaInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonConoceMas;
+    private javax.swing.JButton jButtonIniciarSesionDoctor;
+    private javax.swing.JButton jButtonIniciarSesionDoctor1;
     private javax.swing.JButton jButtonIniciarSesionPaciente;
-    private javax.swing.JButton jButtonIniciarSesionPersonal;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
