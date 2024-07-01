@@ -4,6 +4,7 @@
  */
 package Modelo_Menu;
 
+import com.mysql.cj.xdevapi.Statement;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,6 +13,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.sql.Date;
+import java.sql.ResultSet;
+
+import Modelo_Menu.Paciente;
+import com.mysql.cj.protocol.Resultset;
 
 /**
  *
@@ -25,16 +30,15 @@ public class Menu {
 
     public Menu() {
     }
-    
+
     static Connection objConnection;
-    
+
     /*
         Coneccion a la base de datos
-    */
-    
+     */
     public static Connection ConectarBD() {
         objConnection = null;
-        
+
         String host = "jdbc:mysql://roundhouse.proxy.rlwy.net:32627/railway";
         String user = "root";
         String password = "SZMLbFvdYPEKhJjVzhyqyHwAxJbknAJt";
@@ -48,13 +52,12 @@ public class Menu {
         }
         return objConnection;
     }
-    
+
     /*
         Métodos para enviar datos a sus respectivas tablas
-    */
-    
+     */
     public void enviarElementosPaciente(String nom, String ap, String dni, String dir, String corr, String cel, String nomC, String celEm, String u, String c) {
-        
+
         PreparedStatement objPreparedStatement;
         try {
             objPreparedStatement = objConnection.prepareStatement("insert into paciente(nombre,apellido,dni,direccion,correo,celular,nombreContacto,celularEmergencia,usuario,contrasena)values(?,?,?,?,?,?,?,?,?,?)");
@@ -70,14 +73,14 @@ public class Menu {
             objPreparedStatement.setString(10, c);
             objPreparedStatement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Paciente registrado");
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-            
+
         }
     }
-    
-    public void enviarElementosPersonal(String nom, String ap, String dni, String dir, String corr, String cel, String u, String c, String o){
+
+    public void enviarElementosPersonal(String nom, String ap, String dni, String dir, String corr, String cel, String u, String c, String o) {
         PreparedStatement objPreparedStatement;
         try {
             objPreparedStatement = objConnection.prepareStatement("insert into personal(nombre,apellido,dni,direccion,correo,celular,usuario,contrasena,ocupacion)values(?,?,?,?,?,?,?,?,?)");
@@ -96,8 +99,8 @@ public class Menu {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void enviarElementosRecepcionista(String nom, String ap, String dni, String dir, String corr, String cel,  String u, String c, int cost){
+
+    public void enviarElementosRecepcionista(String nom, String ap, String dni, String dir, String corr, String cel, String u, String c, int cost) {
         PreparedStatement objPreparedStatement;
         try {
             objPreparedStatement = objConnection.prepareStatement("insert into recepcionista(nombre,apellido,dni,direccion,correo,celular,usuario,contrasena,costo)values(?,?,?,?,?,?,?,?,?)");
@@ -117,8 +120,8 @@ public class Menu {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    public void enviarElementosDoctor(String nom, String ap, String dni, String dir, String corr, String cel,  String u, String c, int cost){
+
+    public void enviarElementosDoctor(String nom, String ap, String dni, String dir, String corr, String cel, String u, String c, int cost) {
         PreparedStatement objPreparedStatement;
         try {
             objPreparedStatement = objConnection.prepareStatement("insert into doctor(nombre,apellido,dni,direccion,correo,celular,usuario,contrasena,costo)values(?,?,?,?,?,?,?,?,?)");
@@ -138,7 +141,8 @@ public class Menu {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   public void enviarElementosCita(String idRec, String idDoc, String idPac, Date fCita, Date fRegistro, int cTotal, String Estado){
+
+    public void enviarElementosCita(String idRec, String idDoc, String idPac, Date fCita, Date fRegistro, int cTotal, String Estado) {
         PreparedStatement objPreparedStatement;
         try {
             objPreparedStatement = objConnection.prepareStatement("insert into cita(idRecepcionista,idDoctor,idPaciente,fechaCita,fechaRegistro,costoTotal,estado)values(?,?,?,?,?,?,?)");
@@ -155,5 +159,32 @@ public class Menu {
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public boolean loginUser(Paciente objeto) {
+        boolean respuesta = false;
+
+        Connection objConnection = Menu.ConectarBD();
+        String sql = "select usuario, contrasena from paciente where usuario=? and contrasena=?";
+        ResultSet objResultset;
+
+        try {
+            PreparedStatement objPreparedStatement = objConnection.prepareStatement(sql);
+
+            objPreparedStatement.setString(1, objeto.getUsuario());
+            objPreparedStatement.setString(2, objeto.getContrasena());
+
+            objResultset = objPreparedStatement.executeQuery();
+            
+            while(objResultset.next()){
+                respuesta = true;
+            }   
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null, "Error al iniciar sesión");
+        }
+
+        return respuesta;
     }
 }

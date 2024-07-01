@@ -8,13 +8,22 @@ package Vista_Ventana;
  *
  * @author PC
  */
+import javax.swing.JOptionPane;
+import Modelo_Menu.Menu;
+import Modelo_Menu.Paciente;
+
 public class VentanaLoginPaciente extends javax.swing.JFrame {
+
+    public Menu objMenu;
+    public Paciente objPaciente;
 
     /**
      * Creates new form VentanaLoginPaciente
      */
     public VentanaLoginPaciente() {
         initComponents();
+        objMenu = new Menu();
+        objPaciente = new Paciente();
     }
 
     /**
@@ -34,10 +43,10 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         CampoUsuario = new javax.swing.JTextField();
         jSeparatorNombre1 = new javax.swing.JSeparator();
         Apellidos1 = new javax.swing.JLabel();
-        CampoContraseña = new javax.swing.JTextField();
-        jSeparatorNombre2 = new javax.swing.JSeparator();
         jButtonIniciarSesion = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
+        CampoContrasena = new javax.swing.JPasswordField();
+        jSeparatorNombre3 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -100,21 +109,6 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         Apellidos1.setText("Contraseña:");
         jPanel2.add(Apellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, 30));
 
-        CampoContraseña.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        CampoContraseña.setForeground(new java.awt.Color(153, 153, 153));
-        CampoContraseña.setText("Ingrese nombre...");
-        CampoContraseña.setBorder(null);
-        CampoContraseña.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                CampoContraseñaMousePressed(evt);
-            }
-        });
-        jPanel2.add(CampoContraseña, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 260, 30));
-
-        jSeparatorNombre2.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparatorNombre2.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparatorNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 260, 10));
-
         jButtonIniciarSesion.setBackground(new java.awt.Color(223, 208, 184));
         jButtonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
@@ -149,6 +143,15 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 130, 40));
 
+        CampoContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        CampoContrasena.setText("jPasswordField1");
+        CampoContrasena.setBorder(null);
+        jPanel2.add(CampoContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 260, 30));
+
+        jSeparatorNombre3.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparatorNombre3.setForeground(new java.awt.Color(0, 0, 0));
+        jPanel2.add(jSeparatorNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 260, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,8 +170,8 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
         CampoUsuario.setText("");
 
-        if (CampoContraseña.getText().trim().isEmpty()) {
-            CampoContraseña.setText("Ingrese apellidos...");
+        if (CampoContrasena.getText().trim().isEmpty()) {
+            CampoContrasena.setText("Ingrese apellidos...");
         }
     }//GEN-LAST:event_CampoUsuarioMousePressed
 
@@ -176,22 +179,31 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoUsuarioActionPerformed
 
-    private void CampoContraseñaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContraseñaMousePressed
-        // TODO add your handling code here:
-        CampoContraseña.setText("");
-
-        if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese nombres...");
-        }
-
-    }//GEN-LAST:event_CampoContraseñaMousePressed
-
     private void jButtonIniciarSesionMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionMousePressed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonIniciarSesionMousePressed
 
     private void jButtonIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIniciarSesionActionPerformed
         // TODO add your handling code here:
+        System.out.println("Vista_Ventana.VentanaLoginPaciente.jButtonIniciarSesionActionPerformed()");
+        String usuario = CampoUsuario.getText().trim();
+        String contrasena = CampoContrasena.getText().trim();
+
+        objPaciente.setUsuario(usuario);
+        objPaciente.setContrasena(contrasena);
+        
+        if(objMenu.loginUser(objPaciente)){
+            System.out.print("hola");
+            this.dispose();
+            VentanaRecepcionista objVentanaRecepcionista = new VentanaRecepcionista();
+            objVentanaRecepcionista.setSize(900,580);
+            objVentanaRecepcionista.setLocationRelativeTo(null);
+            objVentanaRecepcionista.setVisible(true);
+            JOptionPane.showMessageDialog(null, "Login correcto");
+        }else{
+            System.out.print("holaaaaaa");
+            JOptionPane.showMessageDialog(null, "Login incorrecto");
+        }
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
     private void jButtonCancelarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelarMousePressed
@@ -200,6 +212,7 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
@@ -239,7 +252,7 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Apellidos1;
-    private javax.swing.JTextField CampoContraseña;
+    private javax.swing.JPasswordField CampoContrasena;
     private javax.swing.JTextField CampoUsuario;
     private javax.swing.JLabel Nombres;
     private javax.swing.JButton jButtonCancelar;
@@ -249,6 +262,6 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparatorNombre1;
-    private javax.swing.JSeparator jSeparatorNombre2;
+    private javax.swing.JSeparator jSeparatorNombre3;
     // End of variables declaration//GEN-END:variables
 }
