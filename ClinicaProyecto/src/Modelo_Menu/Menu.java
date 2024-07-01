@@ -141,7 +141,7 @@ public class Menu {
    public void enviarElementosCita(String idRec, String idDoc, String idPac, String fCita, String fRegistro, String cTotal, String Estado){
         PreparedStatement objPreparedStatement;
         try {
-            objPreparedStatement = objConnection.prepareStatement("insert into recepcionista(idRecepcionista,idDoctor,idPaciente,fechaCita,fechaRegistro,costoTotal,estado)values(?,?,?,?,?,?,?)");
+            objPreparedStatement = objConnection.prepareStatement("insert into cita(idRecepcionista,idDoctor,idPaciente,fechaCita,fechaRegistro,costoTotal,estado)values(?,?,?,?,?,?,?)");
             objPreparedStatement.setString(1, idRec);
             objPreparedStatement.setString(2, idDoc);
             objPreparedStatement.setString(3, idPac);
