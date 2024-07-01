@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista_Ventana;
-
+import Miguel.InterVerCita;
 /**
  *
  * @author PC
@@ -16,6 +16,7 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
 
     public Menu objMenu;
     public Paciente objPaciente;
+   
 
     /**
      * Creates new form VentanaLoginPaciente
@@ -193,10 +194,12 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         
         if(objMenu.loginUserPaciente(objPaciente)){
             this.dispose();
-            VentanaMenuRecepcionista objVentanaRecepcionista = new VentanaMenuRecepcionista();
-            objVentanaRecepcionista.setSize(900,580);
-            objVentanaRecepcionista.setLocationRelativeTo(null);
-            objVentanaRecepcionista.setVisible(true);
+            VentanaMenuPaciente objVentanaMenuPaciente = new VentanaMenuPaciente();
+          
+            objVentanaMenuPaciente.setLocationRelativeTo(null);
+            objVentanaMenuPaciente.setVisible(true);
+            
+            
         }else{
             JOptionPane.showMessageDialog(null, "Datos incorrectos");
         }

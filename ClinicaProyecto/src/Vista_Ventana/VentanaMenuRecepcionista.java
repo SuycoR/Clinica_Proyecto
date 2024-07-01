@@ -35,8 +35,9 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
         jButtonSalir = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButtonRegistrarPersonal = new javax.swing.JButton();
+        jButtonRegistrarDoctor = new javax.swing.JButton();
         jButtonAgendarCita = new javax.swing.JButton();
+        jButtonRegistrarRecepcionista = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
@@ -53,7 +54,7 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
                 jButtonRegistrarPacienteActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonRegistrarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 180, 320, 50));
+        jPanel2.add(jButtonRegistrarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 320, 50));
 
         jButtonSalir.setBackground(new java.awt.Color(60, 91, 111));
         jButtonSalir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -64,7 +65,7 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
                 jButtonSalirActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 320, 50));
+        jPanel2.add(jButtonSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, 320, 50));
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -86,16 +87,16 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 250, 580));
 
-        jButtonRegistrarPersonal.setBackground(new java.awt.Color(60, 91, 111));
-        jButtonRegistrarPersonal.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonRegistrarPersonal.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonRegistrarPersonal.setText("Registrar personal");
-        jButtonRegistrarPersonal.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegistrarDoctor.setBackground(new java.awt.Color(60, 91, 111));
+        jButtonRegistrarDoctor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonRegistrarDoctor.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistrarDoctor.setText("Registrar doctor");
+        jButtonRegistrarDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegistrarPersonalActionPerformed(evt);
+                jButtonRegistrarDoctorActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonRegistrarPersonal, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, 320, 50));
+        jPanel2.add(jButtonRegistrarDoctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 320, 50));
 
         jButtonAgendarCita.setBackground(new java.awt.Color(60, 91, 111));
         jButtonAgendarCita.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -106,7 +107,18 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
                 jButtonAgendarCitaActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 320, 50));
+        jPanel2.add(jButtonAgendarCita, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, 320, 50));
+
+        jButtonRegistrarRecepcionista.setBackground(new java.awt.Color(60, 91, 111));
+        jButtonRegistrarRecepcionista.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonRegistrarRecepcionista.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegistrarRecepcionista.setText("Registrar recepcionista");
+        jButtonRegistrarRecepcionista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonRegistrarRecepcionistaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonRegistrarRecepcionista, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 320, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -134,15 +146,19 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    private void jButtonRegistrarPersonalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarPersonalActionPerformed
+    private void jButtonRegistrarDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarDoctorActionPerformed
         // TODO add your handling code here:
         this.dispose();
-    }//GEN-LAST:event_jButtonRegistrarPersonalActionPerformed
+    }//GEN-LAST:event_jButtonRegistrarDoctorActionPerformed
 
     private void jButtonAgendarCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendarCitaActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jButtonAgendarCitaActionPerformed
+
+    private void jButtonRegistrarRecepcionistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarRecepcionistaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonRegistrarRecepcionistaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,8 +198,9 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAgendarCita;
+    private javax.swing.JButton jButtonRegistrarDoctor;
     private javax.swing.JButton jButtonRegistrarPaciente;
-    private javax.swing.JButton jButtonRegistrarPersonal;
+    private javax.swing.JButton jButtonRegistrarRecepcionista;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
