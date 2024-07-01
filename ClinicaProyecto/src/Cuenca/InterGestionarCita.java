@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import java.sql.Date;
 
 /**
  *
@@ -24,7 +25,9 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
     public int idPaciente;
     private String idDoctorString;
     private String idPacienteString;
-
+    
+    private String fechaRegistro;
+    private Date fechaRegistros;
     private long lunes;
     private long martes;
     private long miercoles;
@@ -58,6 +61,9 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
         jComboBox_paciente = new javax.swing.JComboBox<>();
         jButton_elegirPaciente = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jLabel_Fecha = new javax.swing.JLabel();
+        jTextField_Fecha = new javax.swing.JTextField();
+        jButton_Fecha = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
@@ -125,6 +131,22 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Paciente:");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        jLabel_Fecha.setText("Fecha");
+        jPanel2.add(jLabel_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+
+        jTextField_Fecha.setText("Ingrese...");
+        jPanel2.add(jTextField_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 100, -1));
+
+        jButton_Fecha.setBackground(new java.awt.Color(51, 204, 0));
+        jButton_Fecha.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jButton_Fecha.setText("Envie");
+        jButton_Fecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_FechaActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 130, 270));
 
@@ -257,8 +279,10 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
             //Convertir id a string para usarlo como parametro en enviarElementos
             idDoctorString = Long.toString(idDoctor);
             idPacienteString = Integer.toString(idPaciente);
-
-            objMenuCita.enviarElementosCita("6", idDoctorString, idPacienteString, "f", "f", "f", "Pendiente");
+            fechaRegistro = jTextField_Fecha.getText();
+            fechaRegistros = Date.valueOf(fechaRegistro);
+            //ActualizarDate
+            objMenuCita.enviarElementosCita("6", idDoctorString, idPacienteString, fechaRegistros, "f", "f", "Pendiente");
 
             //mostrar tabla actualizada
             CargarTablaCita();
@@ -313,8 +337,15 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton_elegirPacienteActionPerformed
 
+    private void jButton_FechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_FechaActionPerformed
+        // TODO add your handling code here:
+        fechaRegistro = jTextField_Fecha.getText();
+        objMenuCitaPaciente.setFecha(fechaRegistro);
+    }//GEN-LAST:event_jButton_FechaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton_Fecha;
     private javax.swing.JButton jButton_actualizarDia;
     private javax.swing.JButton jButton_elegirPaciente;
     private javax.swing.JComboBox<String> jComboBox_dia;
@@ -325,12 +356,14 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel_Fecha;
     private javax.swing.JLabel jLabel_wallpaper;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable_citas;
+    private javax.swing.JTextField jTextField_Fecha;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_costo;
     private javax.swing.JTextField txt_nombre;

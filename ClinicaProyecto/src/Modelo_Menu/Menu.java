@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
+import java.sql.Date;
 
 /**
  *
@@ -138,14 +138,14 @@ public class Menu {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   public void enviarElementosCita(String idRec, String idDoc, String idPac, String fCita, String fRegistro, String cTotal, String Estado){
+   public void enviarElementosCita(String idRec, String idDoc, String idPac, Date fCita, String fRegistro, String cTotal, String Estado){
         PreparedStatement objPreparedStatement;
         try {
             objPreparedStatement = objConnection.prepareStatement("insert into cita(idRecepcionista,idDoctor,idPaciente,fechaCita,fechaRegistro,costoTotal,estado)values(?,?,?,?,?,?,?)");
             objPreparedStatement.setString(1, idRec);
             objPreparedStatement.setString(2, idDoc);
             objPreparedStatement.setString(3, idPac);
-            objPreparedStatement.setString(4, fCita);
+            objPreparedStatement.setDate(4, fCita);
             objPreparedStatement.setString(5, fRegistro);
             objPreparedStatement.setString(6, cTotal);
             objPreparedStatement.setString(7, Estado);

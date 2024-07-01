@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Modelo_Menu;
-
+import java.sql.Date;
 /**
  *
  * @author migue
@@ -13,6 +13,7 @@ public class ModeloCita {
     private int idDoctor;
     private int idPaciente;
     private int costoTotal;
+    private  Date specificDate;
     public ModeloCita(){
         this.idRecepcionista = 0;
         this.idDoctor= 0;
@@ -26,11 +27,16 @@ public class ModeloCita {
         this.idPaciente = idPaciente;
         this.costoTotal = costoTotal;
     }
-
+    public void setFecha(String fecha){
+        this.specificDate =  Date.valueOf(fecha);
+    }
+    public Date getFecha(){
+        return specificDate;
+    }
     public int getIdRecepcionista() {
         return idRecepcionista;
     }
-
+    
     public void setIdRecepcionista(int idRecepcionista) {
         this.idRecepcionista = idRecepcionista;
     }
