@@ -1,9 +1,8 @@
 package Cuenca;
 
 // Proyecto Clinica
-import Modelo_Menu.Menu;
-// Video
-//import controlador.Ctrl_Categoria;
+import Modelo_Menu.*;
+
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -14,17 +13,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-//import modelo.Categoria;
 
 /**
  *
- * @author ediso
+ * @author cuenca y giron
  */
 public class InterGestionarCita extends javax.swing.JInternalFrame {
 
     private long idDoctor;
-    private String idDoctorString; 
-    
+    public int idPaciente;
+    private String idDoctorString;
+    private String idPacienteString;
+
     private long lunes;
     private long martes;
     private long miercoles;
@@ -32,14 +32,18 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
     private long viernes;
     private long sabado;
     Menu objMenuCita;
+    ModeloCita objMenuCitaPaciente;
+
     public InterGestionarCita() {
+        objMenuCitaPaciente = new ModeloCita();
         objMenuCita = new Menu();
-        
+
         initComponents();
         this.setSize(new Dimension(900, 500));
         this.setTitle("Gestionar Citas");
         //Cargar tabla
         this.CargarTablaCita();
+        this.CargarComboPaciente();
     }
 
     @SuppressWarnings("unchecked")
@@ -51,6 +55,9 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_citas = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
+        jComboBox_paciente = new javax.swing.JComboBox<>();
+        jButton_elegirPaciente = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
@@ -96,6 +103,29 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jComboBox_paciente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jComboBox_paciente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el dia:", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado" }));
+        jComboBox_paciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox_pacienteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboBox_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 110, -1));
+
+        jButton_elegirPaciente.setBackground(new java.awt.Color(51, 204, 0));
+        jButton_elegirPaciente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton_elegirPaciente.setText("Paciente");
+        jButton_elegirPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_elegirPacienteActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton_elegirPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 100, 40));
+
+        jLabel6.setText("Paciente:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 130, 270));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -159,7 +189,7 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
 
     /*
      * *****************************************************
-     * metodo para enviar a la BD el dia elegido en el JCombo 
+     * metodo para aumentar en uno la ocupacion de cada doctor por dia
      * *****************************************************
      */
 
@@ -220,17 +250,16 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
                 consulta.setLong(5, viernes);
                 consulta.setLong(6, sabado);
 
-                consulta.executeUpdate(); 
+                consulta.executeUpdate();
 
             }
-            con.close();
-            //Carga Datos a Tabla Citas Recepcionista Doctor Paciente
+
+            //Convertir id a string para usarlo como parametro en enviarElementos
             idDoctorString = Long.toString(idDoctor);
-            //objMenu.ConectarBD();
-            //objMenuCita.enviarElementosCita("Recepcionista", idDoctorString, "Paciente", "0", "0", "0", "Pendiente");
-            //Necesita saber el id para eos necesitamos mostrar paceintes por id
-            
-            
+            idPacienteString = Integer.toString(idPaciente);
+
+            objMenuCita.enviarElementosCita("6", idDoctorString, idPacienteString, "f", "f", "f", "Pendiente");
+
             //mostrar tabla actualizada
             CargarTablaCita();
 
@@ -243,15 +272,59 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox_diaActionPerformed
 
+    private void jComboBox_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_pacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox_pacienteActionPerformed
+
+    private void jButton_elegirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_elegirPacienteActionPerformed
+        //Metodo para obtener el idPaciente mediante la eleccion en el JCombo
+
+        Connection con = Menu.ConectarBD();
+
+        String sqlPaciente = "select * from paciente";
+        Statement st;
+
+        try {
+            st = con.createStatement();
+
+            ResultSet rsPaciente = st.executeQuery(sqlPaciente);
+
+            while (rsPaciente.next()) {
+
+                int id = rsPaciente.getInt("id");
+                String nombre = rsPaciente.getString("nombre");
+                String apellido = rsPaciente.getString("apellido");
+
+                String nombreCompleto = nombre + " " + apellido;
+
+                // Comparar con el elemento seleccionado en el JComboBox
+                if (nombreCompleto.equals(jComboBox_paciente.getSelectedItem())) {
+                    idPaciente = id;
+                    objMenuCitaPaciente.setIdPaciente(idPaciente);
+                    break;
+                }
+            }
+
+            con.close();
+
+        } catch (SQLException e) {
+            System.out.println("Error al elegir paciente: " + e);
+        }
+
+    }//GEN-LAST:event_jButton_elegirPacienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton_actualizarDia;
+    private javax.swing.JButton jButton_elegirPaciente;
     private javax.swing.JComboBox<String> jComboBox_dia;
+    private javax.swing.JComboBox<String> jComboBox_paciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel_wallpaper;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -263,6 +336,30 @@ public class InterGestionarCita extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
 
+
+    /*
+     * *****************************************************
+     * metodo para cargar pacientes en el JcomboPaciente desde la tabla paciente
+     * *****************************************************
+     */
+    private void CargarComboPaciente() {
+        Connection con = Menu.ConectarBD();
+        String sql = "select * from paciente";
+        Statement st;
+        try {
+
+            st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            jComboBox_paciente.removeAllItems();
+            jComboBox_paciente.addItem("Seleccione paciente:");
+            while (rs.next()) {
+                jComboBox_paciente.addItem(rs.getString("nombre") + " " + rs.getString("apellido"));
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("!Error al cargar pacientes¡");
+        }
+    }
 
     /*
      * *****************************************************
