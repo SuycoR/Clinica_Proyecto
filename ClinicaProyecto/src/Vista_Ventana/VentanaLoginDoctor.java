@@ -12,7 +12,7 @@ package Vista_Ventana;
 import javax.swing.JOptionPane;
 import Modelo_Menu.Menu;
 import Modelo_Menu.Doctor;
-import Controlador_Menu_SuycoDoctor.Ventana_LoginMenuDoctor;
+import Controlador_Menu_SuycoDoctor.*;
         
 public class VentanaLoginDoctor extends javax.swing.JFrame {
 public Menu objMenu;
@@ -51,10 +51,10 @@ public Doctor objDoctor;
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Clínica Capitan Peru");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, 40));
 
@@ -64,22 +64,20 @@ public Doctor objDoctor;
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 270, Short.MAX_VALUE)
+            .addGap(0, 280, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 580, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 270, 580));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 280, 580));
 
         jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 34)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Ingresa tus datos");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 40));
 
         Nombres.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        Nombres.setForeground(new java.awt.Color(0, 0, 0));
         Nombres.setText("Usuario:");
         jPanel2.add(Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, 30));
 
@@ -104,13 +102,11 @@ public Doctor objDoctor;
         jPanel2.add(jSeparatorNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 260, -1));
 
         Apellidos1.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        Apellidos1.setForeground(new java.awt.Color(0, 0, 0));
         Apellidos1.setText("Contraseña:");
         jPanel2.add(Apellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, 30));
 
         jButtonIniciarSesion.setBackground(new java.awt.Color(223, 208, 184));
         jButtonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         jButtonIniciarSesion.setText("Iniciar sesión");
         jButtonIniciarSesion.setBorder(null);
         jButtonIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -127,7 +123,6 @@ public Doctor objDoctor;
 
         jButtonCancelar.setBackground(new java.awt.Color(223, 208, 184));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonCancelar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setBorder(null);
         jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,11 +150,15 @@ public Doctor objDoctor;
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -189,13 +188,15 @@ public Doctor objDoctor;
 
         objDoctor.setUsuario(usuario);
         objDoctor.setContrasena(contrasena);
-
         if(objMenu.loginUserDoctor(objDoctor)){
-            this.dispose();
-            Ventana_LoginMenuDoctor objVentana_LoginMenuDoctor = new Ventana_LoginMenuDoctor();
-            objVentana_LoginMenuDoctor.setSize(900,580);
+           //Menu.java
+            //ListaPacientes objlistapacientes = new ListaPacientes(objDoctor);
+            //jPanel3.add(objlistapacientes);
+            //objlistapacientes.setVisible(true);
+            Ventana_LoginMenuDoctor objVentana_LoginMenuDoctor = new Ventana_LoginMenuDoctor(objDoctor);
             objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
             objVentana_LoginMenuDoctor.setVisible(true);
+            this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Datos incorrectos");
         }
@@ -259,4 +260,5 @@ public Doctor objDoctor;
     private javax.swing.JSeparator jSeparatorNombre1;
     private javax.swing.JSeparator jSeparatorNombre3;
     // End of variables declaration//GEN-END:variables
+    
 }
