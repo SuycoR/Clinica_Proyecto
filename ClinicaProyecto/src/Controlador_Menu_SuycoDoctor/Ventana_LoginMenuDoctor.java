@@ -4,17 +4,56 @@
  */
 package Controlador_Menu_SuycoDoctor;
 
+import Modelo_Menu.*;
+import Vista_Ventana.*;
+import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.sql.Date;
 /**
  *
  * @author Suyco
  */
 public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
-
+    private Doctor objDoctor;
+    private long idDoctor;
+    public int idPaciente;
+    private String idDoctorString;
+    private String idPacienteString;
+    
+    private String fechaRegistro;
+    private Date fechaRegistros;
+    private long lunes;
+    private long martes;
+    private long miercoles;
+    private long jueves;
+    private long viernes;
+    private long sabado;
+    Menu objMenuCita;
+    ModeloCita objMenuCitaPaciente;
+   
     /**
      * Creates new form Ventana_LoginMenuDoctor
      */
-    public Ventana_LoginMenuDoctor() {
+    public Ventana_LoginMenuDoctor(Doctor objDoctor) {
+        objMenuCitaPaciente = new ModeloCita();
+        objMenuCita = new Menu();
+        this.objDoctor= objDoctor;
         initComponents();
+        this.setSize(new Dimension(900, 500));
+        this.setTitle("Gestionar Citas");
+        this.CargarTablaAtender();
+    }
+
+    private Ventana_LoginMenuDoctor() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -26,60 +65,43 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("Ver Lista de pacientes por atender");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 377, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 232, Short.MAX_VALUE)
-        );
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(243, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        //
-        Ventana_LoginMenuDoctor ventana_LoginMenuDoctor = new Ventana_LoginMenuDoctor();
-        jPanel1.add(ventana_LoginMenuDoctor);
-        ventana_LoginMenuDoctor.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,13 +133,68 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Ventana_LoginMenuDoctor().setVisible(true);
+                //new Ventana_LoginMenuDoctor(Doctor objDoctor).setVisible(true);
+                Ventana_LoginMenuDoctor ventana = new Ventana_LoginMenuDoctor();
+                ventana.setVisible(true);
+                //jTextArea1.setText(objDoctor.getId());
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JPanel jPanel1;
+    public static javax.swing.JScrollPane jScrollPane1;
+    public static javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
+   
+    private int IdDoctorLogeado;
+
+    private void CargarTablaAtender(){
+        IdDoctorLogeado = objDoctor.getIdDoctor();
+        Connection con = Menu.ConectarBD();
+        DefaultTableModel model = new DefaultTableModel();
+        String sql = "SELECT idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE idDoctor = ?";
+        PreparedStatement pst;
+        try {
+        pst = con.prepareStatement(sql);
+        pst.setInt(1, IdDoctorLogeado); // Establece el valor del parámetro
+        ResultSet rs = pst.executeQuery();
+        Ventana_LoginMenuDoctor.jTable1 = new JTable(model);
+        Ventana_LoginMenuDoctor.jScrollPane1.setViewportView(Ventana_LoginMenuDoctor.jTable1);
+
+        model.addColumn("idRecepcionista");
+        model.addColumn("idDoctor");
+        model.addColumn("idPaciente");
+        model.addColumn("fechaCita");
+        model.addColumn("fechaRegistro");
+        model.addColumn("costoTotal");
+        model.addColumn("estado");
+
+        while (rs.next()) {
+            Object fila[] = new Object[7];
+            for (int i = 0; i < 7; i++) {
+                fila[i] = rs.getObject(i + 1);
+            }
+            model.addRow(fila);
+        }
+        con.close();
+    } catch (SQLException e) {
+        System.out.println("Error al llenar la tabla citas: " + e);
+    }
+    // Evento para obtener campo al cual el usuario da click
+    // y obtener la interfaz que mostrara la informacion general
+    jTable1.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            int fila_point = jTable1.rowAtPoint(e.getPoint());
+            int columna_point = 0;
+
+            if (fila_point > -1) {
+                idDoctor = (Long) model.getValueAt(fila_point, columna_point);
+//                EnviarDatosCitaSeleccionada(idDoctor);
+            }
+        }
+    });
+    
+    } 
 }
+
