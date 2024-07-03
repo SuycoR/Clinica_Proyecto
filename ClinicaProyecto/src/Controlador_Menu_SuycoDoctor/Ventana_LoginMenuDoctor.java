@@ -43,9 +43,11 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         this.setSize(new Dimension(1000, 600));
         this.setTitle("Gestionar Pacientes");
         this.objDoctor= objDoctor;
+        idDoctor=objDoctor.getIdDoctor();
+        obtenerNombrexId(idDoctor);
         //this.add(txt_Doctor);
        //txt_Doctor.setText(objDoctor.getId());
-        txt_Doctor.setText(String.valueOf(objDoctor.getIdDoctor()));
+        //txt_Doctor.setText(String.valueOf(objDoctor.getIdDoctor()));
         this.CargarTablaAtender();
     }
 
@@ -80,6 +82,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         txt_Doctor = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
+        jButtonAtendidos = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -141,7 +144,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
 
         jButton_actualizarDia.setBackground(new java.awt.Color(153, 255, 102));
         jButton_actualizarDia.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton_actualizarDia.setText("Generar Recibo");
+        jButton_actualizarDia.setText("Generar Receta");
         jButton_actualizarDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_actualizarDiaActionPerformed(evt);
@@ -178,11 +181,11 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(txt_costo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGap(53, 53, 53)
                 .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_actualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton_actualizarDia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25))
+                    .addComponent(jButton_actualizarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         jPanelPacienteLayout.setVerticalGroup(
             jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,10 +204,10 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(22, 22, 22))
             .addGroup(jPanelPacienteLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jButton_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jButton_actualizarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -238,24 +241,40 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
             }
         });
 
+        jButtonAtendidos.setBackground(new java.awt.Color(102, 153, 255));
+        jButtonAtendidos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonAtendidos.setText("Pacientes Atendidos");
+        jButtonAtendidos.setBorder(null);
+        jButtonAtendidos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonAtendidosMousePressed(evt);
+            }
+        });
+        jButtonAtendidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAtendidosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(txt_Doctor, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54))))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(89, 89, 89)
+                        .addComponent(txt_Doctor, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButtonAtendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,9 +283,11 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_Doctor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
+                .addComponent(jButtonAtendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(134, 134, 134))
+                .addGap(47, 47, 47))
         );
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 329, 550));
@@ -327,6 +348,18 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton_actualizarActionPerformed
 
+    private void jButtonAtendidosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonAtendidosMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonAtendidosMousePressed
+
+    private void jButtonAtendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtendidosActionPerformed
+        // TODO add your handling code here:
+        Ventana_Atendidos objVentana_Atendidos= new Ventana_Atendidos();
+        objVentana_Atendidos.setLocationRelativeTo(null);
+        objVentana_Atendidos.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonAtendidosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -374,6 +407,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
 //</editor-fold>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAtendidos;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButton_actualizar;
     private javax.swing.JButton jButton_actualizarDia;
@@ -388,7 +422,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelPaciente;
     public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable1;
-    public static javax.swing.JLabel txt_Doctor;
+    private javax.swing.JLabel txt_Doctor;
     private javax.swing.JTextField txt_apellido;
     private javax.swing.JTextField txt_costo;
     private javax.swing.JTextField txt_nombre;
@@ -509,6 +543,20 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se logro actualizar los datos");
         }
 
+    }
+    public void obtenerNombrexId(long idDoctor){
+        try {
+            Connection con = Menu.ConectarBD();
+            PreparedStatement pst = con.prepareStatement(
+                    "select * from doctor where idDoctor = '" + idDoctor + "'");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                txt_Doctor.setText(rs.getString("nombre"));  
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error al seleccionar cita: " + e);
+        }
     }
 }
 
