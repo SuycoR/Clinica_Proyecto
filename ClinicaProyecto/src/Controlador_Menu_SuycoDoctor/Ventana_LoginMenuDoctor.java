@@ -24,36 +24,30 @@ import java.sql.Date;
 public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     private Doctor objDoctor;
     private long idDoctor;
-    public int idPaciente;
-    private String idDoctorString;
-    private String idPacienteString;
+    public long idPaciente;
     
-    private String fechaRegistro;
-    private Date fechaRegistros;
-    private long lunes;
-    private long martes;
-    private long miercoles;
-    private long jueves;
-    private long viernes;
-    private long sabado;
-    Menu objMenuCita;
-    ModeloCita objMenuCitaPaciente;
+    Paciente objPaciente;
    
     /**
      * Creates new form Ventana_LoginMenuDoctor
      */
     public Ventana_LoginMenuDoctor(Doctor objDoctor) {
-        objMenuCitaPaciente = new ModeloCita();
-        objMenuCita = new Menu();
-        this.objDoctor= objDoctor;
+        objPaciente = new Paciente();
+        
+        //txt_Doctor.getText(objDoctor.getId());
+        // Añade el JLabel al JFrame
         initComponents();
-        this.setSize(new Dimension(900, 500));
-        this.setTitle("Gestionar Citas");
+        this.setSize(new Dimension(900, 600));
+        this.setTitle("Gestionar Pacientes");
+        this.objDoctor= objDoctor;
+        //this.add(txt_Doctor);
+       //txt_Doctor.setText(objDoctor.getId());
+        txt_Doctor.setText(String.valueOf(objDoctor.getIdDoctor()));
         this.CargarTablaAtender();
     }
 
     private Ventana_LoginMenuDoctor() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+       throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     /**
@@ -65,10 +59,58 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        txt_Doctor = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jPanelPaciente = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        txt_nombre = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txt_apellido = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txt_costo = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel3.setBackground(new java.awt.Color(21, 52, 72));
+
+        txt_Doctor.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        txt_Doctor.setForeground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("BIENVENIDO");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(0, 59, Short.MAX_VALUE)
+                .addComponent(txt_Doctor, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txt_Doctor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(454, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setForeground(new java.awt.Color(51, 51, 51));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,25 +125,127 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 525, 266));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setText("Nombre:");
+
+        txt_nombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_nombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_nombreActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setText("Apellido:");
+
+        txt_apellido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setText("Costo:");
+
+        txt_costo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_costo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_costoActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelPacienteLayout = new javax.swing.GroupLayout(jPanelPaciente);
+        jPanelPaciente.setLayout(jPanelPacienteLayout);
+        jPanelPacienteLayout.setHorizontalGroup(
+            jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPacienteLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelPacienteLayout.createSequentialGroup()
+                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_costo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19))
+        );
+        jPanelPacienteLayout.setVerticalGroup(
+            jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPacienteLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(txt_nombre)
+                    .addComponent(txt_costo)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
+        );
+
+        jPanel2.add(jPanelPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 570, 120));
+
+        jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        jLabel5.setText("Lista de Pacientes ");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 330, 50));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(633, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 608, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(408, Short.MAX_VALUE)))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(243, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(247, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_costoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_costoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_costoActionPerformed
+
+    private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_nombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,19 +275,40 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 //new Ventana_LoginMenuDoctor(Doctor objDoctor).setVisible(true);
                 Ventana_LoginMenuDoctor ventana = new Ventana_LoginMenuDoctor();
                 ventana.setVisible(true);
+                //txt_Doctor.setText(objDoctor.getId);
+                //txt_Doctor = objDoctor.getNombre();
+                //txt_Doctor.setText(objDoctor.getId());
                 //jTextArea1.setText(objDoctor.getId());
+              
             }
         });
     }
+    
+//</editor-fold>
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelPaciente;
     public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable1;
+    public static javax.swing.JLabel txt_Doctor;
+    private javax.swing.JTextField txt_apellido;
+    private javax.swing.JTextField txt_costo;
+    private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
    
     private int IdDoctorLogeado;
@@ -162,7 +327,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         Ventana_LoginMenuDoctor.jScrollPane1.setViewportView(Ventana_LoginMenuDoctor.jTable1);
 
         model.addColumn("idRecepcionista");
-        model.addColumn("idDoctor");
+        //model.addColumn("idDoctor");
         model.addColumn("idPaciente");
         model.addColumn("fechaCita");
         model.addColumn("fechaRegistro");
@@ -170,10 +335,16 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         model.addColumn("estado");
 
         while (rs.next()) {
-            Object fila[] = new Object[7];
-            for (int i = 0; i < 7; i++) {
-                fila[i] = rs.getObject(i + 1);
-            }
+            Object fila[] = new Object[6];
+            //for (int i = 0; i < 7; i++) {
+               // fila[i] = rs.getObject(i + 1);
+            //}
+            fila[0] = rs.getObject("idRecepcionista");
+            fila[1] = rs.getObject("idPaciente");
+            fila[2] = rs.getObject("fechaCita");
+            fila[3] = rs.getObject("fechaRegistro");
+            fila[4] = rs.getObject("costoTotal");
+            fila[5] = rs.getObject("estado");
             model.addRow(fila);
         }
         con.close();
@@ -189,12 +360,33 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
             int columna_point = 0;
 
             if (fila_point > -1) {
-                idDoctor = (Long) model.getValueAt(fila_point, columna_point);
-//                EnviarDatosCitaSeleccionada(idDoctor);
+                idPaciente = (Long) model.getValueAt(fila_point, 1);
+                EnviarDatosPacienteSeleccionada(idPaciente);
+                
             }
         }
     });
     
     } 
+    /*
+     * **************************************************
+     * Metodo que envia datos del doctor seleccionado al cuadro de texto
+     * **************************************************
+     */
+    private void EnviarDatosPacienteSeleccionada(long idPaciente) {
+        try {
+            Connection con = Menu.ConectarBD();
+            PreparedStatement pst = con.prepareStatement(
+                    "select * from paciente where id = '" + idPaciente + "'");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                txt_nombre.setText(rs.getString("nombre"));
+                txt_apellido.setText(rs.getString("apellido"));
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error al seleccionar cita: " + e);
+        }
+    }
 }
 
