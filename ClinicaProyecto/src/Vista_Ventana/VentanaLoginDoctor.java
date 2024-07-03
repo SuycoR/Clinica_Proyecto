@@ -194,6 +194,7 @@ public Doctor objDoctor;
             //jPanel3.add(objlistapacientes);
             //objlistapacientes.setVisible(true);
             Ventana_LoginMenuDoctor objVentana_LoginMenuDoctor = new Ventana_LoginMenuDoctor(objDoctor);
+            //objVentana_LoginMenuDoctor.setSize(900,540);
             objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
             objVentana_LoginMenuDoctor.setVisible(true);
             this.dispose();
