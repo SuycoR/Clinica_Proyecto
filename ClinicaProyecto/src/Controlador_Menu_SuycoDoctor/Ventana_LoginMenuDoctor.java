@@ -17,6 +17,7 @@ import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import java.sql.Date;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Suyco
@@ -25,6 +26,8 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     private Doctor objDoctor;
     private long idDoctor;
     public long idPaciente;
+    public int CostoTotal;
+    public long idCita;
     
     Paciente objPaciente;
    
@@ -70,6 +73,8 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         txt_apellido = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         txt_costo = new javax.swing.JTextField();
+        jButton_actualizarDia = new javax.swing.JButton();
+        jButton_actualizar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txt_Doctor = new javax.swing.JLabel();
@@ -134,43 +139,76 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
             }
         });
 
+        jButton_actualizarDia.setBackground(new java.awt.Color(153, 255, 102));
+        jButton_actualizarDia.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton_actualizarDia.setText("Generar Recibo");
+        jButton_actualizarDia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_actualizarDiaActionPerformed(evt);
+            }
+        });
+
+        jButton_actualizar.setBackground(new java.awt.Color(0, 51, 255));
+        jButton_actualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton_actualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_actualizar.setText("Paciente Atendido");
+        jButton_actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_actualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelPacienteLayout = new javax.swing.GroupLayout(jPanelPaciente);
         jPanelPaciente.setLayout(jPanelPacienteLayout);
         jPanelPacienteLayout.setHorizontalGroup(
             jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPacienteLayout.createSequentialGroup()
+            .addGroup(jPanelPacienteLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
                 .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanelPacienteLayout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addGap(18, 18, 18)
+                            .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanelPacienteLayout.createSequentialGroup()
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanelPacienteLayout.createSequentialGroup()
-                        .addComponent(txt_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(341, 341, 341)
-                .addComponent(txt_costo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_costo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton_actualizar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton_actualizarDia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25))
         );
         jPanelPacienteLayout.setVerticalGroup(
             jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelPacienteLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(19, 19, 19)
                 .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txt_nombre)
-                    .addComponent(txt_costo)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txt_nombre))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txt_apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(15, 15, 15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_costo)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
+            .addGroup(jPanelPacienteLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(jButton_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton_actualizarDia, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.add(jPanelPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 570, 120));
+        jPanel2.add(jPanelPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 570, 120));
 
         jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
         jLabel5.setText("Lista de Pacientes ");
@@ -277,6 +315,18 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
+    private void jButton_actualizarDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_actualizarDiaActionPerformed
+     
+    }//GEN-LAST:event_jButton_actualizarDiaActionPerformed
+
+    private void jButton_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_actualizarActionPerformed
+        // TODO add your handling code here:
+        //Datos fijos, idDoctorLogeado,idPaciente,CostoTotal, idCita.
+        actualizarDatos(idCita);
+        //CargarTablaAtender();
+        
+    }//GEN-LAST:event_jButton_actualizarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -325,6 +375,8 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButton_actualizar;
+    private javax.swing.JButton jButton_actualizarDia;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -348,15 +400,17 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         IdDoctorLogeado = objDoctor.getIdDoctor();
         Connection con = Menu.ConectarBD();
         DefaultTableModel model = new DefaultTableModel();
-        String sql = "SELECT idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE idDoctor = ?";
+        String sql = "SELECT idCita,idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE idDoctor = ? AND estado = ?";
         PreparedStatement pst;
         try {
         pst = con.prepareStatement(sql);
         pst.setInt(1, IdDoctorLogeado); // Establece el valor del parámetro
+        pst.setString(2,"Pendiente");
         ResultSet rs = pst.executeQuery();
         Ventana_LoginMenuDoctor.jTable1 = new JTable(model);
         Ventana_LoginMenuDoctor.jScrollPane1.setViewportView(Ventana_LoginMenuDoctor.jTable1);
 
+        model.addColumn("idCita");
         model.addColumn("idRecepcionista");
         //model.addColumn("idDoctor");
         model.addColumn("idPaciente");
@@ -366,16 +420,17 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         model.addColumn("estado");
 
         while (rs.next()) {
-            Object fila[] = new Object[6];
+            Object fila[] = new Object[7];
             //for (int i = 0; i < 7; i++) {
                // fila[i] = rs.getObject(i + 1);
             //}
-            fila[0] = rs.getObject("idRecepcionista");
-            fila[1] = rs.getObject("idPaciente");
-            fila[2] = rs.getObject("fechaCita");
-            fila[3] = rs.getObject("fechaRegistro");
-            fila[4] = rs.getObject("costoTotal");
-            fila[5] = rs.getObject("estado");
+            fila[0] = rs.getObject("idCita");
+            fila[1] = rs.getObject("idRecepcionista");
+            fila[2] = rs.getObject("idPaciente");
+            fila[3] = rs.getObject("fechaCita");
+            fila[4] = rs.getObject("fechaRegistro");
+            fila[5] = rs.getObject("costoTotal");
+            fila[6] = rs.getObject("estado");
             model.addRow(fila);
         }
         con.close();
@@ -391,9 +446,17 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
             int columna_point = 0;
 
             if (fila_point > -1) {
-                idPaciente = (Long) model.getValueAt(fila_point, 1);
+                idPaciente = (Long) model.getValueAt(fila_point, 2);
                 EnviarDatosPacienteSeleccionada(idPaciente);
                 
+            }
+            if (fila_point > -1) {
+                CostoTotal = (Integer) model.getValueAt(fila_point, 5);
+                txt_costo.setText(String.valueOf(CostoTotal));
+                
+            }
+            if (fila_point > -1) {
+                idCita = (Long) model.getValueAt(fila_point, 0);
             }
         }
     });
@@ -413,11 +476,39 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
             if (rs.next()) {
                 txt_nombre.setText(rs.getString("nombre"));
                 txt_apellido.setText(rs.getString("apellido"));
+                
             }
             con.close();
         } catch (SQLException e) {
             System.out.println("Error al seleccionar cita: " + e);
         }
+    }
+    //private void ActualizarEstadoCita(long idCita) {
+        //try {
+            //Connection con = Menu.ConectarBD();
+            // Crear la sentencia SQL para actualizar el estado
+           // String sql = "UPDATE cita SET estado = ? WHERE idCita = '" + idCita + "'";
+            //PreparedStatement pst = con.prepareStatement(sql);
+            //
+            //con.close();
+        //} catch (SQLException e) {
+            //System.out.println("Error al seleccionar cita: " + e);
+        //}
+    //}
+    public void actualizarDatos(long idCita){
+        //int fila=jTable1.getSelectedColumn();
+        String estado = "Atendido";
+        try {
+            Connection con = Menu.ConectarBD();
+            String sql = "UPDATE cita SET estado = '"+estado+"' WHERE idCita = '" + idCita + "'";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.executeUpdate();
+            CargarTablaAtender();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se logro actualizar los datos");
+        }
+
     }
 }
 
