@@ -18,7 +18,6 @@ import java.sql.ResultSet;
 import Modelo_Menu.Paciente;
 import Modelo_Menu.Doctor;
 import Modelo_Menu.Recepcionista;
-import Modelo_Menu.Recepcionista;
 import com.mysql.cj.protocol.Resultset;
 
 /**
@@ -26,7 +25,6 @@ import com.mysql.cj.protocol.Resultset;
  * @author PC
  */
 public class Menu {
-
     public static PreparedStatement prepareStatement(String string) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -169,7 +167,7 @@ public class Menu {
         boolean respuesta = false;
 
         Connection objConnection = Menu.ConectarBD();
-        String sql = "select usuario, contrasena from paciente where usuario=? and contrasena=?";
+        String sql = "select id,usuario, contrasena from paciente where usuario=? and contrasena=?";
         ResultSet objResultset;
 
         try {
@@ -182,6 +180,9 @@ public class Menu {
             
             while(objResultset.next()){
                 respuesta = true;
+                int idPaciente =objResultset.getInt("id");
+                objeto.setIdPaciente(idPaciente);
+                
             }   
 
         } catch (SQLException ex) {
@@ -197,7 +198,7 @@ public class Menu {
         boolean respuesta = false;
 
         Connection objConnection = Menu.ConectarBD();
-        String sql = "select usuario, contrasena from doctor where usuario=? and contrasena=?";
+        String sql = "select idDoctor,usuario, contrasena from doctor where usuario=? and contrasena=?";
         ResultSet objResultset;
 
         try {
@@ -210,6 +211,9 @@ public class Menu {
             
             while(objResultset.next()){
                 respuesta = true;
+                //Resultset representa fila
+                int idDoctor =objResultset.getInt("idDoctor");
+                objeto.setIdDoctor(idDoctor);
             }   
 
         } catch (SQLException ex) {
@@ -225,7 +229,7 @@ public class Menu {
         boolean respuesta = false;
 
         Connection objConnection = Menu.ConectarBD();
-        String sql = "select usuario, contrasena from recepcionista where usuario=? and contrasena=?";
+        String sql = "select idRecepcionista,usuario, contrasena from recepcionista where usuario=? and contrasena=?";
         ResultSet objResultset;
 
         try {
@@ -238,6 +242,8 @@ public class Menu {
             
             while(objResultset.next()){
                 respuesta = true;
+                int idRecepcionista =objResultset.getInt("idRecepcionista");
+                objeto.setIdRecepcionista(idRecepcionista);
             }   
 
         } catch (SQLException ex) {
