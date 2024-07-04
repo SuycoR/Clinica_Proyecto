@@ -8,6 +8,7 @@ import Miguel.InterVerCita;
  *
  * @author PC
  */
+import MenuPaciente.*;
 import javax.swing.JOptionPane;
 import Modelo_Menu.Menu;
 import Modelo_Menu.Paciente;
@@ -194,10 +195,10 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         
         if(objMenu.loginUserPaciente(objPaciente)){
             this.dispose();
-            VentanaMenuPaciente objVentanaMenuPaciente = new VentanaMenuPaciente();
+            Menu_Paciente objmenu_Paciente = new Menu_Paciente(objPaciente);
           
-            objVentanaMenuPaciente.setLocationRelativeTo(null);
-            objVentanaMenuPaciente.setVisible(true);
+            objmenu_Paciente.setLocationRelativeTo(null);
+            objmenu_Paciente.setVisible(true);
             
             
         }else{
