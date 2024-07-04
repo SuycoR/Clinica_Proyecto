@@ -3,8 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package MenuRecepcionista;
+
 import Vista_Ventana.*;
 import Modelo_Menu.*;
+import Modelo_Menu.*;
+import Vista_Ventana.*;
+import java.awt.Dimension;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import java.sql.Date;
 /**
  *
  * @author Suyco
@@ -12,6 +26,7 @@ import Modelo_Menu.*;
 public class Menu_Recepcionista extends javax.swing.JFrame {
 
     private Recepcionista objRecepcionista;
+    private long idRecepcionista;
     /**
      * Creates new form Menu_Recepcionista
      */
@@ -19,6 +34,10 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         
         initComponents();
         this.objRecepcionista=objRecepcionista;
+        idRecepcionista = objRecepcionista.getIdRecepcionista();
+        obtenerDatosxIdRecepcionista(idRecepcionista);
+        
+        
     }
     
     private Menu_Recepcionista() {
@@ -37,6 +56,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jButtonCancelar1 = new javax.swing.JButton();
+        txt_Recepcionista = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -68,6 +88,9 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
             }
         });
 
+        txt_Recepcionista.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        txt_Recepcionista.setForeground(new java.awt.Color(255, 255, 255));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -76,18 +99,22 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
                 .addContainerGap(32, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(66, 66, 66))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel7)
-                        .addGap(22, 22, 22))))
+                        .addGap(22, 22, 22))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_Recepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(66, 66, 66))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 433, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(txt_Recepcionista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 385, Short.MAX_VALUE)
                 .addComponent(jButtonCancelar1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38))
         );
@@ -104,6 +131,11 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("REGISTRAR CITA");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 380, 60));
 
         jButton3.setBackground(new java.awt.Color(28, 89, 197));
@@ -151,7 +183,17 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        VerCitaxPaciente objverCitaxPaciente = new VerCitaxPaciente(); 
+        objverCitaxPaciente.setLocationRelativeTo(null);
+        objverCitaxPaciente.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        RegistrarCita objregistrarCita = new RegistrarCita();
+        objregistrarCita.setLocationRelativeTo(null);
+        objregistrarCita.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -199,5 +241,23 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel txt_Recepcionista;
     // End of variables declaration//GEN-END:variables
+    
+    public void obtenerDatosxIdRecepcionista(long idRecepcionista){
+        try {
+            Connection con = Menu.ConectarBD();
+            PreparedStatement pst = con.prepareStatement(
+                    "select * from recepcionista where idRecepcionista = '" + idRecepcionista + "'");
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                objRecepcionista.setNombre(rs.getString("nombre"));
+                objRecepcionista.setApellido(rs.getString("apellido"));
+                txt_Recepcionista.setText(rs.getString("nombre"));  
+            }
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error al seleccionar cita: " + e);
+        }
+    }
 }
