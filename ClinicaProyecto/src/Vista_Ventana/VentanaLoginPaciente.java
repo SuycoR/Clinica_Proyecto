@@ -194,11 +194,11 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         objPaciente.setContrasena(contrasena);
         
         if(objMenu.loginUserPaciente(objPaciente)){
-            this.dispose();
+            
             Menu_Paciente objmenu_Paciente = new Menu_Paciente(objPaciente);
-          
             objmenu_Paciente.setLocationRelativeTo(null);
             objmenu_Paciente.setVisible(true);
+            this.dispose();
             
             
         }else{
