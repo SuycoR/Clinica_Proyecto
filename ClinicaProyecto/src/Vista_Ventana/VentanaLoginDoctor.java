@@ -9,10 +9,10 @@ package Vista_Ventana;
  * @author PC
  */
 
+import MenuDoctor.Ventana_LoginMenuDoctor;
 import javax.swing.JOptionPane;
 import Modelo_Menu.Menu;
 import Modelo_Menu.Doctor;
-import Controlador_Menu_SuycoDoctor.*;
         
 public class VentanaLoginDoctor extends javax.swing.JFrame {
 public Menu objMenu;
