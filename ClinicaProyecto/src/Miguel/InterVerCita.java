@@ -64,6 +64,7 @@ public class InterVerCita extends javax.swing.JInternalFrame {
         jButton_elegirPaciente = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jLabel_wallpaper = new javax.swing.JLabel();
 
         setClosable(true);
@@ -130,6 +131,9 @@ public class InterVerCita extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 100, -1));
 
+        jLabel7.setText("Paciente:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 50, 130, 410));
         getContentPane().add(jLabel_wallpaper, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 470));
 
@@ -190,6 +194,7 @@ public class InterVerCita extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox_paciente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel_wallpaper;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
