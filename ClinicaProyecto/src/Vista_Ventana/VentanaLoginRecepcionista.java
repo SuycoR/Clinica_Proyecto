@@ -5,6 +5,7 @@
 package Vista_Ventana;
 
 import Modelo_Menu.*;
+import MenuRecepcionista.*;
 /**
  *
  * @author migue
@@ -197,11 +198,12 @@ public class VentanaLoginRecepcionista extends javax.swing.JFrame {
         objRecepcionista.setContrasena(contrasena);
 
         if (objMenu.loginUserRecepcionista(objRecepcionista)) {
+            //this.dispose();
+            Menu_Recepcionista objmenuRecepcionista = new Menu_Recepcionista(objRecepcionista);
+            objmenuRecepcionista.setSize(900, 580);
+            objmenuRecepcionista.setLocationRelativeTo(null);
+            objmenuRecepcionista.setVisible(true);
             this.dispose();
-            VentanaMenuRecepcionista objVentanaRecepcionista = new VentanaMenuRecepcionista();
-            objVentanaRecepcionista.setSize(900, 580);
-            objVentanaRecepcionista.setLocationRelativeTo(null);
-            objVentanaRecepcionista.setVisible(true);
         } else {
             JOptionPane.showMessageDialog(null, "Datos incorrectos");
         }
