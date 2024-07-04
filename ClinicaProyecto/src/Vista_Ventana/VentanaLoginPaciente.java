@@ -38,9 +38,7 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
         Nombres = new javax.swing.JLabel();
         CampoUsuario = new javax.swing.JTextField();
         jSeparatorNombre1 = new javax.swing.JSeparator();
@@ -49,17 +47,15 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         jButtonCancelar = new javax.swing.JButton();
         CampoContrasena = new javax.swing.JPasswordField();
         jSeparatorNombre3 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Clínica Capitan Peru");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, 40));
 
         jPanel1.setBackground(new java.awt.Color(21, 52, 72));
 
@@ -76,19 +72,14 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 270, 580));
 
-        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 34)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Ingresa tus datos");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 40));
-
         Nombres.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        Nombres.setForeground(new java.awt.Color(0, 0, 0));
+        Nombres.setForeground(new java.awt.Color(21, 52, 72));
         Nombres.setText("Usuario:");
-        jPanel2.add(Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, 30));
+        jPanel2.add(Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, 30));
 
         CampoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        CampoUsuario.setText("Ingrese nombre...");
+        CampoUsuario.setText("Usuario");
         CampoUsuario.setBorder(null);
         CampoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -100,16 +91,16 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
                 CampoUsuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 260, 30));
+        jPanel2.add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 260, 30));
 
         jSeparatorNombre1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorNombre1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparatorNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 260, -1));
+        jPanel2.add(jSeparatorNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 260, -1));
 
         Apellidos1.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        Apellidos1.setForeground(new java.awt.Color(0, 0, 0));
+        Apellidos1.setForeground(new java.awt.Color(21, 52, 72));
         Apellidos1.setText("Contraseña:");
-        jPanel2.add(Apellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, 30));
+        jPanel2.add(Apellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, 30));
 
         jButtonIniciarSesion.setBackground(new java.awt.Color(223, 208, 184));
         jButtonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -126,7 +117,7 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
                 jButtonIniciarSesionActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 130, 40));
+        jPanel2.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 120, 40));
 
         jButtonCancelar.setBackground(new java.awt.Color(223, 208, 184));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -143,16 +134,41 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 130, 40));
+        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 120, 40));
 
         CampoContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        CampoContrasena.setText("jPasswordField1");
+        CampoContrasena.setText("Contraseña");
         CampoContrasena.setBorder(null);
-        jPanel2.add(CampoContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 260, 30));
+        jPanel2.add(CampoContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 260, 30));
 
         jSeparatorNombre3.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorNombre3.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparatorNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 260, 30));
+        jPanel2.add(jSeparatorNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 260, 30));
+
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(21, 52, 72));
+        jLabel1.setText("Clínica Bienestar");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 40));
+
+        jPanel3.setBackground(new java.awt.Color(21, 52, 72));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 230, 5));
+
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(21, 52, 72));
+        jLabel2.setText("¡Bienvenido!");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -212,7 +228,10 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        VentanaInicio objVentanaInicio = new VentanaInicio();
+        objVentanaInicio.setVisible(true);
         this.dispose();
+        
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
@@ -258,9 +277,10 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonIniciarSesion;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparatorNombre1;
     private javax.swing.JSeparator jSeparatorNombre3;
     // End of variables declaration//GEN-END:variables

@@ -4,7 +4,6 @@
  */
 package Modelo_Menu;
 
-import com.mysql.cj.xdevapi.Statement;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -18,7 +17,7 @@ import java.sql.ResultSet;
 import Modelo_Menu.Paciente;
 import Modelo_Menu.Doctor;
 import Modelo_Menu.Recepcionista;
-import com.mysql.cj.protocol.Resultset;
+
 
 /**
  *

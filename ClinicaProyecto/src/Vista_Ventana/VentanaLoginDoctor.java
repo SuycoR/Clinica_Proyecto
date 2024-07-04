@@ -36,27 +36,24 @@ public Doctor objDoctor;
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
-        Nombres = new javax.swing.JLabel();
         CampoUsuario = new javax.swing.JTextField();
         jSeparatorNombre1 = new javax.swing.JSeparator();
-        Apellidos1 = new javax.swing.JLabel();
         jButtonIniciarSesion = new javax.swing.JButton();
         jButtonCancelar = new javax.swing.JButton();
         CampoContrasena = new javax.swing.JPasswordField();
         jSeparatorNombre3 = new javax.swing.JSeparator();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        Nombres1 = new javax.swing.JLabel();
+        Apellidos2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(51, 51, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
-        jLabel1.setText("Clínica Capitan Peru");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, 40));
 
         jPanel1.setBackground(new java.awt.Color(21, 52, 72));
 
@@ -71,15 +68,7 @@ public Doctor objDoctor;
             .addGap(0, 580, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 280, 580));
-
-        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 34)); // NOI18N
-        jLabel6.setText("Ingresa tus datos");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, 40));
-
-        Nombres.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        Nombres.setText("Usuario:");
-        jPanel2.add(Nombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, 30));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 280, 580));
 
         CampoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoUsuario.setForeground(new java.awt.Color(153, 153, 153));
@@ -95,18 +84,15 @@ public Doctor objDoctor;
                 CampoUsuarioActionPerformed(evt);
             }
         });
-        jPanel2.add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, 260, 30));
+        jPanel2.add(CampoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 260, 30));
 
         jSeparatorNombre1.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorNombre1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparatorNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 260, -1));
-
-        Apellidos1.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
-        Apellidos1.setText("Contraseña:");
-        jPanel2.add(Apellidos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 250, -1, 30));
+        jPanel2.add(jSeparatorNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 260, -1));
 
         jButtonIniciarSesion.setBackground(new java.awt.Color(223, 208, 184));
         jButtonIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         jButtonIniciarSesion.setText("Iniciar sesión");
         jButtonIniciarSesion.setBorder(null);
         jButtonIniciarSesion.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -119,10 +105,11 @@ public Doctor objDoctor;
                 jButtonIniciarSesionActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 400, 130, 40));
+        jPanel2.add(jButtonIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 420, 120, 40));
 
         jButtonCancelar.setBackground(new java.awt.Color(223, 208, 184));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButtonCancelar.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCancelar.setText("Cancelar");
         jButtonCancelar.setBorder(null);
         jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,30 +122,61 @@ public Doctor objDoctor;
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, 130, 40));
+        jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 120, 40));
 
         CampoContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoContrasena.setText("jPasswordField1");
         CampoContrasena.setBorder(null);
-        jPanel2.add(CampoContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 260, 30));
+        jPanel2.add(CampoContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 260, 30));
 
         jSeparatorNombre3.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorNombre3.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel2.add(jSeparatorNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 300, 260, 30));
+        jPanel2.add(jSeparatorNombre3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 350, 260, 30));
+
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(21, 52, 72));
+        jLabel1.setText("Clínica Bienestar");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, 40));
+
+        jPanel3.setBackground(new java.awt.Color(21, 52, 72));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 230, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 100, 230, 5));
+
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 30)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(21, 52, 72));
+        jLabel2.setText("¡Bienvenido!");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, 40));
+
+        Nombres1.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        Nombres1.setForeground(new java.awt.Color(21, 52, 72));
+        Nombres1.setText("Usuario:");
+        jPanel2.add(Nombres1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, 30));
+
+        Apellidos2.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        Apellidos2.setForeground(new java.awt.Color(21, 52, 72));
+        Apellidos2.setText("Contraseña:");
+        jPanel2.add(Apellidos2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 300, -1, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 901, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -248,16 +266,17 @@ public Doctor objDoctor;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Apellidos1;
+    private javax.swing.JLabel Apellidos2;
     private javax.swing.JPasswordField CampoContrasena;
     private javax.swing.JTextField CampoUsuario;
-    private javax.swing.JLabel Nombres;
+    private javax.swing.JLabel Nombres1;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButtonIniciarSesion;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparatorNombre1;
     private javax.swing.JSeparator jSeparatorNombre3;
     // End of variables declaration//GEN-END:variables
