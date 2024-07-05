@@ -3,19 +3,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista_Ventana;
-import Miguel.InterVerCita;
+
 /**
  *
  * @author PC
  */
 public class VentanaMenuPaciente extends javax.swing.JFrame {
-public InterVerCita objInterVerCita;
+
     /**
      * Creates new form VentanaMenuPaciente
      */
     public VentanaMenuPaciente() {
         initComponents();
-        objInterVerCita = new InterVerCita();
+        
     }
 
     /**
