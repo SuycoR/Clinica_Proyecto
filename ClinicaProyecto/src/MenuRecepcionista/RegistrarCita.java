@@ -66,16 +66,16 @@ public class RegistrarCita extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_citas = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jComboBox_paciente = new javax.swing.JComboBox<>();
         jButton_elegirPaciente = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jLabel_Fecha = new javax.swing.JLabel();
         jDateChooserFecha = new com.toedter.calendar.JDateChooser();
+        jLabel8 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         txt_nombre = new javax.swing.JTextField();
@@ -85,21 +85,19 @@ public class RegistrarCita extends javax.swing.JFrame {
         txt_apellido = new javax.swing.JTextField();
         txt_costo = new javax.swing.JTextField();
         jComboBox_dia = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
         jButton_actualizarDia = new javax.swing.JButton();
-        jButtonCancelar1 = new javax.swing.JButton();
+        jButton_cerrarsesion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setBackground(new java.awt.Color(28, 89, 197));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("REGISTRAR CITA");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, -10, 380, 60));
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(60, 91, 111));
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -116,11 +114,16 @@ public class RegistrarCita extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable_citas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 710, 250));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 710, 230));
 
-        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 730, 270));
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Escoge doctor");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
-        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, 730, 270));
+
+        jPanel3.setBackground(new java.awt.Color(60, 91, 111));
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -131,37 +134,43 @@ public class RegistrarCita extends javax.swing.JFrame {
                 jComboBox_pacienteActionPerformed(evt);
             }
         });
-        jPanel3.add(jComboBox_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 110, -1));
+        jPanel3.add(jComboBox_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 110, -1));
 
-        jButton_elegirPaciente.setBackground(new java.awt.Color(51, 204, 0));
-        jButton_elegirPaciente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton_elegirPaciente.setText("Paciente");
+        jButton_elegirPaciente.setBackground(new java.awt.Color(223, 208, 184));
+        jButton_elegirPaciente.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton_elegirPaciente.setForeground(new java.awt.Color(0, 0, 0));
+        jButton_elegirPaciente.setText("Seleccionar");
         jButton_elegirPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_elegirPacienteActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton_elegirPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 100, 40));
+        jPanel3.add(jButton_elegirPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 120, 40));
 
-        jLabel6.setText("Paciente:");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jLabel_Fecha.setText("Fecha");
-        jPanel3.add(jLabel_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Escoge la fecha");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jDateChooserFecha.setDateFormatString("yyyy-MM-dd");
-        jPanel3.add(jDateChooserFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 180, 40));
+        jPanel3.add(jDateChooserFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 180, 40));
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 70, 220, 270));
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Escoge un paciente");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
-        jPanel4.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 220, 270));
+
+        jPanel4.setBackground(new java.awt.Color(60, 91, 111));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel4.setForeground(new java.awt.Color(60, 91, 111));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre:");
-        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, -1));
+        jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, -1));
 
         txt_nombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_nombre.addActionListener(new java.awt.event.ActionListener() {
@@ -169,26 +178,26 @@ public class RegistrarCita extends javax.swing.JFrame {
                 txt_nombreActionPerformed(evt);
             }
         });
-        jPanel4.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, 170, -1));
+        jPanel4.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 170, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Apellido:");
-        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 90, -1));
+        jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Costo:");
-        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 90, -1));
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 90, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Elegir Dia:");
         jLabel5.setToolTipText("");
-        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, 90, -1));
+        jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, 90, -1));
 
         txt_apellido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel4.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 170, -1));
+        jPanel4.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 170, -1));
 
         txt_costo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_costo.addActionListener(new java.awt.event.ActionListener() {
@@ -196,7 +205,7 @@ public class RegistrarCita extends javax.swing.JFrame {
                 txt_costoActionPerformed(evt);
             }
         });
-        jPanel4.add(txt_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, 170, -1));
+        jPanel4.add(txt_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, 170, -1));
 
         jComboBox_dia.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jComboBox_dia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione el dia:", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado" }));
@@ -205,35 +214,60 @@ public class RegistrarCita extends javax.swing.JFrame {
                 jComboBox_diaActionPerformed(evt);
             }
         });
-        jPanel4.add(jComboBox_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 40, 170, -1));
+        jPanel4.add(jComboBox_dia, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, 170, -1));
 
-        jButton_actualizarDia.setBackground(new java.awt.Color(51, 204, 0));
-        jButton_actualizarDia.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 590, 100));
+
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(21, 52, 72));
+        jLabel1.setText("Registrar cita");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, -1, 40));
+
+        jPanel5.setBackground(new java.awt.Color(21, 52, 72));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 250, 5));
+
+        jPanel6.setBackground(new java.awt.Color(21, 52, 72));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1010, 50));
+
+        jPanel7.setBackground(new java.awt.Color(60, 91, 111));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton_actualizarDia.setBackground(new java.awt.Color(223, 208, 184));
+        jButton_actualizarDia.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton_actualizarDia.setForeground(new java.awt.Color(0, 0, 0));
         jButton_actualizarDia.setText("Registrar cita");
         jButton_actualizarDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_actualizarDiaActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton_actualizarDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 200, 60));
+        jPanel7.add(jButton_actualizarDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 200, 35));
 
-        jButtonCancelar1.setBackground(new java.awt.Color(223, 208, 184));
-        jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonCancelar1.setText("Cerrar Sesión");
-        jButtonCancelar1.setBorder(null);
-        jButtonCancelar1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButtonCancelar1MousePressed(evt);
-            }
-        });
-        jButtonCancelar1.addActionListener(new java.awt.event.ActionListener() {
+        jButton_cerrarsesion.setBackground(new java.awt.Color(223, 208, 184));
+        jButton_cerrarsesion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton_cerrarsesion.setForeground(new java.awt.Color(0, 0, 0));
+        jButton_cerrarsesion.setText("Volver");
+        jButton_cerrarsesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelar1ActionPerformed(evt);
+                jButton_cerrarsesionActionPerformed(evt);
             }
         });
-        jPanel4.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 70, -1, -1));
+        jPanel7.add(jButton_cerrarsesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 200, 35));
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 870, 100));
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 420, 320, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -245,7 +279,7 @@ public class RegistrarCita extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -412,17 +446,13 @@ public class RegistrarCita extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_actualizarDiaActionPerformed
 
-    private void jButtonCancelar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelar1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonCancelar1MousePressed
-
-    private void jButtonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelar1ActionPerformed
+    private void jButton_cerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cerrarsesionActionPerformed
         // TODO add your handling code here:
         VentanaInicio objVentanaInicio = new VentanaInicio();
         objVentanaInicio.setLocationRelativeTo(null);
         objVentanaInicio.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButtonCancelar1ActionPerformed
+    }//GEN-LAST:event_jButton_cerrarsesionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -460,23 +490,27 @@ public class RegistrarCita extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButtonCancelar1;
     private javax.swing.JButton jButton_actualizarDia;
+    private javax.swing.JButton jButton_cerrarsesion;
     private javax.swing.JButton jButton_elegirPaciente;
     private javax.swing.JComboBox<String> jComboBox_dia;
     private javax.swing.JComboBox<String> jComboBox_paciente;
     private com.toedter.calendar.JDateChooser jDateChooserFecha;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel_Fecha;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable_citas;
     private javax.swing.JTextField txt_apellido;

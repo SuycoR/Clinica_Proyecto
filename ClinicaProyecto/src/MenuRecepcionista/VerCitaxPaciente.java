@@ -36,6 +36,7 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
     private long jueves;
     private long viernes;
     private long sabado;
+    private Recepcionista objRecepcionista;
     Menu objMenuCita;
     ModeloCita objMenuCitaPaciente;
     /**
@@ -44,6 +45,7 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
     public VerCitaxPaciente() {
         objMenuCitaPaciente = new ModeloCita();
         objMenuCita = new Menu();
+        
         initComponents();
         //this.setSize(new Dimension(900, 500));
         this.setTitle("Gestionar Citas");
@@ -67,11 +69,13 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jComboBox_paciente = new javax.swing.JComboBox<>();
         jButton_elegirPaciente = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jButtonCancelar1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,10 +96,9 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable_citas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 710, 370));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 710, 320));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.setBackground(new java.awt.Color(60, 91, 111));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jComboBox_paciente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -105,35 +108,37 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
                 jComboBox_pacienteActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 110, -1));
+        jPanel2.add(jComboBox_paciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 110, -1));
 
-        jButton_elegirPaciente.setBackground(new java.awt.Color(51, 204, 0));
+        jButton_elegirPaciente.setBackground(new java.awt.Color(223, 208, 184));
         jButton_elegirPaciente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton_elegirPaciente.setText("Paciente");
+        jButton_elegirPaciente.setForeground(new java.awt.Color(0, 0, 0));
+        jButton_elegirPaciente.setText("Seleccionar");
         jButton_elegirPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_elegirPacienteActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton_elegirPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 330, 100, 30));
+        jPanel2.add(jButton_elegirPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 120, 30));
 
-        jLabel6.setText("Paciente:");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-
+        jButton1.setBackground(new java.awt.Color(223, 208, 184));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Mostrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 100, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 120, 40));
 
         jLabel7.setText("Paciente:");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jButtonCancelar1.setBackground(new java.awt.Color(223, 208, 184));
-        jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonCancelar1.setText("Cerrar Sesión");
+        jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonCancelar1.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonCancelar1.setText("Volver");
         jButtonCancelar1.setBorder(null);
         jButtonCancelar1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -145,55 +150,71 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
                 jButtonCancelar1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel2.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 120, 30));
 
-        jButton3.setBackground(new java.awt.Color(28, 89, 197));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("VER CITA DE UN PACIENTE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Escoge un paciente");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 170, 380));
+
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(21, 52, 72));
+        jLabel1.setText("Ver Citas");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 40));
+
+        jPanel5.setBackground(new java.awt.Color(21, 52, 72));
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 180, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+
+        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 100, 180, 5));
+
+        jPanel6.setBackground(new java.awt.Color(21, 52, 72));
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1010, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(144, 144, 144)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 501, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 742, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 136, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 748, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 15, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_pacienteActionPerformed
+    private void jButtonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelar1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox_pacienteActionPerformed
+        Menu_Recepcionista objMenu_Recepcionista = new Menu_Recepcionista(objRecepcionista);
+        objMenu_Recepcionista.setLocationRelativeTo(null);
+        objMenu_Recepcionista.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonCancelar1ActionPerformed
+
+    private void jButtonCancelar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelar1MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonCancelar1MousePressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        CargarTablaCita();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton_elegirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_elegirPacienteActionPerformed
         //Metodo para obtener el idPaciente mediante la eleccion en el JCombo
@@ -231,27 +252,9 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton_elegirPacienteActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jComboBox_pacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox_pacienteActionPerformed
         // TODO add your handling code here:
-        CargarTablaCita();
-
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButtonCancelar1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCancelar1MousePressed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonCancelar1MousePressed
-
-    private void jButtonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelar1ActionPerformed
-        // TODO add your handling code here:
-        VentanaInicio objVentanaInicio = new VentanaInicio();
-        objVentanaInicio.setLocationRelativeTo(null);
-        objVentanaInicio.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonCancelar1ActionPerformed
+    }//GEN-LAST:event_jComboBox_pacienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,14 +293,16 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonCancelar1;
     private javax.swing.JButton jButton_elegirPaciente;
     private javax.swing.JComboBox<String> jComboBox_paciente;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable_citas;
     // End of variables declaration//GEN-END:variables

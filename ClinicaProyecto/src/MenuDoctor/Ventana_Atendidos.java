@@ -60,10 +60,10 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
         Ventana_Atendidos.jTable1 = new JTable(model);
         Ventana_Atendidos.jScrollPane1.setViewportView(Ventana_Atendidos.jTable1);
 
-        model.addColumn("idCita");
-        model.addColumn("idRecepcionista");
+        model.addColumn("Cita");
+        model.addColumn("ID Recepcionista");
         //model.addColumn("idDoctor");
-        model.addColumn("idPaciente");
+        model.addColumn("ID Paciente");
         model.addColumn("fechaCita");
         model.addColumn("fechaRegistro");
         model.addColumn("costoTotal");
@@ -276,6 +276,9 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Ventana_Atendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */

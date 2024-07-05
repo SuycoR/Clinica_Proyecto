@@ -531,7 +531,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
             if (rs.next()) {
                 objPaciente.setNombre(rs.getString("nombre"));
                 objPaciente.setApellido(rs.getString("apellido"));
-                txt_Doctor.setText(rs.getString("nombre"));  
+                txt_Doctor.setText(rs.getString("apellido"));  
             }
             con.close();
         } catch (SQLException e) {
