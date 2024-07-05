@@ -23,11 +23,12 @@ import java.sql.Date;
  * @author Suyco
  */
 public class VerCitaxPaciente extends javax.swing.JFrame {
+
     private long idDoctor;
     public int idPaciente;
     private String idDoctorString;
     private String idPacienteString;
-    
+
     private String fechaRegistro;
     private Date fechaRegistros;
     private long lunes;
@@ -39,20 +40,29 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
     private Recepcionista objRecepcionista;
     Menu objMenuCita;
     ModeloCita objMenuCitaPaciente;
+
     /**
      * Creates new form VerCitaxPaciente
      */
-    public VerCitaxPaciente() {
+    public VerCitaxPaciente(Recepcionista objRecepcionista) {
         objMenuCitaPaciente = new ModeloCita();
         objMenuCita = new Menu();
-        
+
         initComponents();
+        this.objRecepcionista = objRecepcionista;
         //this.setSize(new Dimension(900, 500));
         this.setTitle("Gestionar Citas");
         //Cargar tabla
         this.CargarTablaCita();
         this.CargarComboPaciente();
     }
+
+    private VerCitaxPaciente() {
+        throw new UnsupportedOperationException("Not supported yet."); 
+       
+    }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -339,54 +349,53 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
      * *****************************************************
      */
     //int idPacienteSeleccionado = objMenuCitaPaciente.getIdPaciente();
-     // Asegúrate de que esta variable tenga el valor adecuado en algún punto de tu código
+    // Asegúrate de que esta variable tenga el valor adecuado en algún punto de tu código
+    private void CargarTablaCita() {
+        IdPacienteSeleccionado = objMenuCitaPaciente.getIdPaciente();
+        Connection con = Menu.ConectarBD();
+        DefaultTableModel model = new DefaultTableModel();
+        String sql = "SELECT idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE idPaciente = ?";
+        PreparedStatement pst;
+        try {
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, IdPacienteSeleccionado); // Establece el valor del parámetro
+            ResultSet rs = pst.executeQuery();
+            VerCitaxPaciente.jTable_citas = new JTable(model);
+            VerCitaxPaciente.jScrollPane1.setViewportView(VerCitaxPaciente.jTable_citas);
 
-private void CargarTablaCita() {
-    IdPacienteSeleccionado = objMenuCitaPaciente.getIdPaciente();
-    Connection con = Menu.ConectarBD();
-    DefaultTableModel model = new DefaultTableModel();
-    String sql = "SELECT idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE idPaciente = ?";
-    PreparedStatement pst;
-    try {
-        pst = con.prepareStatement(sql);
-        pst.setInt(1, IdPacienteSeleccionado); // Establece el valor del parámetro
-        ResultSet rs = pst.executeQuery();
-        VerCitaxPaciente.jTable_citas = new JTable(model);
-        VerCitaxPaciente.jScrollPane1.setViewportView(VerCitaxPaciente.jTable_citas);
+            model.addColumn("idRecepcionista");
+            model.addColumn("idDoctor");
+            model.addColumn("idPaciente");
+            model.addColumn("fechaCita");
+            model.addColumn("fechaRegistro");
+            model.addColumn("costoTotal");
+            model.addColumn("estado");
 
-        model.addColumn("idRecepcionista");
-        model.addColumn("idDoctor");
-        model.addColumn("idPaciente");
-        model.addColumn("fechaCita");
-        model.addColumn("fechaRegistro");
-        model.addColumn("costoTotal");
-        model.addColumn("estado");
-
-        while (rs.next()) {
-            Object fila[] = new Object[7];
-            for (int i = 0; i < 7; i++) {
-                fila[i] = rs.getObject(i + 1);
+            while (rs.next()) {
+                Object fila[] = new Object[7];
+                for (int i = 0; i < 7; i++) {
+                    fila[i] = rs.getObject(i + 1);
+                }
+                model.addRow(fila);
             }
-            model.addRow(fila);
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error al llenar la tabla citas: " + e);
         }
-        con.close();
-    } catch (SQLException e) {
-        System.out.println("Error al llenar la tabla citas: " + e);
-    }
-    // Evento para obtener campo al cual el usuario da click
-    // y obtener la interfaz que mostrara la informacion general
-    jTable_citas.addMouseListener(new MouseAdapter() {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            int fila_point = jTable_citas.rowAtPoint(e.getPoint());
-            int columna_point = 0;
+        // Evento para obtener campo al cual el usuario da click
+        // y obtener la interfaz que mostrara la informacion general
+        jTable_citas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila_point = jTable_citas.rowAtPoint(e.getPoint());
+                int columna_point = 0;
 
-            if (fila_point > -1) {
-                idDoctor = (Long) model.getValueAt(fila_point, columna_point);
+                if (fila_point > -1) {
+                    idDoctor = (Long) model.getValueAt(fila_point, columna_point);
 //                EnviarDatosCitaSeleccionada(idDoctor);
+                }
             }
-        }
-    });
-}
+        });
+    }
 
 }

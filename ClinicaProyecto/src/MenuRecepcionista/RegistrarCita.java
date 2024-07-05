@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package MenuRecepcionista;
+
 import Modelo_Menu.*;
 import Vista_Ventana.*;
 import java.awt.Dimension;
@@ -19,11 +20,13 @@ import javax.swing.JTextField;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
 /**
  *
  * @author Suyco
  */
 public class RegistrarCita extends javax.swing.JFrame {
+
     private long idDoctor;
     public int idPaciente;
     private String idDoctorString;
@@ -40,22 +43,29 @@ public class RegistrarCita extends javax.swing.JFrame {
     private long jueves;
     private long viernes;
     private long sabado;
+    private Recepcionista objRecepcionista;
     Menu objMenuCita;
     ModeloCita objMenuCitaPaciente;
+
     /**
      * Creates new form RegistrarCita
      */
-    public RegistrarCita() {
+    public RegistrarCita(Recepcionista objRecepcionista) {
         objMenuCitaPaciente = new ModeloCita();
         objMenuCita = new Menu();
         initComponents();
+        this.objRecepcionista = objRecepcionista;
         //this.setSize(new Dimension(900, 500));
         this.setTitle("Gestionar Citas");
         //Cargar tabla
         this.CargarTablaCita();
         this.CargarComboPaciente();
+
     }
-    
+
+    private RegistrarCita() {
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -357,17 +367,17 @@ public class RegistrarCita extends javax.swing.JFrame {
                     switch (i) {
 
                         case 4 ->
-                        lunes = (Long) fila[i];
+                            lunes = (Long) fila[i];
                         case 5 ->
-                        martes = (Long) fila[i];
+                            martes = (Long) fila[i];
                         case 6 ->
-                        miercoles = (Long) fila[i];
+                            miercoles = (Long) fila[i];
                         case 7 ->
-                        jueves = (Long) fila[i];
+                            jueves = (Long) fila[i];
                         case 8 ->
-                        viernes = (Long) fila[i];
+                            viernes = (Long) fila[i];
                         case 9 ->
-                        sabado = (Long) fila[i];
+                            sabado = (Long) fila[i];
 
                     }
 
@@ -426,17 +436,17 @@ public class RegistrarCita extends javax.swing.JFrame {
                 while (rsRecepcionista.next()) {
 
                     //Cambiar el 6 al idRecepcionista obtenido en el login (MELENDEZ)
-                    if(6==rsRecepcionista.getInt("idRecepcionista")){
+                    if (6 == rsRecepcionista.getInt("idRecepcionista")) {
                         costoRecepcionista = rsRecepcionista.getInt("costo");
                         break;
                     }
                 }
-            } catch(SQLException ex){
+            } catch (SQLException ex) {
                 System.out.println("Error al entrar a la tabla recepcionista");
             }
 
             //ActualizarDate
-            objMenuCita.enviarElementosCita("6", idDoctorString, idPacienteString, Date.valueOf(fechaCita), Date.valueOf(fechaRegistro), costo+costoRecepcionista, "Pendiente");
+            objMenuCita.enviarElementosCita("6", idDoctorString, idPacienteString, Date.valueOf(fechaCita), Date.valueOf(fechaRegistro), costo + costoRecepcionista, "Pendiente");
 
             //mostrar tabla actualizada
             CargarTablaCita();
@@ -448,9 +458,9 @@ public class RegistrarCita extends javax.swing.JFrame {
 
     private void jButton_cerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cerrarsesionActionPerformed
         // TODO add your handling code here:
-        VentanaInicio objVentanaInicio = new VentanaInicio();
-        objVentanaInicio.setLocationRelativeTo(null);
-        objVentanaInicio.setVisible(true);
+        Menu_Recepcionista objMenu_Recepcionista = new Menu_Recepcionista(objRecepcionista);
+        objMenu_Recepcionista.setLocationRelativeTo(null);
+        objMenu_Recepcionista.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton_cerrarsesionActionPerformed
 
@@ -517,7 +527,7 @@ public class RegistrarCita extends javax.swing.JFrame {
     private javax.swing.JTextField txt_costo;
     private javax.swing.JTextField txt_nombre;
     // End of variables declaration//GEN-END:variables
-    
+
     /*
      * *****************************************************
      * metodo para cargar pacientes en el JcomboPaciente desde la tabla paciente
@@ -590,12 +600,12 @@ public class RegistrarCita extends javax.swing.JFrame {
 
                 if (fila_point > -1) {
                     idDoctor = (Long) model.getValueAt(fila_point, columna_point);
-                    
+
                     EnviarDatosCitaSeleccionada(idDoctor);
                 }
                 if (fila_point > -1) {
                     costo = (int) model.getValueAt(fila_point, 3);
-                    
+
                 }
             }
         });

@@ -185,7 +185,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         jButtonCancelar.setBackground(new java.awt.Color(60, 91, 111));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonCancelar.setText("CERRAR SESIÓN");
+        jButtonCancelar.setText("Cerrar Sesión");
         jButtonCancelar.setBorder(null);
         jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -202,7 +202,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         jButtonAtendidos.setBackground(new java.awt.Color(60, 91, 111));
         jButtonAtendidos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonAtendidos.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonAtendidos.setText("PACIENTES ATENDIDOS");
+        jButtonAtendidos.setText("Pacientes Atendidos");
         jButtonAtendidos.setBorder(null);
         jButtonAtendidos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -299,7 +299,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         objVentana_Atendidos.setDatos(objDoctor);
         //objVentana_Atendidos.CargarTablaAtendidos(objDoctor);
         objVentana_Atendidos.setVisible(true);
-        //this.dispose();
+        this.dispose();
     }//GEN-LAST:event_jButtonAtendidosActionPerformed
 
     private void jButton_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_actualizarActionPerformed
@@ -404,14 +404,14 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         Ventana_LoginMenuDoctor.jTable1 = new JTable(model);
         Ventana_LoginMenuDoctor.jScrollPane1.setViewportView(Ventana_LoginMenuDoctor.jTable1);
 
-        model.addColumn("idCita");
-        model.addColumn("idRecepcionista");
+        model.addColumn("N° cita");
+        model.addColumn("ID Recepcionista");
         //model.addColumn("idDoctor");
-        model.addColumn("Paciente");
-        model.addColumn("fechaCita");
-        model.addColumn("fechaRegistro");
-        model.addColumn("costoTotal");
-        model.addColumn("estado");
+        model.addColumn("ID Paciente");
+        model.addColumn("Fecha Cita");
+        model.addColumn("Fecha Registro");
+        model.addColumn("Costo ($)");
+        model.addColumn("Estado");
 
         while (rs.next()) {
             //String pc = (String) rs.getObject("idPaciente")

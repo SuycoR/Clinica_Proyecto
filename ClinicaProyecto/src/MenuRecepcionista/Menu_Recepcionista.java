@@ -71,6 +71,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("VER CITAS ATENDIDAS");
+        jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -82,6 +83,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("REGISTRAR CITA");
+        jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -93,6 +95,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("VER CITA DE UN PACIENTE");
+        jButton3.setBorderPainted(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -104,6 +107,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("VER TODAS LAS CITAS PENDIENTES");
+        jButton4.setBorderPainted(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -169,7 +173,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        VerCitaxPaciente objverCitaxPaciente = new VerCitaxPaciente(); 
+        VerCitaxPaciente objverCitaxPaciente = new VerCitaxPaciente(objRecepcionista); 
         objverCitaxPaciente.setLocationRelativeTo(null);
         objverCitaxPaciente.setVisible(true);
         this.dispose();
@@ -177,7 +181,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        RegistrarCita objregistrarCita = new RegistrarCita();
+        RegistrarCita objregistrarCita = new RegistrarCita(objRecepcionista);
         objregistrarCita.setLocationRelativeTo(null);
         objregistrarCita.setVisible(true);
         this.dispose();

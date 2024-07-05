@@ -60,14 +60,14 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
         Ventana_Atendidos.jTable1 = new JTable(model);
         Ventana_Atendidos.jScrollPane1.setViewportView(Ventana_Atendidos.jTable1);
 
-        model.addColumn("Cita");
+        model.addColumn("N° Cita");
         model.addColumn("ID Recepcionista");
         //model.addColumn("idDoctor");
         model.addColumn("ID Paciente");
-        model.addColumn("fechaCita");
-        model.addColumn("fechaRegistro");
-        model.addColumn("costoTotal");
-        model.addColumn("estado");
+        model.addColumn("Fecha Cita");
+        model.addColumn("Fecha Registro");
+        model.addColumn("Costo ($)");
+        model.addColumn("Estado");
 
         while (rs.next()) {
             Object fila[] = new Object[7];
@@ -248,6 +248,9 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        Ventana_LoginMenuDoctor objVentana_LoginMenuDoctor = new Ventana_LoginMenuDoctor(objDoctor);
+        objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
+        objVentana_LoginMenuDoctor.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 

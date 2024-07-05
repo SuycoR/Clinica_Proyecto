@@ -162,6 +162,9 @@ public long idPaciente;
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        VentanaInicio objVentanaInicio = new VentanaInicio();
+        objVentanaInicio.setLocationRelativeTo(null);
+        objVentanaInicio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
@@ -229,14 +232,14 @@ public long idPaciente;
         Menu_Paciente.jTable1 = new JTable(model);
         Menu_Paciente.jScrollPane1.setViewportView(Menu_Paciente.jTable1);
 
-        model.addColumn("idCita");
-        model.addColumn("idRecepcionista");
-        model.addColumn("idDoctor");
+        model.addColumn("Cita");
+        model.addColumn("Recepcionista");
+        model.addColumn("Doctor");
         //model.addColumn("idPaciente");
-        model.addColumn("fechaCita");
-        model.addColumn("fechaRegistro");
-        model.addColumn("costoTotal");
-        model.addColumn("estado");
+        model.addColumn("Fecha Cita");
+        model.addColumn("Fecha de Registro");
+        model.addColumn("Costo ($)");
+        model.addColumn("Estado");
 
         while (rs.next()) {
             //String pc = (String) rs.getObject("idPaciente")
