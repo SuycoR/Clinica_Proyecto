@@ -1,7 +1,7 @@
 
 package Controlador_Menu;
 
-import Modelo_Menu.Menu;
+import Modelo_Menu.Repository;
 import Vista_Ventana.VentanaRegistrarDoctor;
 import java.sql.Connection;
 
@@ -13,14 +13,14 @@ public class ProgMenuDoctor {
     
     //Objeto de la ventana inicio
     public VentanaRegistrarDoctor objVentanaInicio;
-    public Menu objMenu;
+    public Repository objMenu;
 
     public ProgMenuDoctor() {
         //Objeto de la ventana inicio
         objVentanaInicio = new VentanaRegistrarDoctor();
 
         //Objeto del menu
-        objMenu = new Menu();
+        objMenu = new Repository();
     }
 
     public static void main(String[] args) {

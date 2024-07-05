@@ -392,7 +392,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
 
     private void CargarTablaAtender(){
         IdDoctorLogeado = objDoctor.getIdDoctor();
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
         DefaultTableModel model = new DefaultTableModel();
         String sql = "SELECT idCita,idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE idDoctor = ? AND estado = ?";
         PreparedStatement pst;
@@ -464,7 +464,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
      */
     private void EnviarDatosPacienteSeleccionada(long idPaciente) {
         try {
-            Connection con = Menu.ConectarBD();
+            Connection con = Repository.ConectarBD();
             PreparedStatement pst = con.prepareStatement(
                     "select * from paciente where id = '" + idPaciente + "'");
             ResultSet rs = pst.executeQuery();
@@ -494,7 +494,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         //int fila=jTable1.getSelectedColumn();
         String estado = "Atendido";
         try {
-            Connection con = Menu.ConectarBD();
+            Connection con = Repository.ConectarBD();
             String sql = "UPDATE cita SET estado = '"+estado+"' WHERE idCita = '" + idCita + "'";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.executeUpdate();
@@ -507,7 +507,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     }
     public void obtenerDatosxId(long idDoctor){
         try {
-            Connection con = Menu.ConectarBD();
+            Connection con = Repository.ConectarBD();
             PreparedStatement pst = con.prepareStatement(
                     "select * from doctor where idDoctor = '" + idDoctor + "'");
             ResultSet rs = pst.executeQuery();
@@ -524,7 +524,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     
     public void obtenerDatosxIdPaciente(long idPaciente){
         try {
-            Connection con = Menu.ConectarBD();
+            Connection con = Repository.ConectarBD();
             PreparedStatement pst = con.prepareStatement(
                     "select * from paciente where id = '" + idPaciente + "'");
             ResultSet rs = pst.executeQuery();

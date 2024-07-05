@@ -11,12 +11,12 @@ import MenuRecepcionista.*;
  * @author migue
  */
 import javax.swing.JOptionPane;
-import Modelo_Menu.Menu;
+import Modelo_Menu.Repository;
 import Modelo_Menu.Recepcionista;
 
 public class VentanaLoginRecepcionista extends javax.swing.JFrame {
 
-    public Menu objMenu;
+    public Repository objMenu;
     public Recepcionista objRecepcionista;
     ModeloCita objGrabarCita;
 
@@ -25,7 +25,7 @@ public class VentanaLoginRecepcionista extends javax.swing.JFrame {
      */
     public VentanaLoginRecepcionista() {
         objGrabarCita = new ModeloCita();
-        objMenu = new Menu();
+        objMenu = new Repository();
         objRecepcionista = new Recepcionista();
         initComponents();
     }

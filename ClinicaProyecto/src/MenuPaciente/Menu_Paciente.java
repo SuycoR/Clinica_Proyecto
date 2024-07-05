@@ -220,7 +220,7 @@ public long idPaciente;
 
     private void CargarTabla(){
         IdPacienteLogeado = objPaciente.getIdPaciente();
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
         DefaultTableModel model = new DefaultTableModel();
         String sql = "SELECT idCita,idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE idPaciente = ? ";
         PreparedStatement pst;
@@ -329,7 +329,7 @@ public long idPaciente;
     
     public void obtenerDatosxIdPaciente(long idPaciente){
         try {
-            Connection con = Menu.ConectarBD();
+            Connection con = Repository.ConectarBD();
             PreparedStatement pst = con.prepareStatement(
                     "select * from paciente where id = '" + idPaciente + "'");
             ResultSet rs = pst.executeQuery();

@@ -197,7 +197,7 @@ public class CitasAtendidas extends javax.swing.JFrame {
 
     private void CargarTabla(){
        
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
         DefaultTableModel model = new DefaultTableModel();
         String sql = "SELECT idCita,idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE estado = ? ";
         PreparedStatement pst;

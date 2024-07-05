@@ -10,12 +10,12 @@ import Miguel.InterVerCita;
  */
 import MenuPaciente.*;
 import javax.swing.JOptionPane;
-import Modelo_Menu.Menu;
+import Modelo_Menu.Repository;
 import Modelo_Menu.Paciente;
 
 public class VentanaLoginPaciente extends javax.swing.JFrame {
 
-    public Menu objMenu;
+    public Repository objMenu;
     public Paciente objPaciente;
    
 
@@ -24,7 +24,7 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
      */
     public VentanaLoginPaciente() {
         initComponents();
-        objMenu = new Menu();
+        objMenu = new Repository();
         objPaciente = new Paciente();
     }
 

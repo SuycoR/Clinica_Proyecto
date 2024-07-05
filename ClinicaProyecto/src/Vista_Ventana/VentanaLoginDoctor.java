@@ -11,18 +11,18 @@ package Vista_Ventana;
 
 import MenuDoctor.Ventana_LoginMenuDoctor;
 import javax.swing.JOptionPane;
-import Modelo_Menu.Menu;
+import Modelo_Menu.Repository;
 import Modelo_Menu.Doctor;
         
 public class VentanaLoginDoctor extends javax.swing.JFrame {
-public Menu objMenu;
+public Repository objMenu;
 public Doctor objDoctor;
     /**
      * Creates new form VentanaLoginDoctor
      */
     public VentanaLoginDoctor() {
         initComponents();
-        objMenu = new Menu();
+        objMenu = new Repository();
         objDoctor = new Doctor();
     }
 

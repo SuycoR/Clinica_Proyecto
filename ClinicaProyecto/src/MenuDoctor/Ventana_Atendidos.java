@@ -48,7 +48,7 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
         txt_Doctor.setText(objDoctor.getNombre());
         
         int IdDoctorLogeado = objDoctor.getIdDoctor();
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
         DefaultTableModel model = new DefaultTableModel();
         String sql = "SELECT idCita,idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE idDoctor = ? AND estado = ?";
         PreparedStatement pst;

@@ -6,7 +6,7 @@ package Controlador_Menu;
 
 import java.sql.Connection;
 import Vista_Ventana.*;
-import Modelo_Menu.Menu;
+import Modelo_Menu.Repository;
 import MenuDoctor.Ventana_LoginMenuDoctor;
 /**
  *
@@ -16,14 +16,14 @@ public class ProgMenu {
 
     //Objeto de la ventana inicio
     public VentanaInicio objVentanaInicio;
-    public Menu objMenuInicio;
+    public Repository objMenuInicio;
 
     public ProgMenu() {
         //Objeto de la ventana inicio
         objVentanaInicio = new VentanaInicio();
 
         //Objeto del menu
-        objMenuInicio = new Menu();
+        objMenuInicio = new Repository();
     }
 
     public static void main(String[] args) {

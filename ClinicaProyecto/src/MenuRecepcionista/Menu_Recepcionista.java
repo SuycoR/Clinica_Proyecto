@@ -254,7 +254,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
     
     public void obtenerDatosxIdRecepcionista(long idRecepcionista){
         try {
-            Connection con = Menu.ConectarBD();
+            Connection con = Repository.ConectarBD();
             PreparedStatement pst = con.prepareStatement(
                     "select * from recepcionista where idRecepcionista = '" + idRecepcionista + "'");
             ResultSet rs = pst.executeQuery();

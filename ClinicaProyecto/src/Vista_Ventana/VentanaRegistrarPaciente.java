@@ -4,7 +4,7 @@
  */
 package Vista_Ventana;
 
-import Modelo_Menu.Menu;
+import Modelo_Menu.Repository;
 
 /**
  *
@@ -12,13 +12,13 @@ import Modelo_Menu.Menu;
  */
 public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
-    public Menu objMenu;
+    public Repository objMenu;
 
     /**
      * Creates new form VentanaRegister
      */
     public VentanaRegistrarPaciente() {
-        objMenu = new Menu();
+        objMenu = new Repository();
         initComponents();
     }
 

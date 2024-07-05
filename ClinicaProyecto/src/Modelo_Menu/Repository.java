@@ -23,12 +23,12 @@ import Modelo_Menu.Recepcionista;
  *
  * @author PC
  */
-public class Menu {
+public class Repository {
     public static PreparedStatement prepareStatement(String string) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
-    public Menu() {
+    public Repository() {
     }
 
     static Connection objConnection;
@@ -47,7 +47,7 @@ public class Menu {
             objConnection = DriverManager.getConnection(host, user, password);
             System.out.println("Conexion exitosa");
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("Conexion no exitosa");
         }
         return objConnection;
@@ -75,7 +75,7 @@ public class Menu {
             JOptionPane.showMessageDialog(null, "Paciente registrado");
 
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
 
         }
     }
@@ -96,7 +96,7 @@ public class Menu {
             objPreparedStatement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Paciente registrado");
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -117,7 +117,7 @@ public class Menu {
             objPreparedStatement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Recepcionista registrado");
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -138,7 +138,7 @@ public class Menu {
             objPreparedStatement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Doctor registrado");
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -157,7 +157,7 @@ public class Menu {
             objPreparedStatement.executeUpdate();
             JOptionPane.showMessageDialog(null, "Cita registrada");
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -165,7 +165,7 @@ public class Menu {
     public boolean loginUserPaciente(Paciente objeto) {
         boolean respuesta = false;
 
-        Connection objConnection = Menu.ConectarBD();
+        Connection objConnection = Repository.ConectarBD();
         String sql = "select id,usuario, contrasena from paciente where usuario=? and contrasena=?";
         ResultSet objResultset;
 
@@ -185,7 +185,7 @@ public class Menu {
             }   
 
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Error al iniciar sesión");
         }
 
@@ -196,7 +196,7 @@ public class Menu {
     public boolean loginUserDoctor(Doctor objeto) {
         boolean respuesta = false;
 
-        Connection objConnection = Menu.ConectarBD();
+        Connection objConnection = Repository.ConectarBD();
         String sql = "select idDoctor,usuario, contrasena from doctor where usuario=? and contrasena=?";
         ResultSet objResultset;
 
@@ -216,7 +216,7 @@ public class Menu {
             }   
 
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Error al iniciar sesión");
         }
 
@@ -227,7 +227,7 @@ public class Menu {
     public boolean loginUserRecepcionista(Recepcionista objeto) {
         boolean respuesta = false;
 
-        Connection objConnection = Menu.ConectarBD();
+        Connection objConnection = Repository.ConectarBD();
         String sql = "select idRecepcionista,usuario, contrasena from recepcionista where usuario=? and contrasena=?";
         ResultSet objResultset;
 
@@ -246,7 +246,7 @@ public class Menu {
             }   
 
         } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(null, "Error al iniciar sesión");
         }
 

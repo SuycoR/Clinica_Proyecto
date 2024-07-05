@@ -16,14 +16,14 @@ public class ProgMenuPaciente {
     
     //Objeto de la ventana inicio
     public VentanaRegistrarPaciente objVentanaInicio;
-    public Menu objMenu;
+    public Repository objMenu;
 
     public ProgMenuPaciente() {
         //Objeto de la ventana inicio
         objVentanaInicio = new VentanaRegistrarPaciente();
 
         //Objeto del menu
-        objMenu = new Menu();
+        objMenu = new Repository();
 
     }
 

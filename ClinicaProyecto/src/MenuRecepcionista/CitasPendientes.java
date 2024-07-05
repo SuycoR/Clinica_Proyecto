@@ -196,7 +196,7 @@ public class CitasPendientes extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     private void CargarTabla(){
        
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
         DefaultTableModel model = new DefaultTableModel();
         String sql = "SELECT idCita,idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE estado = ? ";
         PreparedStatement pst;

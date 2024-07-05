@@ -3,18 +3,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Vista_Ventana;
-import Modelo_Menu.Menu;
+import Modelo_Menu.Repository;
 /**
  *
  * @author migue
  */
 public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
-    public Menu objMenuRecepcionista;
+    public Repository objMenuRecepcionista;
     /**
      * Creates new form VentanaRegistrarRecepcionista
      */
     public VentanaRegistrarRecepcionista() {
-        objMenuRecepcionista = new Menu();
+        objMenuRecepcionista = new Repository();
         initComponents();
     }
 

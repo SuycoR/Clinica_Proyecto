@@ -38,7 +38,7 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
     private long viernes;
     private long sabado;
     private Recepcionista objRecepcionista;
-    Menu objMenuCita;
+    Repository objMenuCita;
     ModeloCita objMenuCitaPaciente;
 
     /**
@@ -46,7 +46,7 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
      */
     public VerCitaxPaciente(Recepcionista objRecepcionista) {
         objMenuCitaPaciente = new ModeloCita();
-        objMenuCita = new Menu();
+        objMenuCita = new Repository();
 
         initComponents();
         this.objRecepcionista = objRecepcionista;
@@ -229,7 +229,7 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
     private void jButton_elegirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_elegirPacienteActionPerformed
         //Metodo para obtener el idPaciente mediante la eleccion en el JCombo
 
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
 
         String sqlPaciente = "select * from paciente";
         Statement st;
@@ -325,7 +325,7 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
      * *****************************************************
      */
     private void CargarComboPaciente() {
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
         String sql = "select * from paciente";
         Statement st;
         try {
@@ -352,7 +352,7 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
     // Asegúrate de que esta variable tenga el valor adecuado en algún punto de tu código
     private void CargarTablaCita() {
         IdPacienteSeleccionado = objMenuCitaPaciente.getIdPaciente();
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
         DefaultTableModel model = new DefaultTableModel();
         String sql = "SELECT idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE idPaciente = ?";
         PreparedStatement pst;

@@ -44,7 +44,7 @@ public class RegistrarCita extends javax.swing.JFrame {
     private long viernes;
     private long sabado;
     private Recepcionista objRecepcionista;
-    Menu objMenuCita;
+    Repository objMenuCita;
     ModeloCita objMenuCitaPaciente;
 
     /**
@@ -52,7 +52,7 @@ public class RegistrarCita extends javax.swing.JFrame {
      */
     public RegistrarCita(Recepcionista objRecepcionista) {
         objMenuCitaPaciente = new ModeloCita();
-        objMenuCita = new Menu();
+        objMenuCita = new Repository();
         initComponents();
         this.objRecepcionista = objRecepcionista;
         //this.setSize(new Dimension(900, 500));
@@ -302,7 +302,7 @@ public class RegistrarCita extends javax.swing.JFrame {
     private void jButton_elegirPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_elegirPacienteActionPerformed
         //Metodo para obtener el idPaciente mediante la eleccion en el JCombo
 
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
 
         String sqlPaciente = "select * from paciente";
         Statement st;
@@ -349,7 +349,7 @@ public class RegistrarCita extends javax.swing.JFrame {
 
     private void jButton_actualizarDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_actualizarDiaActionPerformed
 
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
         String sql = "select idDoctor, nombre, apellido, costo, lunes, martes, miercoles, jueves, viernes, sabado from doctor";
         String sqlRecepcionista = "select * from recepcionista";
         Statement st;
@@ -534,7 +534,7 @@ public class RegistrarCita extends javax.swing.JFrame {
      * *****************************************************
      */
     private void CargarComboPaciente() {
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
         String sql = "select * from paciente";
         Statement st;
         try {
@@ -558,7 +558,7 @@ public class RegistrarCita extends javax.swing.JFrame {
      * *****************************************************
      */
     private void CargarTablaCita() {
-        Connection con = Menu.ConectarBD();
+        Connection con = Repository.ConectarBD();
         DefaultTableModel model = new DefaultTableModel();
         String sql = "select idDoctor, nombre, apellido, costo, lunes, martes, miercoles, jueves, viernes, sabado from doctor";
         Statement st;
@@ -619,7 +619,7 @@ public class RegistrarCita extends javax.swing.JFrame {
      */
     private void EnviarDatosCitaSeleccionada(long idDoctor) {
         try {
-            Connection con = Menu.ConectarBD();
+            Connection con = Repository.ConectarBD();
             PreparedStatement pst = con.prepareStatement(
                     "select * from doctor where idDoctor = '" + idDoctor + "'");
             ResultSet rs = pst.executeQuery();
