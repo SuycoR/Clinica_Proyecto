@@ -9,7 +9,7 @@ package Vista_Ventana;
  * @author PC
  */
 
-import MenuDoctor.Ventana_LoginMenuDoctor;
+import MenuDoctor.VentanaListaPacientes;
 import javax.swing.JOptionPane;
 import Modelo_Menu.Repository;
 import Modelo_Menu.Doctor;
@@ -219,8 +219,8 @@ public Doctor objDoctor;
             //ListaPacientes objlistapacientes = new ListaPacientes(objDoctor);
             //jPanel3.add(objlistapacientes);
             //objlistapacientes.setVisible(true);
-            Ventana_LoginMenuDoctor objVentana_LoginMenuDoctor = new Ventana_LoginMenuDoctor(objDoctor);
-            //objVentana_LoginMenuDoctor.setSize(900,540);
+            VentanaListaPacientes objVentana_LoginMenuDoctor = new VentanaListaPacientes(objDoctor);
+            objVentana_LoginMenuDoctor.setSize(996,550);
             objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
             objVentana_LoginMenuDoctor.setVisible(true);
             this.dispose();
@@ -253,7 +253,7 @@ public Doctor objDoctor;
             //ListaPacientes objlistapacientes = new ListaPacientes(objDoctor);
             //jPanel3.add(objlistapacientes);
             //objlistapacientes.setVisible(true);
-            Ventana_LoginMenuDoctor objVentana_LoginMenuDoctor = new Ventana_LoginMenuDoctor(objDoctor);
+            VentanaListaPacientes objVentana_LoginMenuDoctor = new VentanaListaPacientes(objDoctor);
             //objVentana_LoginMenuDoctor.setSize(900,540);
             objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
             objVentana_LoginMenuDoctor.setVisible(true);

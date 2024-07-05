@@ -23,14 +23,14 @@ import java.sql.Date;
  *
  * @author Suyco
  */
-public class Menu_Recepcionista extends javax.swing.JFrame {
+public class VentanaMenuRecepcionista extends javax.swing.JFrame {
 
     private Recepcionista objRecepcionista;
     private long idRecepcionista;
     /**
      * Creates new form Menu_Recepcionista
      */
-    public Menu_Recepcionista(Recepcionista objRecepcionista) {
+    public VentanaMenuRecepcionista(Recepcionista objRecepcionista) {
         
         initComponents();
         this.objRecepcionista=objRecepcionista;
@@ -40,7 +40,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         
     }
     
-    private Menu_Recepcionista() {
+    private VentanaMenuRecepcionista() {
        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     /**
@@ -61,6 +61,8 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         txt_Recepcionista = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButtonCancelar1 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -70,50 +72,50 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(223, 208, 184));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("VER CITAS ATENDIDAS");
+        jButton1.setText("Ver Citas Atendidas");
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, 380, 60));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 350, 50));
 
         jButton2.setBackground(new java.awt.Color(223, 208, 184));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("REGISTRAR CITA");
+        jButton2.setText("Registrar Cita");
         jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 380, 60));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 350, 50));
 
         jButton3.setBackground(new java.awt.Color(223, 208, 184));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("VER CITA DE UN PACIENTE");
+        jButton3.setText("Ver Cita de un Paciente");
         jButton3.setBorderPainted(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, 380, 60));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 350, 50));
 
         jButton4.setBackground(new java.awt.Color(223, 208, 184));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("VER TODAS LAS CITAS PENDIENTES");
+        jButton4.setText("Ver Todas las Citas de Pacientes");
         jButton4.setBorderPainted(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 310, 380, 60));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 350, 50));
 
         jPanel5.setBackground(new java.awt.Color(21, 52, 72));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -143,7 +145,31 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
                 jButtonCancelar1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 470, 370, 50));
+        jPanel2.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 370, 50));
+
+        jButton5.setBackground(new java.awt.Color(223, 208, 184));
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton5.setForeground(new java.awt.Color(0, 0, 0));
+        jButton5.setText("Registrar Doctor");
+        jButton5.setBorderPainted(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 350, 50));
+
+        jButton7.setBackground(new java.awt.Color(223, 208, 184));
+        jButton7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton7.setForeground(new java.awt.Color(0, 0, 0));
+        jButton7.setText("Registrar Paciente");
+        jButton7.setBorderPainted(false);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 350, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,7 +199,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-        VerCitaxPaciente objverCitaxPaciente = new VerCitaxPaciente(objRecepcionista); 
+        VentanaVerCitaPaciente objverCitaxPaciente = new VentanaVerCitaPaciente(objRecepcionista); 
         objverCitaxPaciente.setLocationRelativeTo(null);
         objverCitaxPaciente.setVisible(true);
         this.dispose();
@@ -181,7 +207,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        RegistrarCita objregistrarCita = new RegistrarCita(objRecepcionista);
+        VentanaRegistrarCita objregistrarCita = new VentanaRegistrarCita(objRecepcionista);
         objregistrarCita.setLocationRelativeTo(null);
         objregistrarCita.setVisible(true);
         this.dispose();
@@ -189,7 +215,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        CitasPendientes objcitasPendientes = new CitasPendientes(objRecepcionista);
+        VentanaCitasPendientes objcitasPendientes = new VentanaCitasPendientes(objRecepcionista);
         objcitasPendientes.setLocationRelativeTo(null);
         objcitasPendientes.setVisible(true);
         this.dispose();
@@ -197,11 +223,27 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        CitasAtendidas objcitasAtendidas = new CitasAtendidas(objRecepcionista);
+        VentanaCitasAtendidas objcitasAtendidas = new VentanaCitasAtendidas(objRecepcionista);
         objcitasAtendidas.setLocationRelativeTo(null);
         objcitasAtendidas.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        VentanaRegistrarDoctor objVentanaRegistrarDoctor = new VentanaRegistrarDoctor(objRecepcionista);
+        objVentanaRegistrarDoctor.setLocationRelativeTo(null);
+        objVentanaRegistrarDoctor.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        VentanaRegistrarPaciente objVentanaRegistrarPaciente = new VentanaRegistrarPaciente(objRecepcionista);
+        objVentanaRegistrarPaciente.setLocationRelativeTo(null);
+        objVentanaRegistrarPaciente.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,21 +262,22 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu_Recepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu_Recepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu_Recepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu_Recepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new Menu_Recepcionista().setVisible(true);
-                Menu_Recepcionista ventanar = new Menu_Recepcionista();
+                //new VentanaMenuRecepcionista().setVisible(true);
+                VentanaMenuRecepcionista ventanar = new VentanaMenuRecepcionista();
                 ventanar.setVisible(true);
             }
         });
@@ -245,6 +288,8 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButtonCancelar1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel2;

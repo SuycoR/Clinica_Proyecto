@@ -220,7 +220,7 @@ public class VentanaLoginRecepcionista extends javax.swing.JFrame {
 
         if (objMenu.loginUserRecepcionista(objRecepcionista)) {
             //this.dispose();
-            Menu_Recepcionista objmenuRecepcionista = new Menu_Recepcionista(objRecepcionista);
+            VentanaMenuRecepcionista objmenuRecepcionista = new VentanaMenuRecepcionista(objRecepcionista);
             objmenuRecepcionista.setLocationRelativeTo(null);
             objmenuRecepcionista.setVisible(true);
             this.dispose();

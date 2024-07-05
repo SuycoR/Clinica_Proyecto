@@ -62,7 +62,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="SALIR"/>
+            <Property name="text" type="java.lang.String" value="Salir"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -72,7 +72,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="140" y="430" width="330" height="50"/>
+              <AbsoluteConstraints x="150" y="430" width="310" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -128,7 +128,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="CONOCE SOBRE NOSOTROS"/>
+            <Property name="text" type="java.lang.String" value="Conoce Sobre Nosotros"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -138,7 +138,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="140" y="360" width="330" height="50"/>
+              <AbsoluteConstraints x="150" y="360" width="310" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -178,7 +178,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N COMO PACIENTE"/>
+            <Property name="text" type="java.lang.String" value="Iniciar Sesi&#xf3;n como Paciente"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -188,7 +188,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="140" y="150" width="330" height="50"/>
+              <AbsoluteConstraints x="150" y="150" width="310" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -203,7 +203,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N COMO DOCTOR"/>
+            <Property name="text" type="java.lang.String" value="Iniciar Sesi&#xf3;n como Doctor"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -213,7 +213,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="140" y="220" width="330" height="50"/>
+              <AbsoluteConstraints x="150" y="220" width="310" height="50"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -228,7 +228,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="INICIAR SESI&#xd3;N COMO RECEPCIONISTA"/>
+            <Property name="text" type="java.lang.String" value="Iniciar Sesi&#xf3;n como Recepcionista"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="null"/>
             </Property>
@@ -238,7 +238,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="120" y="290" width="360" height="50"/>
+              <AbsoluteConstraints x="150" y="290" width="310" height="50"/>
             </Constraint>
           </Constraints>
         </Component>

@@ -22,7 +22,7 @@ import java.sql.Date;
  *
  * @author Suyco
  */
-public class VerCitaxPaciente extends javax.swing.JFrame {
+public class VentanaVerCitaPaciente extends javax.swing.JFrame {
 
     private long idDoctor;
     public int idPaciente;
@@ -44,7 +44,7 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
     /**
      * Creates new form VerCitaxPaciente
      */
-    public VerCitaxPaciente(Recepcionista objRecepcionista) {
+    public VentanaVerCitaPaciente(Recepcionista objRecepcionista) {
         objMenuCitaPaciente = new ModeloCita();
         objMenuCita = new Repository();
 
@@ -57,7 +57,7 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
         this.CargarComboPaciente();
     }
 
-    private VerCitaxPaciente() {
+    private VentanaVerCitaPaciente() {
         throw new UnsupportedOperationException("Not supported yet."); 
        
     }
@@ -122,7 +122,6 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
 
         jButton_elegirPaciente.setBackground(new java.awt.Color(223, 208, 184));
         jButton_elegirPaciente.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton_elegirPaciente.setForeground(new java.awt.Color(0, 0, 0));
         jButton_elegirPaciente.setText("Seleccionar");
         jButton_elegirPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +132,6 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(223, 208, 184));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("Mostrar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -147,7 +145,6 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
 
         jButtonCancelar1.setBackground(new java.awt.Color(223, 208, 184));
         jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonCancelar1.setForeground(new java.awt.Color(0, 0, 0));
         jButtonCancelar1.setText("Volver");
         jButtonCancelar1.setBorder(null);
         jButtonCancelar1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -211,7 +208,7 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
 
     private void jButtonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelar1ActionPerformed
         // TODO add your handling code here:
-        Menu_Recepcionista objMenu_Recepcionista = new Menu_Recepcionista(objRecepcionista);
+        VentanaMenuRecepcionista objMenu_Recepcionista = new VentanaMenuRecepcionista(objRecepcionista);
         objMenu_Recepcionista.setLocationRelativeTo(null);
         objMenu_Recepcionista.setVisible(true);
         this.dispose();
@@ -283,20 +280,21 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VerCitaxPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaVerCitaPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VerCitaxPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaVerCitaPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VerCitaxPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaVerCitaPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VerCitaxPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaVerCitaPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VerCitaxPaciente().setVisible(true);
+                new VentanaVerCitaPaciente().setVisible(true);
             }
         });
     }
@@ -360,8 +358,8 @@ public class VerCitaxPaciente extends javax.swing.JFrame {
             pst = con.prepareStatement(sql);
             pst.setInt(1, IdPacienteSeleccionado); // Establece el valor del parámetro
             ResultSet rs = pst.executeQuery();
-            VerCitaxPaciente.jTable_citas = new JTable(model);
-            VerCitaxPaciente.jScrollPane1.setViewportView(VerCitaxPaciente.jTable_citas);
+            VentanaVerCitaPaciente.jTable_citas = new JTable(model);
+            VentanaVerCitaPaciente.jScrollPane1.setViewportView(VentanaVerCitaPaciente.jTable_citas);
 
             model.addColumn("idRecepcionista");
             model.addColumn("idDoctor");

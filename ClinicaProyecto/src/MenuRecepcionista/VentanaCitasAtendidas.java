@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
@@ -21,18 +21,18 @@ import java.sql.Date;
  *
  * @author Suyco
  */
-public class CitasAtendidas extends javax.swing.JFrame {
+public class VentanaCitasAtendidas extends javax.swing.JFrame {
     
     private Recepcionista objRecepcionista;
     /**
      * Creates new form CitasAtendidas
      */
-    public CitasAtendidas(Recepcionista objRecepcionista) {
+    public VentanaCitasAtendidas(Recepcionista objRecepcionista) {
         initComponents();
         this.objRecepcionista=objRecepcionista;
         this.CargarTabla();
     }
-    private CitasAtendidas() {
+    private VentanaCitasAtendidas() {
        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     /**
@@ -47,11 +47,10 @@ public class CitasAtendidas extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable_citas = new javax.swing.JTable();
-        jPanel2 = new javax.swing.JPanel();
-        jButtonCancelar1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+        jButtonCancelar1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,28 +71,7 @@ public class CitasAtendidas extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable_citas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 710, 320));
-
-        jPanel2.setBackground(new java.awt.Color(60, 91, 111));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButtonCancelar1.setBackground(new java.awt.Color(223, 208, 184));
-        jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButtonCancelar1.setText("Volver");
-        jButtonCancelar1.setBorder(null);
-        jButtonCancelar1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jButtonCancelar1MousePressed(evt);
-            }
-        });
-        jButtonCancelar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonCancelar1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 120, 30));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 170, 380));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, 710, 320));
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(21, 52, 72));
@@ -119,6 +97,23 @@ public class CitasAtendidas extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 1010, 50));
 
+        jButtonCancelar1.setBackground(new java.awt.Color(223, 208, 184));
+        jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButtonCancelar1.setForeground(new java.awt.Color(0, 0, 0));
+        jButtonCancelar1.setText("Volver");
+        jButtonCancelar1.setBorder(null);
+        jButtonCancelar1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jButtonCancelar1MousePressed(evt);
+            }
+        });
+        jButtonCancelar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelar1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, 120, 30));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -141,7 +136,7 @@ public class CitasAtendidas extends javax.swing.JFrame {
 
     private void jButtonCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelar1ActionPerformed
         // TODO add your handling code here:
-        Menu_Recepcionista objMenu_Recepcionista = new Menu_Recepcionista(objRecepcionista);
+        VentanaMenuRecepcionista objMenu_Recepcionista = new VentanaMenuRecepcionista(objRecepcionista);
         objMenu_Recepcionista.setLocationRelativeTo(null);
         objMenu_Recepcionista.setVisible(true);
         this.dispose();
@@ -164,21 +159,22 @@ public class CitasAtendidas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CitasAtendidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCitasAtendidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CitasAtendidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCitasAtendidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CitasAtendidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCitasAtendidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CitasAtendidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaCitasAtendidas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new CitasAtendidas().setVisible(true);
-                CitasAtendidas ventana_CitaAtendida = new CitasAtendidas();
+                //new VentanaCitasAtendidas().setVisible(true);
+                VentanaCitasAtendidas ventana_CitaAtendida = new VentanaCitasAtendidas();
                 ventana_CitaAtendida.setVisible(true);
             }
         });
@@ -188,7 +184,6 @@ public class CitasAtendidas extends javax.swing.JFrame {
     private javax.swing.JButton jButtonCancelar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     public static javax.swing.JScrollPane jScrollPane1;
@@ -205,8 +200,8 @@ public class CitasAtendidas extends javax.swing.JFrame {
         pst = con.prepareStatement(sql);
         pst.setString(1,"Atendido"); // Establece el valor del parámetro a comparar
         ResultSet rs = pst.executeQuery();
-        CitasAtendidas.jTable_citas = new JTable(model);
-        CitasAtendidas.jScrollPane1.setViewportView(CitasAtendidas.jTable_citas);
+        VentanaCitasAtendidas.jTable_citas = new JTable(model);
+        VentanaCitasAtendidas.jScrollPane1.setViewportView(VentanaCitasAtendidas.jTable_citas);
 
         model.addColumn("Cita");
         model.addColumn("Recepcionista");

@@ -25,7 +25,7 @@ import java.time.format.DateTimeFormatter;
  *
  * @author Suyco
  */
-public class RegistrarCita extends javax.swing.JFrame {
+public class VentanaRegistrarCita extends javax.swing.JFrame {
 
     private long idDoctor;
     public int idPaciente;
@@ -50,7 +50,7 @@ public class RegistrarCita extends javax.swing.JFrame {
     /**
      * Creates new form RegistrarCita
      */
-    public RegistrarCita(Recepcionista objRecepcionista) {
+    public VentanaRegistrarCita(Recepcionista objRecepcionista) {
         objMenuCitaPaciente = new ModeloCita();
         objMenuCita = new Repository();
         initComponents();
@@ -63,7 +63,7 @@ public class RegistrarCita extends javax.swing.JFrame {
 
     }
 
-    private RegistrarCita() {
+    private VentanaRegistrarCita() {
     }
 
     /**
@@ -178,6 +178,7 @@ public class RegistrarCita extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Nombre:");
         jPanel4.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, -1));
@@ -191,16 +192,19 @@ public class RegistrarCita extends javax.swing.JFrame {
         jPanel4.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 170, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Apellido:");
         jPanel4.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 80, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Costo:");
         jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, 90, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Elegir Dia:");
         jLabel5.setToolTipText("");
@@ -458,7 +462,7 @@ public class RegistrarCita extends javax.swing.JFrame {
 
     private void jButton_cerrarsesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_cerrarsesionActionPerformed
         // TODO add your handling code here:
-        Menu_Recepcionista objMenu_Recepcionista = new Menu_Recepcionista(objRecepcionista);
+        VentanaMenuRecepcionista objMenu_Recepcionista = new VentanaMenuRecepcionista(objRecepcionista);
         objMenu_Recepcionista.setLocationRelativeTo(null);
         objMenu_Recepcionista.setVisible(true);
         this.dispose();
@@ -481,20 +485,21 @@ public class RegistrarCita extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegistrarCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new RegistrarCita().setVisible(true);
+                new VentanaRegistrarCita().setVisible(true);
             }
         });
     }
@@ -565,8 +570,8 @@ public class RegistrarCita extends javax.swing.JFrame {
         try {
             st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
-            RegistrarCita.jTable_citas = new JTable(model);
-            RegistrarCita.jScrollPane1.setViewportView(RegistrarCita.jTable_citas);
+            VentanaRegistrarCita.jTable_citas = new JTable(model);
+            VentanaRegistrarCita.jScrollPane1.setViewportView(VentanaRegistrarCita.jTable_citas);
 
             model.addColumn("idDoctor");
             model.addColumn("nombre");

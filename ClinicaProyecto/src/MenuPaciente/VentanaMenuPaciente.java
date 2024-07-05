@@ -23,13 +23,13 @@ import javax.swing.JOptionPane;
  *
  * @author Suyco
  */
-public class Menu_Paciente extends javax.swing.JFrame {
+public class VentanaMenuPaciente extends javax.swing.JFrame {
 private Paciente objPaciente;
 public long idPaciente;
     /**
      * Creates new form Menu_Paciente
      */
-    public Menu_Paciente(Paciente objPaciente) {
+    public VentanaMenuPaciente(Paciente objPaciente) {
         initComponents();
         this.objPaciente=objPaciente;
         idPaciente=objPaciente.getIdPaciente();
@@ -37,7 +37,7 @@ public long idPaciente;
         obtenerDatosxIdPaciente(idPaciente);
         this.CargarTabla();
     }
-    private Menu_Paciente() {
+    private VentanaMenuPaciente() {
        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     /**
@@ -79,14 +79,14 @@ public long idPaciente;
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, -1, 220));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 520, 280));
 
         jPanel5.setBackground(new java.awt.Color(21, 52, 72));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("citas pendientes");
+        jLabel8.setText("es el siguiente");
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 50));
 
         jButtonCancelar.setBackground(new java.awt.Color(60, 91, 111));
@@ -108,7 +108,7 @@ public long idPaciente;
 
         jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Tiene las siguientes");
+        jLabel10.setText("Tu historial de citas");
         jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 50));
 
         jLabel11.setFont(new java.awt.Font("Bahnschrift", 1, 30)); // NOI18N
@@ -124,8 +124,8 @@ public long idPaciente;
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(21, 52, 72));
-        jLabel1.setText("Citas Pendientes");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, 40));
+        jLabel1.setText("Mi Historial");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, 40));
 
         jPanel4.setBackground(new java.awt.Color(21, 52, 72));
 
@@ -133,14 +133,14 @@ public long idPaciente;
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 180, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 250, 5));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 80, 180, 5));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -185,20 +185,21 @@ public long idPaciente;
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu_Paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu_Paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu_Paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu_Paciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaMenuPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Menu_Paciente().setVisible(true);
+                new VentanaMenuPaciente().setVisible(true);
             }
         });
     }
@@ -229,11 +230,11 @@ public long idPaciente;
         pst.setInt(1, IdPacienteLogeado); // Establece el valor del parámetro
         //pst.setString(2,"Pendiente");
         ResultSet rs = pst.executeQuery();
-        Menu_Paciente.jTable1 = new JTable(model);
-        Menu_Paciente.jScrollPane1.setViewportView(Menu_Paciente.jTable1);
+        VentanaMenuPaciente.jTable1 = new JTable(model);
+        VentanaMenuPaciente.jScrollPane1.setViewportView(VentanaMenuPaciente.jTable1);
 
         model.addColumn("Cita");
-        model.addColumn("Recepcionista");
+        //model.addColumn("Recepcionista");
         model.addColumn("Doctor");
         //model.addColumn("idPaciente");
         model.addColumn("Fecha Cita");
@@ -243,17 +244,17 @@ public long idPaciente;
 
         while (rs.next()) {
             //String pc = (String) rs.getObject("idPaciente")
-            Object fila[] = new Object[7];
+            Object fila[] = new Object[6];
             //for (int i = 0; i < 7; i++) {
                // fila[i] = rs.getObject(i + 1);
             //}
             fila[0] = rs.getObject("idCita");
-            fila[1] = rs.getObject("idRecepcionista");
-            fila[2] = rs.getObject("idDoctor");
-            fila[3] = rs.getObject("fechaCita");
-            fila[4] = rs.getObject("fechaRegistro");
-            fila[5] = rs.getObject("costoTotal");
-            fila[6] = rs.getObject("estado");
+            //fila[1] = rs.getObject("idRecepcionista");
+            fila[1] = rs.getObject("idDoctor");
+            fila[2] = rs.getObject("fechaCita");
+            fila[3] = rs.getObject("fechaRegistro");
+            fila[4] = rs.getObject("costoTotal");
+            fila[5] = rs.getObject("estado");
             model.addRow(fila);
         }
         con.close();

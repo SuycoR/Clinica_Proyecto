@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author Suyco
  */
-public class Ventana_Atendidos extends javax.swing.JFrame {
+public class VentanaAtendidos extends javax.swing.JFrame {
     
     private Doctor objDoctor;
     private long idDoctor;
@@ -32,11 +32,11 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
      * Creates new form Ventana_Atendidos
      */
     
-    public Ventana_Atendidos() {
+    public VentanaAtendidos() {
         
         initComponents();
         //this.objDoctor=objDoctor;
-        this.setSize(new Dimension(1000, 600));
+        
         
        
         //idDoctor=objDoctor.getIdDoctor();
@@ -57,8 +57,8 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
         pst.setInt(1, IdDoctorLogeado); // Establece el valor del parámetro a comparar
         pst.setString(2,"Atendido");
         ResultSet rs = pst.executeQuery();
-        Ventana_Atendidos.jTable1 = new JTable(model);
-        Ventana_Atendidos.jScrollPane1.setViewportView(Ventana_Atendidos.jTable1);
+        VentanaAtendidos.jTable1 = new JTable(model);
+        VentanaAtendidos.jScrollPane1.setViewportView(VentanaAtendidos.jTable1);
 
         model.addColumn("N° Cita");
         model.addColumn("ID Recepcionista");
@@ -132,6 +132,7 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
         txt_Doctor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(960, 550));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -150,7 +151,7 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 160, 640, 360));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 640, 360));
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(21, 52, 72));
@@ -195,7 +196,7 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
-        jPanel5.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 220, 34));
+        jPanel5.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 220, 34));
 
         jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 30)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -222,21 +223,11 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1008, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 996, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 996, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, Short.MAX_VALUE)
         );
 
         pack();
@@ -248,7 +239,7 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
-        Ventana_LoginMenuDoctor objVentana_LoginMenuDoctor = new Ventana_LoginMenuDoctor(objDoctor);
+        VentanaListaPacientes objVentana_LoginMenuDoctor = new VentanaListaPacientes(objDoctor);
         objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
         objVentana_LoginMenuDoctor.setVisible(true);
         this.dispose();
@@ -271,14 +262,18 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Atendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaAtendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Atendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaAtendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Atendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaAtendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana_Atendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaAtendidos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -287,7 +282,7 @@ public class Ventana_Atendidos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Ventana_Atendidos ventana_Atendidos = new Ventana_Atendidos();
+                VentanaAtendidos ventana_Atendidos = new VentanaAtendidos();
                 ventana_Atendidos.setVisible(true);
             }
         });

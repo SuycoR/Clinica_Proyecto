@@ -216,7 +216,7 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         
         if(objMenu.loginUserPaciente(objPaciente)){
             
-            Menu_Paciente objmenu_Paciente = new Menu_Paciente(objPaciente);
+            VentanaMenuPaciente objmenu_Paciente = new VentanaMenuPaciente(objPaciente);
             objmenu_Paciente.setLocationRelativeTo(null);
             objmenu_Paciente.setVisible(true);
             this.dispose();

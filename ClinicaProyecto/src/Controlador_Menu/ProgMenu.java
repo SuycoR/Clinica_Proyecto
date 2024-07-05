@@ -7,7 +7,7 @@ package Controlador_Menu;
 import java.sql.Connection;
 import Vista_Ventana.*;
 import Modelo_Menu.Repository;
-import MenuDoctor.Ventana_LoginMenuDoctor;
+import MenuDoctor.VentanaListaPacientes;
 /**
  *
  * @author PC

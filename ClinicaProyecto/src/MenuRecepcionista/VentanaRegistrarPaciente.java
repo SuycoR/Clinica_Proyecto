@@ -2,9 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista_Ventana;
+package MenuRecepcionista;
 
 import Modelo_Menu.Repository;
+import Modelo_Menu.*;
 
 /**
  *
@@ -12,14 +13,23 @@ import Modelo_Menu.Repository;
  */
 public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
+    private Recepcionista objRecepcionista;
     public Repository objMenu;
 
     /**
      * Creates new form VentanaRegister
      */
-    public VentanaRegistrarPaciente() {
+    public VentanaRegistrarPaciente(Recepcionista objRecepcionista) {
+
         objMenu = new Repository();
+
         initComponents();
+        this.objRecepcionista = objRecepcionista;
+    }
+
+    private VentanaRegistrarPaciente() {
+        throw new UnsupportedOperationException("Not supported yet.");
+
     }
 
     /**
@@ -76,7 +86,6 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
-        setResizable(false);
 
         Background.setBackground(new java.awt.Color(255, 255, 255));
         Background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -506,8 +515,10 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
-
-
+        VentanaMenuRecepcionista objMenu_Recepcionista = new VentanaMenuRecepcionista(objRecepcionista);
+        objMenu_Recepcionista.setLocationRelativeTo(null);
+        objMenu_Recepcionista.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegistrarActionPerformed
@@ -557,8 +568,8 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         if (CampoContrasena.getText().trim().isEmpty()) {
             CampoContrasena.setText("Ingrese contraseña...");
         }
-        
-        
+
+
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void CampoContrasenaMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMouseReleased
@@ -807,7 +818,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
     private void CampoContrasenaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoContrasenaActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_CampoContrasenaActionPerformed
 
     /**

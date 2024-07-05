@@ -5,7 +5,7 @@
 package Controlador_Menu;
 
 import Modelo_Menu.*;
-import Vista_Ventana.VentanaRegistrarRecepcionista;
+import MenuRecepcionista.VentanaRegistrarRecepcionista;
 import java.sql.Connection;
 
 /**

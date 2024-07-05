@@ -2,22 +2,34 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Vista_Ventana;
+package MenuRecepcionista;
+
 import Modelo_Menu.Repository;
+import Modelo_Menu.*;
+
 /**
  *
- * @author migue
+ * @author PROPIETARIO
  */
-public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
-    public Repository objMenuRecepcionista;
+public class VentanaRegistrarDoctor extends javax.swing.JFrame {
+
+    private Recepcionista objRecepcionista;
+    public Repository objMenuDoctor;
+
     /**
-     * Creates new form VentanaRegistrarRecepcionista
+     * Creates new form VentanaRegistrarDoctor
      */
-    public VentanaRegistrarRecepcionista() {
-        objMenuRecepcionista = new Repository();
+    public VentanaRegistrarDoctor(Recepcionista objRecepcionista) {
+        objMenuDoctor = new Repository();
         initComponents();
+        this.objRecepcionista = objRecepcionista;
     }
 
+    private VentanaRegistrarDoctor() {
+        throw new UnsupportedOperationException("Not supported yet.");
+    
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -179,8 +191,8 @@ public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 34)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("REGISTRAR RECEPCIONISTA");
-        Background1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
+        jLabel6.setText("REGISTRAR DOCTOR");
+        Background1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         jSeparatorNombre2.setBackground(new java.awt.Color(0, 0, 0));
         jSeparatorNombre2.setForeground(new java.awt.Color(0, 0, 0));
@@ -389,11 +401,15 @@ public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
             CampoUsuario.setText("Ingrese usuario...");
         }
     }//GEN-LAST:event_CampoContrasena1MousePressed
-    
+
     private void CampoContrasena1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasena1MouseReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoContrasena1MouseReleased
-    
+
+    private void CampoContrasena1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoContrasena1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoContrasena1ActionPerformed
+
     private void CampoNombresMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoNombresMousePressed
         // TODO add your handling code here:
         CampoNombres.setText("");
@@ -423,6 +439,10 @@ public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
             CampoContrasena1.setText("Ingrese contraseña...");
         }
     }//GEN-LAST:event_CampoNombresMousePressed
+
+    private void CampoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoNombresActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoNombresActionPerformed
 
     private void CampoUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoUsuarioMousePressed
         // TODO add your handling code here:
@@ -460,6 +480,10 @@ public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
+        VentanaMenuRecepcionista objMenu_Recepcionista = new VentanaMenuRecepcionista(objRecepcionista);
+        objMenu_Recepcionista.setLocationRelativeTo(null);
+        objMenu_Recepcionista.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
     private void jButtonRegistrarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonRegistrarMousePressed
@@ -478,8 +502,8 @@ public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
         String contrasena = CampoContrasena1.getText();
         int costo = Integer.parseInt(CampoCosto.getText());
 
-        objMenuRecepcionista.enviarElementosRecepcionista(nombre, apellido, dni, direccion, correo, celular, usuario, contrasena, costo);
-        
+        objMenuDoctor.enviarElementosDoctor(nombre, apellido, dni, direccion, correo, celular, usuario, contrasena, costo);
+
         CampoNombres.setText("Ingrese nombres...");
         CampoApellidos.setText("Ingrese apellidos...");
         CampoDNI.setText("Ingrese DNI...");
@@ -489,7 +513,6 @@ public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
         CampoUsuario.setText("Ingrese usuario...");
         CampoContrasena1.setText("Ingrese Contraseña...");
         CampoCosto.setText("Ingrese costo...");
-
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
 
     private void CampoApellidosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoApellidosMousePressed
@@ -640,7 +663,7 @@ public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
         if (CampoContrasena1.getText().trim().isEmpty()) {
             CampoContrasena1.setText("Ingrese contraseña...");
         }
-        
+
     }//GEN-LAST:event_CampoNumeroMousePressed
 
     private void CampoCostoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoCostoMousePressed
@@ -673,17 +696,9 @@ public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_CampoCostoMousePressed
 
-    private void CampoNombresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoNombresActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoNombresActionPerformed
-
     private void CampoCostoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoCostoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CampoCostoActionPerformed
-
-    private void CampoContrasena1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoContrasena1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CampoContrasena1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -702,20 +717,20 @@ public class VentanaRegistrarRecepcionista extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(VentanaRegistrarRecepcionista.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaRegistrarDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaRegistrarRecepcionista().setVisible(true);
+                new VentanaRegistrarDoctor().setVisible(true);
             }
         });
     }

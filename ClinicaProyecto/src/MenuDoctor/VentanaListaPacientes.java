@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  *
  * @author Suyco
  */
-public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
+public class VentanaListaPacientes extends javax.swing.JFrame {
     private Doctor objDoctor;
     private long idDoctor;
     public long idPaciente;
@@ -36,7 +36,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     /**
      * Creates new form Ventana_LoginMenuDoctor
      */
-    public Ventana_LoginMenuDoctor(Doctor objDoctor) {
+    public VentanaListaPacientes(Doctor objDoctor) {
         objPaciente = new Paciente();
         
         //txt_Doctor.getText(objDoctor.getId());
@@ -54,7 +54,7 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         this.CargarTablaAtender();
     }
 
-    private Ventana_LoginMenuDoctor() {
+    private VentanaListaPacientes() {
        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
@@ -67,7 +67,6 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -89,17 +88,9 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 522, Short.MAX_VALUE)
-        );
+        setPreferredSize(new java.awt.Dimension(1000, 550));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setForeground(new java.awt.Color(51, 51, 51));
@@ -253,23 +244,28 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 250, 5));
 
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 522, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 996, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 990, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 548, Short.MAX_VALUE)
         );
 
         pack();
@@ -294,7 +290,8 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     private void jButtonAtendidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAtendidosActionPerformed
         // TODO add your handling code here:
         
-        Ventana_Atendidos objVentana_Atendidos= new Ventana_Atendidos();
+        VentanaAtendidos objVentana_Atendidos= new VentanaAtendidos();
+        objVentana_Atendidos.setSize(996,550);
         objVentana_Atendidos.setLocationRelativeTo(null);
         objVentana_Atendidos.setDatos(objDoctor);
         //objVentana_Atendidos.CargarTablaAtendidos(objDoctor);
@@ -334,14 +331,15 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana_LoginMenuDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaListaPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana_LoginMenuDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaListaPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana_LoginMenuDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaListaPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana_LoginMenuDoctor.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VentanaListaPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -349,8 +347,8 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                //new Ventana_LoginMenuDoctor(Doctor objDoctor).setVisible(true);
-                Ventana_LoginMenuDoctor ventana = new Ventana_LoginMenuDoctor();
+                //new VentanaListaPacientes(Doctor objDoctor).setVisible(true);
+                VentanaListaPacientes ventana = new VentanaListaPacientes();
                 ventana.setVisible(true);
                 //txt_Doctor.setText(objDoctor.getId);
                 //txt_Doctor = objDoctor.getNombre();
@@ -401,8 +399,8 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         pst.setInt(1, IdDoctorLogeado); // Establece el valor del parámetro
         pst.setString(2,"Pendiente");
         ResultSet rs = pst.executeQuery();
-        Ventana_LoginMenuDoctor.jTable1 = new JTable(model);
-        Ventana_LoginMenuDoctor.jScrollPane1.setViewportView(Ventana_LoginMenuDoctor.jTable1);
+        VentanaListaPacientes.jTable1 = new JTable(model);
+        VentanaListaPacientes.jScrollPane1.setViewportView(VentanaListaPacientes.jTable1);
 
         model.addColumn("N° cita");
         model.addColumn("ID Recepcionista");
