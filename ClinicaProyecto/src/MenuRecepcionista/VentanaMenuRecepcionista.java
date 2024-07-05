@@ -236,9 +236,9 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
 
     private void botonFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFacturaActionPerformed
         // TODO add your handling code here:
-        objInterFacturacion ventanaInterFacturacion = new objInterFacturacion();
-        ventanaInterFacturacion.setVisible(true);
-        this.dispose();
+        //objInterFacturacion ventanaInterFacturacion = new objInterFacturacion();
+        //ventanaInterFacturacion.setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_botonFacturaActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
