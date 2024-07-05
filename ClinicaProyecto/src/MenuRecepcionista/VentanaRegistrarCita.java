@@ -46,6 +46,7 @@ public class VentanaRegistrarCita extends javax.swing.JFrame {
     private Recepcionista objRecepcionista;
     Repository objMenuCita;
     ModeloCita objMenuCitaPaciente;
+    private String idRecepcionista;
 
     /**
      * Creates new form RegistrarCita
@@ -62,7 +63,8 @@ public class VentanaRegistrarCita extends javax.swing.JFrame {
         this.CargarComboPaciente();
 
     }
-
+   
+    
     private VentanaRegistrarCita() {
     }
 
@@ -352,7 +354,7 @@ public class VentanaRegistrarCita extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox_diaActionPerformed
 
     private void jButton_actualizarDiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_actualizarDiaActionPerformed
-
+        
         Connection con = Repository.ConectarBD();
         String sql = "select idDoctor, nombre, apellido, costo, lunes, martes, miercoles, jueves, viernes, sabado from doctor";
         String sqlRecepcionista = "select * from recepcionista";
@@ -440,7 +442,7 @@ public class VentanaRegistrarCita extends javax.swing.JFrame {
                 while (rsRecepcionista.next()) {
 
                     //Cambiar el 6 al idRecepcionista obtenido en el login (MELENDEZ)
-                    if (6 == rsRecepcionista.getInt("idRecepcionista")) {
+                    if (objRecepcionista.getIdRecepcionista() == rsRecepcionista.getInt("idRecepcionista")) {
                         costoRecepcionista = rsRecepcionista.getInt("costo");
                         break;
                     }
@@ -448,9 +450,9 @@ public class VentanaRegistrarCita extends javax.swing.JFrame {
             } catch (SQLException ex) {
                 System.out.println("Error al entrar a la tabla recepcionista");
             }
-
+            idRecepcionista=String.valueOf(objRecepcionista.getIdRecepcionista());
             //ActualizarDate
-            objMenuCita.enviarElementosCita("6", idDoctorString, idPacienteString, Date.valueOf(fechaCita), Date.valueOf(fechaRegistro), costo + costoRecepcionista, "Pendiente");
+            objMenuCita.enviarElementosCita(idRecepcionista, idDoctorString, idPacienteString, Date.valueOf(fechaCita), Date.valueOf(fechaRegistro), costo + costoRecepcionista, "Pendiente");
 
             //mostrar tabla actualizada
             CargarTablaCita();
@@ -538,6 +540,7 @@ public class VentanaRegistrarCita extends javax.swing.JFrame {
      * metodo para cargar pacientes en el JcomboPaciente desde la tabla paciente
      * *****************************************************
      */
+    
     private void CargarComboPaciente() {
         Connection con = Repository.ConectarBD();
         String sql = "select * from paciente";
@@ -562,6 +565,7 @@ public class VentanaRegistrarCita extends javax.swing.JFrame {
      * metodo para mostrar todos los doctores registrados en la tabla
      * *****************************************************
      */
+    
     private void CargarTablaCita() {
         Connection con = Repository.ConectarBD();
         DefaultTableModel model = new DefaultTableModel();
@@ -622,6 +626,7 @@ public class VentanaRegistrarCita extends javax.swing.JFrame {
      * Metodo que envia datos del doctor seleccionado al cuadro de texto
      * **************************************************
      */
+    
     private void EnviarDatosCitaSeleccionada(long idDoctor) {
         try {
             Connection con = Repository.ConectarBD();
