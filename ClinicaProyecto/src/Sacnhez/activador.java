@@ -4,18 +4,17 @@
  */
 package Sacnhez;
 
-import Sacnhez.*;
 
 /**
  *
  * @author PROPIETARIO
  */
-public class FrmPruebaCita extends javax.swing.JFrame {
+public class activador extends javax.swing.JFrame {
 
     /**
      * Creates new form FrmPruebaCita
      */
-    public FrmPruebaCita() {
+    public activador() {
         initComponents();
     }
 
@@ -81,13 +80,13 @@ public class FrmPruebaCita extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         //Eligiendo la parte del Doctor Crear un regisrto en la tabla doctor
-        InterFracturacion interfacturacion = new InterFracturacion();
-        jPanelCita.add(interfacturacion);
-        interfacturacion.setVisible(true);
+        objInterFacturacion ojtfacturacion = new objInterFacturacion();
+        jPanelCita.add(ojtfacturacion);
+        ojtfacturacion.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * @param args the command lin e arguments
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -103,21 +102,27 @@ public class FrmPruebaCita extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmPruebaCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(activador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmPruebaCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(activador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmPruebaCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(activador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmPruebaCita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(activador.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmPruebaCita().setVisible(true);
+                new activador().setVisible(true);
             }
         });
     }
