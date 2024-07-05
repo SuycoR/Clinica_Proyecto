@@ -322,7 +322,7 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
                 objRecepcionista.setApellido(rs.getString("apellido"));
                 txt_Recepcionista.setText(rs.getString("nombre"));  
             }
-            con.close();
+            
         } catch (SQLException e) {
             System.out.println("Error al seleccionar cita: " + e);
         }

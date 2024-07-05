@@ -107,7 +107,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         CampoContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoContrasena.setForeground(new java.awt.Color(153, 153, 153));
-        CampoContrasena.setText("Ingresa tu contraseña...");
+        CampoContrasena.setText("Contraseña");
         CampoContrasena.setBorder(null);
         CampoContrasena.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -130,7 +130,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         CampoNombres.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoNombres.setForeground(new java.awt.Color(153, 153, 153));
-        CampoNombres.setText("Ingrese nombre...");
+        CampoNombres.setText("Nombres");
         CampoNombres.setBorder(null);
         CampoNombres.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -145,7 +145,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         CampoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        CampoUsuario.setText("Ingrese usuario...");
+        CampoUsuario.setText("Usuario");
         CampoUsuario.setBorder(null);
         CampoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -203,11 +203,16 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         CampoApellidos.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoApellidos.setForeground(new java.awt.Color(153, 153, 153));
-        CampoApellidos.setText("Ingrese nombre...");
+        CampoApellidos.setText("Apellidos");
         CampoApellidos.setBorder(null);
         CampoApellidos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 CampoApellidosMousePressed(evt);
+            }
+        });
+        CampoApellidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CampoApellidosActionPerformed(evt);
             }
         });
         Background.add(CampoApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 270, 260, 30));
@@ -224,7 +229,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         CampoDNI.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoDNI.setForeground(new java.awt.Color(153, 153, 153));
-        CampoDNI.setText("Ingrese nombre...");
+        CampoDNI.setText("DNI");
         CampoDNI.setBorder(null);
         CampoDNI.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -244,7 +249,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         CampoDireccion.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoDireccion.setForeground(new java.awt.Color(153, 153, 153));
-        CampoDireccion.setText("Ingrese nombre...");
+        CampoDireccion.setText("Dirección");
         CampoDireccion.setBorder(null);
         CampoDireccion.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -264,7 +269,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         CampoCorreo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoCorreo.setForeground(new java.awt.Color(153, 153, 153));
-        CampoCorreo.setText("Ingrese nombre...");
+        CampoCorreo.setText("Correo");
         CampoCorreo.setBorder(null);
         CampoCorreo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -284,7 +289,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         CampoNumero.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoNumero.setForeground(new java.awt.Color(153, 153, 153));
-        CampoNumero.setText("Ingrese nombre...");
+        CampoNumero.setText("Celular");
         CampoNumero.setBorder(null);
         CampoNumero.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -339,7 +344,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         CampoNombreContacto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoNombreContacto.setForeground(new java.awt.Color(153, 153, 153));
-        CampoNombreContacto.setText("Ingrese nombre...");
+        CampoNombreContacto.setText("Nombres de contacto");
         CampoNombreContacto.setBorder(null);
         CampoNombreContacto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -378,7 +383,7 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         CampoNumeroContacto.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoNumeroContacto.setForeground(new java.awt.Color(153, 153, 153));
-        CampoNumeroContacto.setText("Ingrese número de contacto de emergencia");
+        CampoNumeroContacto.setText("Celular de emergencia");
         CampoNumeroContacto.setBorder(null);
         CampoNumeroContacto.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -411,32 +416,33 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         CampoContrasena.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
+            CampoNombres.setText("Nombres");
         }
         if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
+            CampoApellidos.setText("Apellidos");
         }
         if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
+            CampoDNI.setText("DNI");
         }
         if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
+            CampoDireccion.setText("Dirección");
         }
         if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
+            CampoCorreo.setText("Correo");
         }
         if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
+            CampoNumero.setText("Celular");
         }
         if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
+            CampoNombreContacto.setText("Contacto de emergencia");
         }
         if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
+            CampoNumeroContacto.setText("Celular de emergencia ");
         }
         if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
+            CampoUsuario.setText("Usuario");
         }
+
 
     }//GEN-LAST:event_CampoContrasenaMousePressed
 
@@ -445,31 +451,31 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         CampoNombres.setText("");
 
         if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
+            CampoApellidos.setText("Apellidos");
         }
         if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
+            CampoDNI.setText("DNI");
         }
         if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
+            CampoDireccion.setText("Dirección");
         }
         if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
+            CampoCorreo.setText("Correo");
         }
         if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
+            CampoNumero.setText("Celular");
         }
         if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
+            CampoNombreContacto.setText("Contacto de emergencia");
         }
         if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
+            CampoNumeroContacto.setText("Celular de emergencia ");
         }
         if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
+            CampoUsuario.setText("Usuario");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
+            CampoContrasena.setText("Contraseña");
         }
 
 
@@ -480,31 +486,31 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         CampoUsuario.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
+            CampoNombres.setText("Nombres");
         }
         if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
+            CampoApellidos.setText("Apellidos");
         }
         if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
+            CampoDNI.setText("DNI");
         }
         if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
+            CampoDireccion.setText("Dirección");
         }
         if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
+            CampoCorreo.setText("Correo");
         }
         if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
+            CampoNumero.setText("Celular");
         }
         if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
+            CampoNombreContacto.setText("Contacto de emergencia");
         }
         if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
+            CampoNumeroContacto.setText("Celular de emergencia ");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
+            CampoContrasena.setText("Contraseña");
         }
 
     }//GEN-LAST:event_CampoUsuarioMousePressed
@@ -536,38 +542,17 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
 
         objMenu.enviarElementosPaciente(nombre, apellido, dni, direccion, correo, celular, nombreContacto, celularEmergencia, usuario, contrasena);
 
-        CampoNombres.setText("");
-
-        if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
-        }
-        if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
-        }
-        if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
-        }
-        if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
-        }
-        if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
-        }
-        if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
-        }
-        if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
-        }
-        if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
-        }
-        if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
-        }
-        if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
-        }
+        
+        CampoNombres.setText("Nombres");
+        CampoApellidos.setText("Apellidos");
+        CampoDNI.setText("DNI");
+        CampoDireccion.setText("Dirección");
+        CampoCorreo.setText("Correo");
+        CampoNumero.setText("Celular");
+        CampoNombreContacto.setText("Contacto de emergencia");
+        CampoNumeroContacto.setText("Celular de emergencia");
+        CampoUsuario.setText("Usuario");
+        CampoContrasena.setText("Contraseña");
 
 
     }//GEN-LAST:event_jButtonRegistrarActionPerformed
@@ -582,31 +567,31 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         CampoApellidos.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
+            CampoNombres.setText("Nombres");
         }
         if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
+            CampoDNI.setText("DNI");
         }
         if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
+            CampoDireccion.setText("Dirección");
         }
         if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
+            CampoCorreo.setText("Correo");
         }
         if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
+            CampoNumero.setText("Celular");
         }
         if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
+            CampoNombreContacto.setText("Contacto de emergencia");
         }
         if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
+            CampoNumeroContacto.setText("Celular de emergencia ");
         }
         if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
+            CampoUsuario.setText("Usuario");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
+            CampoContrasena.setText("Contraseña");
         }
     }//GEN-LAST:event_CampoApellidosMousePressed
 
@@ -615,31 +600,31 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         CampoDNI.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
+            CampoNombres.setText("Nombres");
         }
         if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
+            CampoApellidos.setText("Apellidos");
         }
         if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
+            CampoDireccion.setText("Dirección");
         }
         if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
+            CampoCorreo.setText("Correo");
         }
         if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
+            CampoNumero.setText("Celular");
         }
         if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
+            CampoNombreContacto.setText("Contacto de emergencia");
         }
         if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
+            CampoNumeroContacto.setText("Celular de emergencia ");
         }
         if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
+            CampoUsuario.setText("Usuario");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
+            CampoContrasena.setText("Contraseña");
         }
     }//GEN-LAST:event_CampoDNIMousePressed
 
@@ -648,31 +633,31 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         CampoDireccion.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
+            CampoNombres.setText("Nombres");
         }
         if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
+            CampoApellidos.setText("Apellidos");
         }
         if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
+            CampoDNI.setText("DNI");
         }
         if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
+            CampoCorreo.setText("Correo");
         }
         if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
+            CampoNumero.setText("Celular");
         }
         if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
+            CampoNombreContacto.setText("Contacto de emergencia");
         }
         if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
+            CampoNumeroContacto.setText("Celular de emergencia ");
         }
         if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
+            CampoUsuario.setText("Usuario");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
+            CampoContrasena.setText("Contraseña");
         }
     }//GEN-LAST:event_CampoDireccionMousePressed
 
@@ -681,31 +666,31 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         CampoCorreo.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
+            CampoNombres.setText("Nombres");
         }
         if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
+            CampoApellidos.setText("Apellidos");
         }
         if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
+            CampoDNI.setText("DNI");
         }
         if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
+            CampoDireccion.setText("Dirección");
         }
         if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
+            CampoNumero.setText("Celular");
         }
         if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
+            CampoNombreContacto.setText("Contacto de emergencia");
         }
         if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
+            CampoNumeroContacto.setText("Celular de emergencia ");
         }
         if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
+            CampoUsuario.setText("Usuario");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
+            CampoContrasena.setText("Contraseña");
         }
     }//GEN-LAST:event_CampoCorreoMousePressed
 
@@ -714,31 +699,31 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         CampoNumero.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
+            CampoNombres.setText("Nombres");
         }
         if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
+            CampoApellidos.setText("Apellidos");
         }
         if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
+            CampoDNI.setText("DNI");
         }
         if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
+            CampoDireccion.setText("Dirección");
         }
         if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
+            CampoCorreo.setText("Correo");
         }
         if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
+            CampoNombreContacto.setText("Contacto de emergencia");
         }
         if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
+            CampoNumeroContacto.setText("Celular de emergencia ");
         }
         if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
+            CampoUsuario.setText("Usuario");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
+            CampoContrasena.setText("Contraseña");
         }
     }//GEN-LAST:event_CampoNumeroMousePressed
 
@@ -751,31 +736,31 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         CampoNombreContacto.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
+            CampoNombres.setText("Nombres");
         }
         if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
+            CampoApellidos.setText("Apellidos");
         }
         if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
+            CampoDNI.setText("DNI");
         }
         if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
+            CampoDireccion.setText("Dirección");
         }
         if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
+            CampoCorreo.setText("Correo");
         }
         if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
+            CampoNumero.setText("Celular");
         }
         if (CampoNumeroContacto.getText().trim().isEmpty()) {
-            CampoNumeroContacto.setText("Ingrese número de contacto...");
+            CampoNumeroContacto.setText("Celular de emergencia ");
         }
         if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
+            CampoUsuario.setText("Usuario");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
+            CampoContrasena.setText("Contraseña");
         }
     }//GEN-LAST:event_CampoNombreContactoMousePressed
 
@@ -784,31 +769,31 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         CampoNumeroContacto.setText("");
 
         if (CampoNombres.getText().trim().isEmpty()) {
-            CampoNombres.setText("Ingrese nombres...");
+            CampoNombres.setText("Nombres");
         }
         if (CampoApellidos.getText().trim().isEmpty()) {
-            CampoApellidos.setText("Ingrese apellidos...");
+            CampoApellidos.setText("Apellidos");
         }
         if (CampoDNI.getText().trim().isEmpty()) {
-            CampoDNI.setText("Ingrese DNI...");
+            CampoDNI.setText("DNI");
         }
         if (CampoDireccion.getText().trim().isEmpty()) {
-            CampoDireccion.setText("Ingrese dirección...");
+            CampoDireccion.setText("Dirección");
         }
         if (CampoCorreo.getText().trim().isEmpty()) {
-            CampoCorreo.setText("Ingrese correo...");
+            CampoCorreo.setText("Correo");
         }
         if (CampoNumero.getText().trim().isEmpty()) {
-            CampoNumero.setText("Ingrese número...");
+            CampoNumero.setText("Celular");
         }
         if (CampoNombreContacto.getText().trim().isEmpty()) {
-            CampoNombreContacto.setText("Ingrese nombre de contacto...");
+            CampoNombreContacto.setText("Contacto de emergencia");
         }
         if (CampoUsuario.getText().trim().isEmpty()) {
-            CampoUsuario.setText("Ingrese usuario...");
+            CampoUsuario.setText("Usuario");
         }
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese contraseña...");
+            CampoContrasena.setText("Contraseña");
         }
     }//GEN-LAST:event_CampoNumeroContactoMousePressed
 
@@ -820,6 +805,10 @@ public class VentanaRegistrarPaciente extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_CampoContrasenaActionPerformed
+
+    private void CampoApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CampoApellidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CampoApellidosActionPerformed
 
     /**
      * @param args the command line arguments
