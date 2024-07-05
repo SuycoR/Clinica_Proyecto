@@ -79,12 +79,16 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txt_costo = new javax.swing.JTextField();
         jButton_actualizar = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         txt_Doctor = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButtonCancelar = new javax.swing.JButton();
         jButtonAtendidos = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -114,11 +118,14 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 620, 260));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 620, 260));
+
+        jPanelPaciente.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel2.setText("Nombre:");
+        jPanelPaciente.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, -1));
 
         txt_nombre.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_nombre.addActionListener(new java.awt.event.ActionListener() {
@@ -126,16 +133,20 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
                 txt_nombreActionPerformed(evt);
             }
         });
+        jPanelPaciente.add(txt_nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 161, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel3.setText("Apellido:");
+        jPanelPaciente.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         txt_apellido.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanelPaciente.add(txt_apellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 161, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Costo:");
+        jPanelPaciente.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 60, -1));
 
         txt_costo.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_costo.addActionListener(new java.awt.event.ActionListener() {
@@ -143,79 +154,38 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
                 txt_costoActionPerformed(evt);
             }
         });
+        jPanelPaciente.add(txt_costo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 161, -1));
 
-        jButton_actualizar.setBackground(new java.awt.Color(0, 51, 255));
+        jButton_actualizar.setBackground(new java.awt.Color(60, 91, 111));
         jButton_actualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton_actualizar.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_actualizar.setText("Marcar como atendido");
+        jButton_actualizar.setText("MARCAR COMO ATENDIDO");
+        jButton_actualizar.setBorder(null);
         jButton_actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton_actualizarActionPerformed(evt);
             }
         });
+        jPanelPaciente.add(jButton_actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, 203, 45));
 
-        javax.swing.GroupLayout jPanelPacienteLayout = new javax.swing.GroupLayout(jPanelPaciente);
-        jPanelPaciente.setLayout(jPanelPacienteLayout);
-        jPanelPacienteLayout.setHorizontalGroup(
-            jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPacienteLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanelPacienteLayout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_costo, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelPacienteLayout.createSequentialGroup()
-                        .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txt_apellido)
-                            .addComponent(txt_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 58, Short.MAX_VALUE)
-                .addComponent(jButton_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-        );
-        jPanelPacienteLayout.setVerticalGroup(
-            jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPacienteLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txt_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelPacienteLayout.createSequentialGroup()
-                        .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_apellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelPacienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txt_costo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))))
-                .addGap(72, 72, 72))
-        );
-
-        jPanel2.add(jPanelPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 570, 130));
-
-        jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
-        jLabel5.setText("Lista de Pacientes ");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 330, 50));
+        jPanel2.add(jPanelPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 620, 140));
 
         jPanel3.setBackground(new java.awt.Color(21, 52, 72));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txt_Doctor.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        txt_Doctor.setFont(new java.awt.Font("Bahnschrift", 1, 30)); // NOI18N
         txt_Doctor.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel3.add(txt_Doctor, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 247, 40));
 
-        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("BIENVENIDO");
+        jLabel7.setText("pacientes por atender");
+        jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, 50));
 
-        jButtonCancelar.setBackground(new java.awt.Color(223, 208, 184));
+        jButtonCancelar.setBackground(new java.awt.Color(60, 91, 111));
         jButtonCancelar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonCancelar.setText("Cerrar Sesión");
+        jButtonCancelar.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonCancelar.setText("CERRAR SESIÓN");
         jButtonCancelar.setBorder(null);
         jButtonCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -227,10 +197,12 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
                 jButtonCancelarActionPerformed(evt);
             }
         });
+        jPanel3.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 480, 220, 34));
 
-        jButtonAtendidos.setBackground(new java.awt.Color(102, 153, 255));
+        jButtonAtendidos.setBackground(new java.awt.Color(60, 91, 111));
         jButtonAtendidos.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButtonAtendidos.setText("Pacientes Atendidos");
+        jButtonAtendidos.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonAtendidos.setText("PACIENTES ATENDIDOS");
         jButtonAtendidos.setBorder(null);
         jButtonAtendidos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -242,42 +214,44 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
                 jButtonAtendidosActionPerformed(evt);
             }
         });
+        jPanel3.add(jButtonAtendidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 220, 34));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(89, 89, 89)
-                        .addComponent(txt_Doctor, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonAtendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(54, 54, 54))
+        jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 30)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("Dr.");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, 40));
+
+        jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("Tiene los siguientes");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, 50));
+
+        jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 30)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel10.setText("Bienvenido,");
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, 50));
+
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 300, 560));
+
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(21, 52, 72));
+        jLabel1.setText("Lista de pacientes");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, -1, 40));
+
+        jPanel4.setBackground(new java.awt.Color(21, 52, 72));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_Doctor, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 288, Short.MAX_VALUE)
-                .addComponent(jButtonAtendidos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47))
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 329, 550));
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 80, 250, 5));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -292,12 +266,10 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -395,14 +367,18 @@ public class Ventana_LoginMenuDoctor extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAtendidos;
     private javax.swing.JButton jButtonCancelar;
     private javax.swing.JButton jButton_actualizar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanelPaciente;
     public static javax.swing.JScrollPane jScrollPane1;
     public static javax.swing.JTable jTable1;

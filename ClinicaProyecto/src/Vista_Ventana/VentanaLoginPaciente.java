@@ -79,7 +79,7 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
 
         CampoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        CampoUsuario.setText("Usuario");
+        CampoUsuario.setText("Ingrese usuario");
         CampoUsuario.setBorder(null);
         CampoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -137,8 +137,13 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 120, 40));
 
         CampoContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        CampoContrasena.setText("Contraseña");
+        CampoContrasena.setText("contrasena");
         CampoContrasena.setBorder(null);
+        CampoContrasena.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CampoContrasenaMousePressed(evt);
+            }
+        });
         jPanel2.add(CampoContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 260, 30));
 
         jSeparatorNombre3.setBackground(new java.awt.Color(0, 0, 0));
@@ -189,7 +194,7 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         CampoUsuario.setText("");
 
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese apellidos...");
+            CampoContrasena.setText("Contrasena");
         }
     }//GEN-LAST:event_CampoUsuarioMousePressed
 
@@ -229,10 +234,20 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
         VentanaInicio objVentanaInicio = new VentanaInicio();
+        objVentanaInicio.setLocationRelativeTo(null);
         objVentanaInicio.setVisible(true);
         this.dispose();
         
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void CampoContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMousePressed
+        // TODO add your handling code here:
+        CampoContrasena.setText("");
+
+        if (CampoUsuario.getText().trim().isEmpty()) {
+            CampoUsuario.setText("Ingrese usuario");
+        }
+    }//GEN-LAST:event_CampoContrasenaMousePressed
 
     /**
      * @param args the command line arguments

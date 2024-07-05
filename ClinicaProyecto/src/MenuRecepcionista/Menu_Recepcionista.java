@@ -121,15 +121,15 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
 
         jPanel2.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 270, 580));
 
-        jButton1.setBackground(new java.awt.Color(28, 89, 197));
+        jButton1.setBackground(new java.awt.Color(223, 208, 184));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("VER CITAS ATENDIDAS");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 400, 380, 60));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 380, 60));
 
-        jButton2.setBackground(new java.awt.Color(28, 89, 197));
+        jButton2.setBackground(new java.awt.Color(223, 208, 184));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("REGISTRAR CITA");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -138,9 +138,9 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 380, 60));
 
-        jButton3.setBackground(new java.awt.Color(28, 89, 197));
+        jButton3.setBackground(new java.awt.Color(223, 208, 184));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("VER CITA DE UN PACIENTE");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,9 +149,9 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
         });
         jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 380, 60));
 
-        jButton4.setBackground(new java.awt.Color(28, 89, 197));
+        jButton4.setBackground(new java.awt.Color(223, 208, 184));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("VER TODAS LAS CITAS PENDIENTES");
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, 380, 60));
 

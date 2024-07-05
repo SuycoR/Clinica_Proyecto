@@ -72,7 +72,7 @@ public Doctor objDoctor;
 
         CampoUsuario.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
         CampoUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        CampoUsuario.setText("Ingrese nombre...");
+        CampoUsuario.setText("Ingrese usuario");
         CampoUsuario.setBorder(null);
         CampoUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -125,8 +125,16 @@ public Doctor objDoctor;
         jPanel2.add(jButtonCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 420, 120, 40));
 
         CampoContrasena.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        CampoContrasena.setText("jPasswordField1");
+        CampoContrasena.setText("*********");
         CampoContrasena.setBorder(null);
+        CampoContrasena.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CampoContrasenaMouseClicked(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                CampoContrasenaMousePressed(evt);
+            }
+        });
         jPanel2.add(CampoContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 320, 260, 30));
 
         jSeparatorNombre3.setBackground(new java.awt.Color(0, 0, 0));
@@ -187,7 +195,7 @@ public Doctor objDoctor;
         CampoUsuario.setText("");
 
         if (CampoContrasena.getText().trim().isEmpty()) {
-            CampoContrasena.setText("Ingrese apellidos...");
+            CampoContrasena.setText("Contrasena");
         }
     }//GEN-LAST:event_CampoUsuarioMousePressed
 
@@ -227,8 +235,42 @@ public Doctor objDoctor;
 
     private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
         // TODO add your handling code here:
+        VentanaInicio objVentanaInicio = new VentanaInicio();
+        objVentanaInicio.setLocationRelativeTo(null);
+        objVentanaInicio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
+
+    private void CampoContrasenaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMouseClicked
+        // TODO add your handling code here:
+        String usuario = CampoUsuario.getText().trim();
+        String contrasena = CampoContrasena.getText().trim();
+
+        /*objDoctor.setUsuario(usuario);
+        objDoctor.setContrasena(contrasena);
+        if(objMenu.loginUserDoctor(objDoctor)){
+           //Menu.java
+            //ListaPacientes objlistapacientes = new ListaPacientes(objDoctor);
+            //jPanel3.add(objlistapacientes);
+            //objlistapacientes.setVisible(true);
+            Ventana_LoginMenuDoctor objVentana_LoginMenuDoctor = new Ventana_LoginMenuDoctor(objDoctor);
+            //objVentana_LoginMenuDoctor.setSize(900,540);
+            objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
+            objVentana_LoginMenuDoctor.setVisible(true);
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Datos incorrectos");
+        }*/
+    }//GEN-LAST:event_CampoContrasenaMouseClicked
+
+    private void CampoContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMousePressed
+        // TODO add your handling code here:
+        CampoContrasena.setText("");
+
+        if (CampoUsuario.getText().trim().isEmpty()) {
+            CampoUsuario.setText("Ingrese usuario");
+        }
+    }//GEN-LAST:event_CampoContrasenaMousePressed
 
     /**
      * @param args the command line arguments

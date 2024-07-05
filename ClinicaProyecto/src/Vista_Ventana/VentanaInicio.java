@@ -47,7 +47,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButtonSalir.setBackground(new java.awt.Color(223, 208, 184));
         jButtonSalir.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonSalir.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonSalir.setText("Salir");
+        jButtonSalir.setText("SALIR");
         jButtonSalir.setBorder(null);
         jButtonSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,7 +79,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButtonConoceMas.setBackground(new java.awt.Color(223, 208, 184));
         jButtonConoceMas.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonConoceMas.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonConoceMas.setText("Conoce sobre nosotros");
+        jButtonConoceMas.setText("CONOCE SOBRE NOSOTROS");
         jButtonConoceMas.setBorder(null);
         jButtonConoceMas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +106,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButtonIniciarSesionPaciente.setBackground(new java.awt.Color(223, 208, 184));
         jButtonIniciarSesionPaciente.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonIniciarSesionPaciente.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonIniciarSesionPaciente.setText("Iniciar sesión como paciente");
+        jButtonIniciarSesionPaciente.setText("INICIAR SESIÓN COMO PACIENTE");
         jButtonIniciarSesionPaciente.setBorder(null);
         jButtonIniciarSesionPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,7 +118,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButtonIniciarSesionDoctor.setBackground(new java.awt.Color(223, 208, 184));
         jButtonIniciarSesionDoctor.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonIniciarSesionDoctor.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonIniciarSesionDoctor.setText("Iniciar sesión como doctor");
+        jButtonIniciarSesionDoctor.setText("INICIAR SESIÓN COMO DOCTOR");
         jButtonIniciarSesionDoctor.setBorder(null);
         jButtonIniciarSesionDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,14 +130,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         jButtonIniciarSesionDoctor1.setBackground(new java.awt.Color(223, 208, 184));
         jButtonIniciarSesionDoctor1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jButtonIniciarSesionDoctor1.setForeground(new java.awt.Color(0, 0, 0));
-        jButtonIniciarSesionDoctor1.setText("Iniciar sesión como recepcionista");
+        jButtonIniciarSesionDoctor1.setText("INICIAR SESIÓN COMO RECEPCIONISTA");
         jButtonIniciarSesionDoctor1.setBorder(null);
         jButtonIniciarSesionDoctor1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonIniciarSesionDoctor1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonIniciarSesionDoctor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 330, 50));
+        jPanel2.add(jButtonIniciarSesionDoctor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, 360, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
