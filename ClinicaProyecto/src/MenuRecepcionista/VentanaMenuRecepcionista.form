@@ -52,7 +52,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ver Citas Atendidas"/>
+            <Property name="text" type="java.lang.String" value="Ver Todas las Citas Atendidas"/>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -112,7 +112,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="18" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ver Todas las Citas de Pacientes"/>
+            <Property name="text" type="java.lang.String" value="Ver Todas las Citas Pendientes"/>
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>

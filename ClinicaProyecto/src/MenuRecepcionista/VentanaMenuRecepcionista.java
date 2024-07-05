@@ -73,7 +73,7 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
 
         jButton1.setBackground(new java.awt.Color(223, 208, 184));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton1.setText("Ver Citas Atendidas");
+        jButton1.setText("Ver Todas las Citas Atendidas");
         jButton1.setBorderPainted(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +106,7 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
 
         jButton4.setBackground(new java.awt.Color(223, 208, 184));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton4.setText("Ver Todas las Citas de Pacientes");
+        jButton4.setText("Ver Todas las Citas Pendientes");
         jButton4.setBorderPainted(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
