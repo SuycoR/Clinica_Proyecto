@@ -46,6 +46,7 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
     private long jueves;
     private long viernes;
     private long sabado;
+    private double cantidad=0.0;
     private int IdPacienteSeleccionado;
     ModeloCita objMenuCitaPaciente;
     //modelo de datos
@@ -68,11 +69,7 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
         this.CargarTablaCita();
         this.repaint();
     }
-    //netodo para inciializar la taval;
-    private void inicializarTablaProducto(){
-        modeloDatosProducto=new DefaultTableModel();
-        //añadir columnas
-    }
+
         
     
     @SuppressWarnings("unchecked")
@@ -270,7 +267,7 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
 
         jButton_RegistarVenta.setBackground(new java.awt.Color(51, 255, 255));
         jButton_RegistarVenta.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jButton_RegistarVenta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Tutur\\Documents\\IS proyecto\\New Folder\\Pruebas\\Clinica_Proyecto5\\ClinicaProyecto\\src\\img\\impresora.png")); // NOI18N
+        jButton_RegistarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/impresora.png"))); // NOI18N
         jButton_RegistarVenta.setText("Registrar Venta");
         jButton_RegistarVenta.setToolTipText("");
         jButton_RegistarVenta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -379,7 +376,7 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
             double montoPagado = Double.parseDouble(textoEfectivo);
 
             // Calcular el cambio
-            double cambio = montoPagado - totalConIGV;
+            double cambio = montoPagado - cantidad;
 
             // Mostrar el cambio en txt_cambio
             txt_cambio.setText(String.format("%.2f", cambio));
@@ -417,7 +414,6 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
             }
         }
 
-        System.out.println(idPaciente);
     } catch (SQLException e) {
         System.out.println("Error al cargar clientes " + e);
     } finally {
@@ -598,7 +594,7 @@ private String obtenerNombreCompleto(int idPaciente) throws SQLException {
             double totalSinDescuento = subtotal - descuentoTotal;
             double totalIGV = totalSinDescuento * igv;
             double totalConIGV = totalSinDescuento + totalIGV;
-
+            cantidad=totalConIGV;
             // Mostrar descuento total en el JTextField
             jTextField_descuento.setText(String.format("%.2f", descuentoTotal));
             // Mostrar subtotal en el JTextField_subtotal1
@@ -631,9 +627,11 @@ private String obtenerNombreCompleto(int idPaciente) throws SQLException {
      public void guardarFactura(int idPaciente, int idDoctor, double descuentoTotal,
                                 double subtotal, double igv, double totalPagar,int nfilas) {
          // Sentencia SQL para la inserción
-         String sql = "INSERT INTO Facturas (idPaciente, idDoctor, descuentoTotal, subtotal, igv, totalPagar,nfilas) " +
-                      "VALUES (?, ?, ?, ?, ?, ?,?)";
-
+         String sql = "INSERT INTO Facturas (idPaciente, idDoctor, descuentoTotal, subtotal, igv, totalPagar,nfilas,codigoFactura) " +
+                      "VALUES (?, ?, ?, ?, ?, ?,?,?)";
+         
+         Random random = new Random();
+         int numeroAleatorio = random.nextInt(9999) + 1;
          try (
              Connection conn = Repository.ConectarBD();  // Conexión a la base de datos
              PreparedStatement pstmt = conn.prepareStatement(sql)
@@ -646,11 +644,10 @@ private String obtenerNombreCompleto(int idPaciente) throws SQLException {
              pstmt.setDouble(5, igv);
              pstmt.setDouble(6, totalPagar);
              pstmt.setDouble(7, nfilas);
+             pstmt.setInt(8, numeroAleatorio);
 
              // Ejecutar la inserción
-             pstmt.executeUpdate();
-             System.out.println("Factura guardada correctamente en la base de datos.");
-             
+             pstmt.executeUpdate();             
          } catch (SQLException e) {
              System.out.println("Error al guardar la factura: " + e.getMessage());
          }

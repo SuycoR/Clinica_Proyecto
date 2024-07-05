@@ -6,6 +6,7 @@ package MenuRecepcionista;
 
 import Vista_Ventana.*;
 import Modelo_Menu.*;
+import Sacnhez.*;
 import Modelo_Menu.*;
 import Vista_Ventana.*;
 import java.awt.Dimension;
@@ -61,8 +62,9 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
         txt_Recepcionista = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jButtonCancelar1 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        botonFactura = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,7 +81,7 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, 350, 50));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 260, 350, 50));
 
         jButton2.setBackground(new java.awt.Color(223, 208, 184));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -91,7 +93,7 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 350, 50));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 350, 50));
 
         jButton3.setBackground(new java.awt.Color(223, 208, 184));
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -103,7 +105,7 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 350, 50));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 350, 50));
 
         jButton4.setBackground(new java.awt.Color(223, 208, 184));
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -115,7 +117,7 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 350, 50));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 350, 50));
 
         jPanel5.setBackground(new java.awt.Color(21, 52, 72));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -128,7 +130,7 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 30)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Bienvenido,");
-        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, 40));
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 40));
 
         jButtonCancelar1.setBackground(new java.awt.Color(60, 91, 111));
         jButtonCancelar1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -147,17 +149,17 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
         });
         jPanel2.add(jButtonCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, 370, 50));
 
-        jButton5.setBackground(new java.awt.Color(223, 208, 184));
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 0));
-        jButton5.setText("Registrar Doctor");
-        jButton5.setBorderPainted(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        botonFactura.setBackground(new java.awt.Color(223, 208, 184));
+        botonFactura.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botonFactura.setForeground(new java.awt.Color(0, 0, 0));
+        botonFactura.setText("Facturar");
+        botonFactura.setBorderPainted(false);
+        botonFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                botonFacturaActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, 350, 50));
+        jPanel2.add(botonFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, 350, 50));
 
         jButton7.setBackground(new java.awt.Color(223, 208, 184));
         jButton7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -169,7 +171,19 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 350, 50));
+        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 350, 50));
+
+        jButton6.setBackground(new java.awt.Color(223, 208, 184));
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(0, 0, 0));
+        jButton6.setText("Registrar Doctor");
+        jButton6.setBorderPainted(false);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 260, 350, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -229,13 +243,12 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void botonFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonFacturaActionPerformed
         // TODO add your handling code here:
-        VentanaRegistrarDoctor objVentanaRegistrarDoctor = new VentanaRegistrarDoctor(objRecepcionista);
-        objVentanaRegistrarDoctor.setLocationRelativeTo(null);
-        objVentanaRegistrarDoctor.setVisible(true);
+        objInterFacturacion ventanaInterFacturacion = new objInterFacturacion();
+        ventanaInterFacturacion.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_botonFacturaActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
@@ -244,6 +257,10 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
         objVentanaRegistrarPaciente.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -284,11 +301,12 @@ public class VentanaMenuRecepcionista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonFactura;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButtonCancelar1;
     private javax.swing.JLabel jLabel11;

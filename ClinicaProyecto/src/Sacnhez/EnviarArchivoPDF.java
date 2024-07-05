@@ -3,8 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Sacnhez;
+import Modelo_Menu.Repository;
+import Sacnhez.PruebasDePdf;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Properties;
@@ -26,25 +32,70 @@ import javax.swing.JOptionPane;
  *
  * @author Tutur
  */
-public class evniararchivo {
-    public static void main(String[] args){
-    String fechaActual = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
-    String correo="edujuegos31245@gmail.com";
-    String contra="bwbg xlyl zolo chzo";
-    String correoDestino="pedro.suyco@unmsm.edu.pe";
-    String nombre="rosita.pdf";
-     Properties p = new Properties();  
-        p.put("mail.smtp.host", "smtp.gmail.com");
-        p.setProperty("mail.smtp.starttls.enable", "true");
-        p.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
-        p.put("mail.smtp.ssl.trust", "smtp.gmail.com");
-        p.setProperty("mail.smtp.port", "587");
-        p.setProperty("mail.smtp.user",correo);
-        p.setProperty("mail.smtp.auth", "true");
-    Session s = Session.getDefaultInstance(p); 
-    try {
-            
+public class EnviarArchivoPDF {
 
+    public void EnviarArchivo(int idPaciente,int idFactura) throws SQLException{
+            Connection conn = null;
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+            
+            
+            String rutaObtenida = PruebasDePdf.ruta;
+            String fechaActual = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
+            String correo="edujuegos31245@gmail.com";
+            String contra="bwbg xlyl zolo chzo";
+            
+            String nombre=rutaObtenida;
+            Properties p = new Properties();  
+            p.put("mail.smtp.host", "smtp.gmail.com");
+            p.setProperty("mail.smtp.starttls.enable", "true");
+            p.setProperty("mail.smtp.ssl.protocols", "TLSv1.2");
+            p.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+            p.setProperty("mail.smtp.port", "587");
+            p.setProperty("mail.smtp.user",correo);
+            p.setProperty("mail.smtp.auth", "true");
+        Session s = Session.getDefaultInstance(p); 
+        try {
+            conn = Repository.ConectarBD();
+            System.out.println(idPaciente);
+             // Consulta para obtener datos del paciente
+            String queryPaciente = "SELECT nombre, correo FROM paciente WHERE id = ?";
+            stmt = conn.prepareStatement(queryPaciente);
+            stmt.setInt(1, idPaciente);
+            rs = stmt.executeQuery();
+            String nombreCli = "";
+            String correoCli = "";
+            if (rs.next()) {
+                nombreCli = rs.getString("nombre");
+                correoCli = rs.getString("correo");
+            } else {
+                System.out.println("No se encontró el paciente con ID: " + idPaciente);
+                return; // O manejar el caso según tu lógica de negocio
+            }
+            String correoDestino="andre.melendezc@unmsm.edu.pe";
+            
+            String sql = "SELECT * FROM Facturas WHERE idFactura = ?";
+            double totalPagar=0.0;
+            int numeroaleatorio=0;
+            try (
+                Connection conno = Repository.ConectarBD();  // Conexión a la base de datos
+                PreparedStatement pstmt = conno.prepareStatement(sql)
+            ) {
+                // Establecer los parámetros de la sentencia SQL
+                pstmt.setInt(1, idFactura);
+
+                try (ResultSet rsss = pstmt.executeQuery()) {
+                    if (rsss.next()) {
+                        totalPagar = rsss.getDouble("totalPagar");
+                        numeroaleatorio=rsss.getInt("codigoFactura");
+                    }
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al obtener la factura: " + e.getMessage());
+            }
+            
+            
+            
             // Cuerpo del mensaje
             MimeBodyPart cuerpoMensaje = new MimeBodyPart();
             String content = "<p>Estimado/a <strong>[Nombre del Cliente]</strong>,</p>\n" +
@@ -53,7 +104,7 @@ public class evniararchivo {
         "<ul>\n" +
         "    <li><strong>Número de Factura:</strong> [Número de Factura]</li>\n" +
         "    <li><strong>Fecha de Emisión:</strong> [Fecha de Emisión]</li>\n" +
-        "    <li><strong>Monto Total:</strong> [Monto Total]</li>\n" +
+        "    <li><strong>Monto Total:</strong> S/"+totalPagar+"</li>\n" +
         "</ul>\n" +
         "<p>Agradecemos su preferencia por nuestra clínica y esperamos poder servirle nuevamente en el futuro.</p>\n" +
         "<p>Atentamente,</p>\n" +
@@ -63,10 +114,9 @@ public class evniararchivo {
         "<strong>[Correo Electrónico de Contacto]</strong></p>";
 
     // Aquí debes reemplazar los marcadores con los datos reales antes de asignar el contenido al cuerpo del mensaje
-        content = content.replace("[Nombre del Cliente]", "Giancarlo");
-        content = content.replace("[Número de Factura]", "123456");
+        content = content.replace("[Nombre del Cliente]", nombreCli);
+        content = content.replace("[Número de Factura]", String.format("%04d", numeroaleatorio));
         content = content.replace("[Fecha de Emisión]", fechaActual);
-        content = content.replace("[Monto Total]", "$1000.00");
         content = content.replace("[Número de Contacto]", "+1234567890");
         content = content.replace("[Nombre del Representante de la Clínica]", "Dr.Fausto Mercado Philco");
         content = content.replace("[Nombre de la Clínica]", "Clinica Bienestar");
@@ -77,7 +127,7 @@ public class evniararchivo {
             // Archivo adjunto
             BodyPart adjunto = new MimeBodyPart();
             try {
-                File archivoAdjunto = new File("C:/Users/Tutur/Documents/NetBeansProjects/pdfs/src/pdf/"+nombre);
+                File archivoAdjunto = new File("src/pdf/"+nombre);
                 if (archivoAdjunto.exists()) {
                     adjunto.setDataHandler(new DataHandler(new FileDataSource(archivoAdjunto)));
                     adjunto.setFileName(nombre);
@@ -104,7 +154,7 @@ public class evniararchivo {
             String subject = "Factura [Número de Factura]- Servicios Médicos ";
 
             // Reemplazar dinámicamente el número de factura
-            subject = subject.replace("[Número de Factura]", "123456");
+            subject = subject.replace("[Número de Factura]", String.format("%04d", numeroaleatorio));
             mensaje.setSubject(subject);
             
             // Agregar el contenido al mensaje
