@@ -267,7 +267,7 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
 
         jButton_RegistarVenta.setBackground(new java.awt.Color(51, 255, 255));
         jButton_RegistarVenta.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jButton_RegistarVenta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/impresora.png"))); // NOI18N
+        jButton_RegistarVenta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Suyco\\Documents\\NetBeansProjects\\Clinica_Proyecto\\ClinicaProyecto\\src\\img\\impresora.png")); // NOI18N
         jButton_RegistarVenta.setText("Registrar Venta");
         jButton_RegistarVenta.setToolTipText("");
         jButton_RegistarVenta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
