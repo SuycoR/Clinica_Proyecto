@@ -72,7 +72,7 @@ public class EnviarArchivoPDF {
                 System.out.println("No se encontró el paciente con ID: " + idPaciente);
                 return; // O manejar el caso según tu lógica de negocio
             }
-            String correoDestino="andre.melendezc@unmsm.edu.pe";
+            String correoDestino=correoCli;
             
             String sql = "SELECT * FROM Facturas WHERE idFactura = ?";
             double totalPagar=0.0;
@@ -123,7 +123,6 @@ public class EnviarArchivoPDF {
         content = content.replace("[Teléfono de Contacto]", "+1234567890");
         content = content.replace("[Correo Electrónico de Contacto]", "ClinicaBienestar@clinica.com");
             cuerpoMensaje.setText(content,"ISO-8859-1","html");
-
             // Archivo adjunto
             BodyPart adjunto = new MimeBodyPart();
             try {
