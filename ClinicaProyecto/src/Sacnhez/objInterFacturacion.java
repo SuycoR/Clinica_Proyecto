@@ -2,7 +2,7 @@
 package Sacnhez;
 
 
-import Modelo_Menu.Menu;
+import Modelo_Menu.Repository;
 import Modelo_Menu.ModeloCita;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -32,7 +32,7 @@ import java.util.logging.Logger;
  */
 
 public class objInterFacturacion extends javax.swing.JInternalFrame {
-    Menu objMenuCita;
+    Repository objMenuCita;
     public long idDoctor=0;
     public int idPaciente;
     private String idDoctorString;
@@ -55,7 +55,7 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
     public objInterFacturacion() {
         prueba = new PruebasDePdf(); 
         objMenuCitaPaciente = new ModeloCita();
-        objMenuCita = new Menu();
+        objMenuCita = new Repository();
         initComponents();
         this.setSize(800,600);
         this.setTitle("Facturacion");
@@ -313,7 +313,7 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
         ResultSet rs = null;
 
         try {
-            cn = Menu.ConectarBD();
+            cn = Repository.ConectarBD();
             String sql ="SELECT nombre, apellido FROM paciente WHERE dni = ?";
 
             pst = cn.prepareStatement(sql);
@@ -396,7 +396,7 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     Connection con = null;
     try {
-        con = Menu.ConectarBD();
+        con = Repository.ConectarBD();
 
         String sqlPaciente = "SELECT * FROM paciente";
         Statement st = con.createStatement();
@@ -436,7 +436,7 @@ private String obtenerNombreCompleto(int idPaciente) throws SQLException {
     String nombreCompleto = null;
     PreparedStatement pst = null;
     ResultSet rs = null;
-    Connection con=Menu.ConectarBD();
+    Connection con=Repository.ConectarBD();
     try {
         String sql = "SELECT CONCAT(nombre, ' ', apellido) AS nombreCompleto FROM paciente WHERE id = ?";
         pst = con.prepareStatement(sql);
@@ -523,7 +523,7 @@ private String obtenerNombreCompleto(int idPaciente) throws SQLException {
     //metodo para cargar clientes
 
     private void CargarComboPacientes(){
-        Connection cn=Menu.ConectarBD();
+        Connection cn=Repository.ConectarBD();
         String sql="select * from paciente";
         Statement st;
         try{
@@ -542,7 +542,7 @@ private String obtenerNombreCompleto(int idPaciente) throws SQLException {
     }
     
     private void CargarTablaCita() {
-    try (Connection con = Menu.ConectarBD();
+    try (Connection con = Repository.ConectarBD();
          PreparedStatement pst = con.prepareStatement(
                  "SELECT cita.idCita, doctor.nombre AS nombreDoctor, CONCAT(paciente.nombre, ' ', paciente.apellido) AS nombrePaciente, " +
                          "cita.fechaCita, cita.fechaRegistro, cita.costoTotal, cita.estado, cita.idDoctor " +
@@ -635,7 +635,7 @@ private String obtenerNombreCompleto(int idPaciente) throws SQLException {
                       "VALUES (?, ?, ?, ?, ?, ?,?)";
 
          try (
-             Connection conn = Menu.ConectarBD();  // Conexión a la base de datos
+             Connection conn = Repository.ConectarBD();  // Conexión a la base de datos
              PreparedStatement pstmt = conn.prepareStatement(sql)
          ) {
              // Establecer los parámetros de la sentencia SQL

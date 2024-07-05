@@ -18,7 +18,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import Modelo_Menu.Menu;
+import Modelo_Menu.Repository;
 import com.itextpdf.text.pdf.qrcode.WriterException;
 
 import java.sql.Connection;
@@ -52,7 +52,7 @@ public class PruebasDePdf {
         String sql = "SELECT COUNT(idFactura) AS totalFacturas FROM Facturas";
 
         try (
-            Connection conn = Menu.ConectarBD();  // Conexión a la base de datos
+            Connection conn = Repository.ConectarBD();  // Conexión a la base de datos
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rs = pstmt.executeQuery()
         ) {
@@ -73,7 +73,7 @@ public class PruebasDePdf {
         ResultSet rs = null;
         int idFactura=contarFacturas()-1;
         try{
-            conn = Menu.ConectarBD();
+            conn = Repository.ConectarBD();
             System.out.println(idPaciente);
              // Consulta para obtener datos del paciente
             String queryPaciente = "SELECT nombre, dni, celular, direccion FROM paciente WHERE id = ?";
@@ -122,7 +122,7 @@ public class PruebasDePdf {
             String sql = "SELECT * FROM Facturas WHERE idFactura = ?";
 
             try (
-                Connection conno = Menu.ConectarBD();  // Conexión a la base de datos
+                Connection conno = Repository.ConectarBD();  // Conexión a la base de datos
                 PreparedStatement pstmt = conno.prepareStatement(sql)
             ) {
                 // Establecer los parámetros de la sentencia SQL
@@ -228,7 +228,7 @@ public class PruebasDePdf {
             doc.add(espacio);
             
             String[][] data;
-            try (Connection ampere = Menu.ConectarBD();
+            try (Connection ampere = Repository.ConectarBD();
                 PreparedStatement psta = ampere.prepareStatement(
                         "SELECT cita.idCita, doctor.nombre AS nombreDoctor, CONCAT(paciente.nombre, ' ', paciente.apellido) AS nombrePaciente, " +
                                 "cita.fechaCita, cita.fechaRegistro, cita.costoTotal, cita.estado, cita.idDoctor " +
