@@ -44,6 +44,7 @@ import java.time.format.DateTimeFormatter;
 public class PruebasDePdf {
     private static final String RUTA_IMAGEN = "src/img/timida.png"; // Ruta a la imagen del logo
     private static final String RUTA_ARCHIVO = "src/pdf/";
+    public static String ruta;
     // Constructor de la clase
     public int contarFacturas() {
         int totalFacturas = 0;
@@ -71,10 +72,10 @@ public class PruebasDePdf {
         Connection conn = null;
         PreparedStatement stmt = null;
         ResultSet rs = null;
-        int idFactura=contarFacturas()-1;
+        int idFactura=contarFacturas();
         try{
             conn = Repository.ConectarBD();
-            System.out.println(idPaciente);
+
              // Consulta para obtener datos del paciente
             String queryPaciente = "SELECT nombre, dni, celular, direccion FROM paciente WHERE id = ?";
             stmt = conn.prepareStatement(queryPaciente);
@@ -117,7 +118,7 @@ public class PruebasDePdf {
             double igv =0.0 ;
             double totalPagar =0.0 ;
             int nfilas=0 ;
-            
+            int numeroaleatorio=0;
             //Datoas factura
             String sql = "SELECT * FROM Facturas WHERE idFactura = ?";
 
@@ -135,6 +136,7 @@ public class PruebasDePdf {
                         igv = rsss.getDouble("igv");
                         totalPagar = rsss.getDouble("totalPagar");
                         nfilas = rsss.getInt("nfilas")-1;
+                        numeroaleatorio=rsss.getInt("codigoFactura");
                     }
                 }
             } catch (SQLException e) {
@@ -151,9 +153,8 @@ public class PruebasDePdf {
             PdfWriter.getInstance(doc, archivo);
             doc.open();
             
-            Random random = new Random();
-            int numeroAleatorio = random.nextInt(9999) + 1;
-            String numeroFormateado = String.format("%04d", numeroAleatorio);
+            
+            String numeroFormateado = String.format("%04d", numeroaleatorio);
             // Encabezado con imagen y datos de la farmacia
             Image img = Image.getInstance(RUTA_IMAGEN);
             img.scaleToFit(90, 100);
@@ -178,7 +179,6 @@ public class PruebasDePdf {
             combinedPhrase.add(new Phrase("\nDireccion: Avenida Javier Prado Este 1234, San Isidro, Lima, Perú\n", negrita));
             combinedPhrase.add(new Phrase("Telefono: " + tel_emp + "\n", negrita));
             combinedPhrase.add(new Phrase("Fecha de emision: " + fechaActual , negrita));
-            System.out.println("aca esta");
             cell1.setBorder(PdfPCell.NO_BORDER);
             
             //boleta frase
@@ -227,7 +227,7 @@ public class PruebasDePdf {
             // Detalles de la factura
             doc.add(espacio);
             
-            String[][] data;
+            String[][] data = new String[0][0];
             try (Connection ampere = Repository.ConectarBD();
                 PreparedStatement psta = ampere.prepareStatement(
                         "SELECT cita.idCita, doctor.nombre AS nombreDoctor, CONCAT(paciente.nombre, ' ', paciente.apellido) AS nombrePaciente, " +
@@ -270,8 +270,8 @@ public class PruebasDePdf {
             // Tabla de conceptos
             PdfPTable tablaConceptos = new PdfPTable(6); // Reducir a 6 columnas
             tablaConceptos.setWidthPercentage(100);
-            tablaConceptos.setWidths(new float[]{10, 24, 26, 10, 10, 10}); // Ajusta los anchos según tus necesidades
-            tablaConceptos.setHorizontalAlignment(Element.ALIGN_LEFT);
+            tablaConceptos.setWidths(new float[]{9f, 20f, 20f, 13f, 10f, 15f}); // Ajusta los anchos según tus necesidades
+            tablaConceptos.setHorizontalAlignment(Element.ALIGN_CENTER);
 
             BaseColor colorEncabezado = new BaseColor(55, 183, 195); // Color del encabezado
 
@@ -279,11 +279,11 @@ public class PruebasDePdf {
             Font fontBold = new Font(Font.FontFamily.HELVETICA, 10, Font.BOLD, BaseColor.WHITE);
 
             PdfPCell header1 = new PdfPCell(new Phrase("Numero", fontBold));
-        PdfPCell header2 = new PdfPCell(new Phrase("Fecha de Cita", fontBold));
-        PdfPCell header3 = new PdfPCell(new Phrase("Nombre Doctor", fontBold)); // Ajusté el texto del encabezado para coincidir con el contenido de la columna
-        PdfPCell header4 = new PdfPCell(new Phrase("Costo Total", fontBold));
-        PdfPCell header5 = new PdfPCell(new Phrase("Descuento", fontBold));
-        PdfPCell header6 = new PdfPCell(new Phrase("Total a Pagar", fontBold));
+            PdfPCell header2 = new PdfPCell(new Phrase("Fecha de Cita", fontBold));
+            PdfPCell header3 = new PdfPCell(new Phrase("Nombre Doctor", fontBold)); // Ajusté el texto del encabezado para coincidir con el contenido de la columna
+            PdfPCell header4 = new PdfPCell(new Phrase("Costo Total", fontBold));
+            PdfPCell header5 = new PdfPCell(new Phrase("Descuento", fontBold));
+            PdfPCell header6 = new PdfPCell(new Phrase("Total a Pagar", fontBold));
 
                     // Establecer borde superior e inferior para las celdas de encabezado
             header1.setBorder(Rectangle.TOP | Rectangle.BOTTOM);
@@ -292,8 +292,14 @@ public class PruebasDePdf {
             header4.setBorder(Rectangle.TOP | Rectangle.BOTTOM);
             header5.setBorder(Rectangle.TOP | Rectangle.BOTTOM);
             header6.setBorder(Rectangle.TOP | Rectangle.BOTTOM);
+            float altoEncabezado = 30f;
+            header1.setFixedHeight(altoEncabezado);
+            header2.setFixedHeight(altoEncabezado);
+            header3.setFixedHeight(altoEncabezado);
+            header4.setFixedHeight(altoEncabezado);
+            header5.setFixedHeight(altoEncabezado);
+            header6.setFixedHeight(altoEncabezado);
 
-            // Alineación vertical y color de fondo
             header1.setVerticalAlignment(PdfPCell.ALIGN_MIDDLE);
             header2.setVerticalAlignment(PdfPCell.ALIGN_MIDDLE);
             header3.setVerticalAlignment(PdfPCell.ALIGN_MIDDLE);
@@ -324,7 +330,6 @@ public class PruebasDePdf {
             // Agregar datos a la tabla
             for (String[] row : data) {
                 for (int i = 0; i < row.length; i++) {  
-                    System.out.println(row[i]);
                     PdfPCell pdfCell = new PdfPCell(new Phrase(row[i], fontNormal));
                     pdfCell.setVerticalAlignment(PdfPCell.ALIGN_MIDDLE);
                     pdfCell.setMinimumHeight(25f); // Altura mínima de la celda
@@ -338,12 +343,7 @@ public class PruebasDePdf {
                     
                     tablaConceptos.addCell(pdfCell);
                 }
-            }
-            
-            
-            
-            
-            
+            }     
             
             doc.add(tablaConceptos);
 
@@ -419,8 +419,12 @@ public class PruebasDePdf {
             doc.add(tablaFinal);
             doc.close();
             archivo.close();
-
+            ruta=nombreArhivo;
             Desktop.getDesktop().open(file);
+            EnviarArchivoPDF enviararchivo = new EnviarArchivoPDF();
+
+            // Llamar al método EnviarArchivo de la instancia creada
+            enviararchivo.EnviarArchivo(idPaciente, idFactura);
 
         } catch (DocumentException | IOException e) {
             System.out.println("Error en "+e);
