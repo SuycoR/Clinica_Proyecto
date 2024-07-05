@@ -189,7 +189,7 @@ public class Menu_Recepcionista extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        CitasPendientes objcitasPendientes = new CitasPendientes();
+        CitasPendientes objcitasPendientes = new CitasPendientes(objRecepcionista);
         objcitasPendientes.setLocationRelativeTo(null);
         objcitasPendientes.setVisible(true);
         this.dispose();

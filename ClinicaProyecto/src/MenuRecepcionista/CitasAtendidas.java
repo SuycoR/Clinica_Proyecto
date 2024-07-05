@@ -177,7 +177,9 @@ public class CitasAtendidas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CitasAtendidas().setVisible(true);
+                //new CitasAtendidas().setVisible(true);
+                CitasAtendidas ventana_CitaAtendida = new CitasAtendidas();
+                ventana_CitaAtendida.setVisible(true);
             }
         });
     }
@@ -237,10 +239,10 @@ public class CitasAtendidas extends javax.swing.JFrame {
     }
     // Evento para obtener campo al cual el usuario da click
     // y obtener la interfaz que mostrara la informacion general
-    jTable1.addMouseListener(new MouseAdapter() {
+    jTable_citas.addMouseListener(new MouseAdapter() {
         @Override
         public void mouseClicked(MouseEvent e) {
-            int fila_point = jTable1.rowAtPoint(e.getPoint());
+            int fila_point = jTable_citas.rowAtPoint(e.getPoint());
             int columna_point = 0;
 
             if (fila_point > -1) {
