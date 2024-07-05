@@ -12,12 +12,15 @@ import MenuPaciente.*;
 import javax.swing.JOptionPane;
 import Modelo_Menu.Repository;
 import Modelo_Menu.Paciente;
+import Observer.Login;
+import Observer.Notificacion;
 
 public class VentanaLoginPaciente extends javax.swing.JFrame {
 
     public Repository objMenu;
     public Paciente objPaciente;
-   
+    public Login objLogin;
+    public Notificacion objNotificacion;
 
     /**
      * Creates new form VentanaLoginPaciente
@@ -26,6 +29,8 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         initComponents();
         objMenu = new Repository();
         objPaciente = new Paciente();
+        objLogin = new Login();
+        objNotificacion = new Notificacion("hola");
     }
 
     /**
@@ -215,7 +220,8 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         objPaciente.setContrasena(contrasena);
         
         if(objMenu.loginUserPaciente(objPaciente)){
-            
+            objLogin.addObserver(objNotificacion);
+            objLogin.Aviso(objMenu.loginUserPaciente(objPaciente));
             VentanaMenuPaciente objmenu_Paciente = new VentanaMenuPaciente(objPaciente);
             objmenu_Paciente.setLocationRelativeTo(null);
             objmenu_Paciente.setVisible(true);
@@ -223,7 +229,8 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
             
             
         }else{
-            JOptionPane.showMessageDialog(null, "Datos incorrectos");
+            objLogin.addObserver(objNotificacion);
+            objLogin.Aviso(objMenu.loginUserPaciente(objPaciente));
         }
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 

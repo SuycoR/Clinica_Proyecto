@@ -8,15 +8,20 @@ package Vista_Ventana;
  *
  * @author PC
  */
-
 import MenuDoctor.VentanaListaPacientes;
 import javax.swing.JOptionPane;
 import Modelo_Menu.Repository;
 import Modelo_Menu.Doctor;
-        
+import Observer.Login;
+import Observer.Notificacion;
+
 public class VentanaLoginDoctor extends javax.swing.JFrame {
-public Repository objMenu;
-public Doctor objDoctor;
+
+    public Repository objMenu;
+    public Doctor objDoctor;
+    public Login objLogin;
+    public Notificacion objNotificacion;
+
     /**
      * Creates new form VentanaLoginDoctor
      */
@@ -24,6 +29,8 @@ public Doctor objDoctor;
         initComponents();
         objMenu = new Repository();
         objDoctor = new Doctor();
+        objNotificacion = new Notificacion("hola");
+        objLogin = new Login();
     }
 
     /**
@@ -214,18 +221,21 @@ public Doctor objDoctor;
 
         objDoctor.setUsuario(usuario);
         objDoctor.setContrasena(contrasena);
-        if(objMenu.loginUserDoctor(objDoctor)){
-           //Menu.java
+        if (objMenu.loginUserDoctor(objDoctor)) {
+            objLogin.addObserver(objNotificacion);
+            objLogin.Aviso(objMenu.loginUserDoctor(objDoctor));
+            //Menu.java
             //ListaPacientes objlistapacientes = new ListaPacientes(objDoctor);
             //jPanel3.add(objlistapacientes);
             //objlistapacientes.setVisible(true);
             VentanaListaPacientes objVentana_LoginMenuDoctor = new VentanaListaPacientes(objDoctor);
-            objVentana_LoginMenuDoctor.setSize(996,550);
+            objVentana_LoginMenuDoctor.setSize(996, 550);
             objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
             objVentana_LoginMenuDoctor.setVisible(true);
             this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Datos incorrectos");
+        } else {
+            objLogin.addObserver(objNotificacion);
+            objLogin.Aviso(objMenu.loginUserDoctor(objDoctor));
         }
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
@@ -322,5 +332,5 @@ public Doctor objDoctor;
     private javax.swing.JSeparator jSeparatorNombre1;
     private javax.swing.JSeparator jSeparatorNombre3;
     // End of variables declaration//GEN-END:variables
-    
+
 }

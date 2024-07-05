@@ -6,6 +6,7 @@ package Vista_Ventana;
 
 import Modelo_Menu.*;
 import MenuRecepcionista.*;
+import Observer.*;
 /**
  *
  * @author migue
@@ -19,6 +20,8 @@ public class VentanaLoginRecepcionista extends javax.swing.JFrame {
     public Repository objMenu;
     public Recepcionista objRecepcionista;
     ModeloCita objGrabarCita;
+    public Login objLogin;
+    public Notificacion objNotificacion;
 
     /**
      * Creates new form VentanaLoginRecepcionista
@@ -28,6 +31,8 @@ public class VentanaLoginRecepcionista extends javax.swing.JFrame {
         objMenu = new Repository();
         objRecepcionista = new Recepcionista();
         initComponents();
+        objLogin = new Login();
+        objNotificacion = new Notificacion("hola");
     }
     //Pone nombre y contraseña 
     //Buscas en la base de datos y obtienes el ID; 
@@ -220,12 +225,15 @@ public class VentanaLoginRecepcionista extends javax.swing.JFrame {
 
         if (objMenu.loginUserRecepcionista(objRecepcionista)) {
             //this.dispose();
+            objLogin.addObserver(objNotificacion);
+            objLogin.Aviso(objMenu.loginUserRecepcionista(objRecepcionista));
             VentanaMenuRecepcionista objmenuRecepcionista = new VentanaMenuRecepcionista(objRecepcionista);
             objmenuRecepcionista.setLocationRelativeTo(null);
             objmenuRecepcionista.setVisible(true);
             this.dispose();
         } else {
-            JOptionPane.showMessageDialog(null, "Datos incorrectos");
+            objLogin.addObserver(objNotificacion);
+            objLogin.Aviso(objMenu.loginUserRecepcionista(objRecepcionista));
         }
     }//GEN-LAST:event_jButtonIniciarSesionActionPerformed
 
