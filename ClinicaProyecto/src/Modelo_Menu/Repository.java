@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo_Menu;
 
 import java.sql.PreparedStatement;
@@ -14,16 +10,12 @@ import javax.swing.JOptionPane;
 import java.sql.Date;
 import java.sql.ResultSet;
 
-import Modelo_Menu.Paciente;
-import Modelo_Menu.Doctor;
-import Modelo_Menu.Recepcionista;
-
-
 /**
  *
- * @author PC
+ * @author Melendez
  */
 public class Repository {
+
     public static PreparedStatement prepareStatement(String string) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
@@ -160,7 +152,7 @@ public class Repository {
             Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     // Para login de paciente
     public boolean loginUserPaciente(Paciente objeto) {
         boolean respuesta = false;
@@ -176,13 +168,13 @@ public class Repository {
             objPreparedStatement.setString(2, objeto.getContrasena());
 
             objResultset = objPreparedStatement.executeQuery();
-            
-            while(objResultset.next()){
+
+            while (objResultset.next()) {
                 respuesta = true;
-                int idPaciente =objResultset.getInt("id");
+                int idPaciente = objResultset.getInt("id");
                 objeto.setIdPaciente(idPaciente);
-                
-            }   
+
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
@@ -191,7 +183,7 @@ public class Repository {
 
         return respuesta;
     }
-    
+
     // Para login de doctor
     public boolean loginUserDoctor(Doctor objeto) {
         boolean respuesta = false;
@@ -207,13 +199,13 @@ public class Repository {
             objPreparedStatement.setString(2, objeto.getContrasena());
 
             objResultset = objPreparedStatement.executeQuery();
-            
-            while(objResultset.next()){
+
+            while (objResultset.next()) {
                 respuesta = true;
                 //Resultset representa fila
-                int idDoctor =objResultset.getInt("idDoctor");
+                int idDoctor = objResultset.getInt("idDoctor");
                 objeto.setIdDoctor(idDoctor);
-            }   
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);
@@ -222,7 +214,7 @@ public class Repository {
 
         return respuesta;
     }
-    
+
     // Para login de recepcionistas
     public boolean loginUserRecepcionista(Recepcionista objeto) {
         boolean respuesta = false;
@@ -238,12 +230,12 @@ public class Repository {
             objPreparedStatement.setString(2, objeto.getContrasena());
 
             objResultset = objPreparedStatement.executeQuery();
-            
-            while(objResultset.next()){
+
+            while (objResultset.next()) {
                 respuesta = true;
-                int idRecepcionista =objResultset.getInt("idRecepcionista");
+                int idRecepcionista = objResultset.getInt("idRecepcionista");
                 objeto.setIdRecepcionista(idRecepcionista);
-            }   
+            }
 
         } catch (SQLException ex) {
             Logger.getLogger(Repository.class.getName()).log(Level.SEVERE, null, ex);

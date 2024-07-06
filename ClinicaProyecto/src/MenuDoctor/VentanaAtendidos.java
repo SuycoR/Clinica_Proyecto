@@ -1,119 +1,90 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package MenuDoctor;
 
 import Modelo_Menu.Doctor;
 import Modelo_Menu.*;
-import Vista_Ventana.*;
-import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.sql.Date;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
+
 /**
  *
  * @author Suyco
  */
 public class VentanaAtendidos extends javax.swing.JFrame {
-    
+
     private Doctor objDoctor;
     private long idDoctor;
+
     /**
      * Creates new form Ventana_Atendidos
      */
-    
     public VentanaAtendidos() {
-        
+
         initComponents();
-        //this.objDoctor=objDoctor;
-        
-        
-       
-        //idDoctor=objDoctor.getIdDoctor();
-        //obtenerNombrexId(idDoctor);
-        
+
     }
-    public void setDatos(Doctor objDoctor){
-        this.objDoctor=objDoctor;
+
+    public void setDatos(Doctor objDoctor) {
+        this.objDoctor = objDoctor;
         txt_Doctor.setText(objDoctor.getNombre());
-        
+
         int IdDoctorLogeado = objDoctor.getIdDoctor();
         Connection con = Repository.ConectarBD();
         DefaultTableModel model = new DefaultTableModel();
         String sql = "SELECT idCita,idRecepcionista, idDoctor, idPaciente, fechaCita, fechaRegistro, costoTotal, estado FROM cita WHERE idDoctor = ? AND estado = ?";
         PreparedStatement pst;
         try {
-        pst = con.prepareStatement(sql);
-        pst.setInt(1, IdDoctorLogeado); // Establece el valor del parámetro a comparar
-        pst.setString(2,"Atendido");
-        ResultSet rs = pst.executeQuery();
-        VentanaAtendidos.jTable1 = new JTable(model);
-        VentanaAtendidos.jScrollPane1.setViewportView(VentanaAtendidos.jTable1);
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, IdDoctorLogeado); // Establece el valor del parámetro a comparar
+            pst.setString(2, "Atendido");
+            ResultSet rs = pst.executeQuery();
+            VentanaAtendidos.jTable1 = new JTable(model);
+            VentanaAtendidos.jScrollPane1.setViewportView(VentanaAtendidos.jTable1);
 
-        model.addColumn("N° Cita");
-        model.addColumn("ID Recepcionista");
-        //model.addColumn("idDoctor");
-        model.addColumn("ID Paciente");
-        model.addColumn("Fecha Cita");
-        model.addColumn("Fecha Registro");
-        model.addColumn("Costo ($)");
-        model.addColumn("Estado");
+            model.addColumn("N° Cita");
+            model.addColumn("ID Recepcionista");
+            model.addColumn("ID Paciente");
+            model.addColumn("Fecha Cita");
+            model.addColumn("Fecha Registro");
+            model.addColumn("Costo ($)");
+            model.addColumn("Estado");
 
-        while (rs.next()) {
-            Object fila[] = new Object[7];
-            //for (int i = 0; i < 7; i++) {
-               // fila[i] = rs.getObject(i + 1);
-            //}
-            fila[0] = rs.getObject("idCita");
-            fila[1] = rs.getObject("idRecepcionista");
-            fila[2] = rs.getObject("idPaciente");
-            fila[3] = rs.getObject("fechaCita");
-            fila[4] = rs.getObject("fechaRegistro");
-            fila[5] = rs.getObject("costoTotal");
-            fila[6] = rs.getObject("estado");
-            model.addRow(fila);
-        }
-        con.close();
-    } catch (SQLException e) {
-        System.out.println("Error al llenar la tabla citas: " + e);
-    }
-    // Evento para obtener campo al cual el usuario da click
-    // y obtener la interfaz que mostrara la informacion general
-    jTable1.addMouseListener(new MouseAdapter() {
-        @Override
-        public void mouseClicked(MouseEvent e) {
-            int fila_point = jTable1.rowAtPoint(e.getPoint());
-            int columna_point = 0;
+            while (rs.next()) {
+                Object fila[] = new Object[7];
 
-            if (fila_point > -1) {
-                //idPaciente = (Long) model.getValueAt(fila_point, 2);
-                //EnviarDatosPacienteSeleccionada(idPaciente);
-                
+                fila[0] = rs.getObject("idCita");
+                fila[1] = rs.getObject("idRecepcionista");
+                fila[2] = rs.getObject("idPaciente");
+                fila[3] = rs.getObject("fechaCita");
+                fila[4] = rs.getObject("fechaRegistro");
+                fila[5] = rs.getObject("costoTotal");
+                fila[6] = rs.getObject("estado");
+                model.addRow(fila);
             }
-            
+            con.close();
+        } catch (SQLException e) {
+            System.out.println("Error al llenar la tabla citas: " + e);
         }
-    });
+        // Evento para obtener campo al cual el usuario da click
+        // y obtener la interfaz que mostrara la informacion general
+        jTable1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int fila_point = jTable1.rowAtPoint(e.getPoint());
+                int columna_point = 0;
+            }
+        });
     }
     //**********************************************************************//
     //Datos dentro del objeto: idDoctor,usuario , contraseña,nombre , apellido
     //                          dni
     //**********************************************************************//
-    
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -245,9 +216,6 @@ public class VentanaAtendidos extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -302,6 +270,5 @@ public class VentanaAtendidos extends javax.swing.JFrame {
     public static javax.swing.JTable jTable1;
     private javax.swing.JLabel txt_Doctor;
     // End of variables declaration//GEN-END:variables
-    
-    
+
 }

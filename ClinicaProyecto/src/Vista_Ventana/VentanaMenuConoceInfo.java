@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vista_Ventana;
 
 /**
  *
- * @author PC
+ * @author Giron
  */
 public class VentanaMenuConoceInfo extends javax.swing.JFrame {
 

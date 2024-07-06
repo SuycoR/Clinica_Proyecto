@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vista_Ventana;
 
 import Modelo_Menu.*;
@@ -9,7 +5,7 @@ import MenuRecepcionista.*;
 import Observer.*;
 /**
  *
- * @author migue
+ * @author Giron
  */
 import javax.swing.JOptionPane;
 import Modelo_Menu.Repository;
@@ -224,7 +220,7 @@ public class VentanaLoginRecepcionista extends javax.swing.JFrame {
         objRecepcionista.setContrasena(contrasena);
 
         if (objMenu.loginUserRecepcionista(objRecepcionista)) {
-            //this.dispose();
+
             objLogin.addObserver(objNotificacion);
             objLogin.Aviso(objMenu.loginUserRecepcionista(objRecepcionista));
             VentanaMenuRecepcionista objmenuRecepcionista = new VentanaMenuRecepcionista(objRecepcionista);

@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Modelo_Menu;
 
 /**
  *
- * @author PC
+ * @author Melendez
  */
 public class Paciente {
 
@@ -22,7 +18,7 @@ public class Paciente {
     private String usuario;
     private String contrasena;
 
-    public Paciente(){
+    public Paciente() {
         this.idPaciente = 0;
         this.nombre = "";
         this.apellido = "";
@@ -123,5 +119,5 @@ public class Paciente {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-    
+
 }

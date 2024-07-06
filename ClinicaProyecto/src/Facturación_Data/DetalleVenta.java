@@ -1,14 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package Sacnhez;
+package Facturación_Data;
 
 /**
  *
  * @author Tutur
  */
 public class DetalleVenta {
+
     private int idDetalleVenta;
     private int idCabeceraVenta;
     private int idCita;
@@ -16,15 +13,15 @@ public class DetalleVenta {
     private double descuento;
     private double igv;
     private double totalPagar;
-    
-    public DetalleVenta(){
-        this.idDetalleVenta=0;
-        this.idCabeceraVenta=0;
-        this.idCita=0;
-        this.subtotal=0.0;
-        this.descuento=0.0;
-        this.igv=0.0;
-        this.totalPagar=0.0;
+
+    public DetalleVenta() {
+        this.idDetalleVenta = 0;
+        this.idCabeceraVenta = 0;
+        this.idCita = 0;
+        this.subtotal = 0.0;
+        this.descuento = 0.0;
+        this.igv = 0.0;
+        this.totalPagar = 0.0;
     }
 
     public DetalleVenta(int idDetalleVenta, int idCabeceraVenta, int idCita, double subtotal, double descuento, double igv, double totalPagar) {
@@ -97,9 +94,5 @@ public class DetalleVenta {
     public String toString() {
         return "DetalleVenta{" + "idDetalleVenta=" + idDetalleVenta + ", idCabeceraVenta=" + idCabeceraVenta + ", idCita=" + idCita + ", subtotal=" + subtotal + ", descuento=" + descuento + ", igv=" + igv + ", totalPagar=" + totalPagar + '}';
     }
-    
-    
-    
-    
-    
+
 }

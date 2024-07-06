@@ -1,15 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vista_Ventana;
 
 /**
  *
- * @author PC
+ * @author Melendez
  */
 import MenuDoctor.VentanaListaPacientes;
-import javax.swing.JOptionPane;
 import Modelo_Menu.Repository;
 import Modelo_Menu.Doctor;
 import Observer.Login;
@@ -224,10 +219,7 @@ public class VentanaLoginDoctor extends javax.swing.JFrame {
         if (objMenu.loginUserDoctor(objDoctor)) {
             objLogin.addObserver(objNotificacion);
             objLogin.Aviso(objMenu.loginUserDoctor(objDoctor));
-            //Menu.java
-            //ListaPacientes objlistapacientes = new ListaPacientes(objDoctor);
-            //jPanel3.add(objlistapacientes);
-            //objlistapacientes.setVisible(true);
+
             VentanaListaPacientes objVentana_LoginMenuDoctor = new VentanaListaPacientes(objDoctor);
             objVentana_LoginMenuDoctor.setSize(996, 550);
             objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
@@ -256,21 +248,6 @@ public class VentanaLoginDoctor extends javax.swing.JFrame {
         String usuario = CampoUsuario.getText().trim();
         String contrasena = CampoContrasena.getText().trim();
 
-        /*objDoctor.setUsuario(usuario);
-        objDoctor.setContrasena(contrasena);
-        if(objMenu.loginUserDoctor(objDoctor)){
-           //Menu.java
-            //ListaPacientes objlistapacientes = new ListaPacientes(objDoctor);
-            //jPanel3.add(objlistapacientes);
-            //objlistapacientes.setVisible(true);
-            VentanaListaPacientes objVentana_LoginMenuDoctor = new VentanaListaPacientes(objDoctor);
-            //objVentana_LoginMenuDoctor.setSize(900,540);
-            objVentana_LoginMenuDoctor.setLocationRelativeTo(null);
-            objVentana_LoginMenuDoctor.setVisible(true);
-            this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Datos incorrectos");
-        }*/
     }//GEN-LAST:event_CampoContrasenaMouseClicked
 
     private void CampoContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMousePressed

@@ -1,15 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vista_Ventana;
 
 /**
  *
- * @author PC
+ * @author Melendez
  */
 import MenuPaciente.*;
-import javax.swing.JOptionPane;
 import Modelo_Menu.Repository;
 import Modelo_Menu.Paciente;
 import Observer.Login;
@@ -218,17 +213,16 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
 
         objPaciente.setUsuario(usuario);
         objPaciente.setContrasena(contrasena);
-        
-        if(objMenu.loginUserPaciente(objPaciente)){
+
+        if (objMenu.loginUserPaciente(objPaciente)) {
             objLogin.addObserver(objNotificacion);
             objLogin.Aviso(objMenu.loginUserPaciente(objPaciente));
             VentanaMenuPaciente objmenu_Paciente = new VentanaMenuPaciente(objPaciente);
             objmenu_Paciente.setLocationRelativeTo(null);
             objmenu_Paciente.setVisible(true);
             this.dispose();
-            
-            
-        }else{
+
+        } else {
             objLogin.addObserver(objNotificacion);
             objLogin.Aviso(objMenu.loginUserPaciente(objPaciente));
         }
@@ -244,7 +238,7 @@ public class VentanaLoginPaciente extends javax.swing.JFrame {
         objVentanaInicio.setLocationRelativeTo(null);
         objVentanaInicio.setVisible(true);
         this.dispose();
-        
+
     }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     private void CampoContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoContrasenaMousePressed

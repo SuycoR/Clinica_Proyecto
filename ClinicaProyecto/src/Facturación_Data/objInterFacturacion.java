@@ -1,26 +1,17 @@
-
-package Sacnhez;
-
+package Facturación_Data;
 
 import Modelo_Menu.Repository;
 import Modelo_Menu.ModeloCita;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.Date;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.net.URL;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import java.util.Random;
 import java.util.logging.Level;
@@ -30,14 +21,14 @@ import java.util.logging.Logger;
  *
  * @author Tutur
  */
-
 public class objInterFacturacion extends javax.swing.JInternalFrame {
+
     Repository objMenuCita;
-    public long idDoctor=0;
+    public long idDoctor = 0;
     public int idPaciente;
     private String idDoctorString;
     private String idPacienteString;
-    private double totalConIGV=0.0; 
+    private double totalConIGV = 0.0;
     private String fechaRegistro;
     private Date fechaRegistros;
     private long lunes;
@@ -46,32 +37,30 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
     private long jueves;
     private long viernes;
     private long sabado;
-    private double cantidad=0.0;
+    private double cantidad = 0.0;
     private int IdPacienteSeleccionado;
     ModeloCita objMenuCitaPaciente;
     //modelo de datos
     private DefaultTableModel modeloDatosProducto;
-     private PruebasDePdf prueba; 
-    
+    private PruebasDePdf prueba;
+
     public objInterFacturacion() {
-        prueba = new PruebasDePdf(); 
+        prueba = new PruebasDePdf();
         objMenuCitaPaciente = new ModeloCita();
         objMenuCita = new Repository();
         initComponents();
-        this.setSize(800,600);
+        this.setSize(800, 600);
         this.setTitle("Facturacion");
 
         //Cargar paciente
         this.CargarComboPacientes();
-        ImageIcon wallpaper=new ImageIcon("src/img/fondo3.jpg");
-        Icon icono =new ImageIcon(wallpaper.getImage().getScaledInstance(800, 600, WIDTH));
+        ImageIcon wallpaper = new ImageIcon("src/img/fondo3.jpg");
+        Icon icono = new ImageIcon(wallpaper.getImage().getScaledInstance(800, 600, WIDTH));
         jlabel_wallpaper.setIcon(icono);
         this.CargarTablaCita();
         this.repaint();
     }
 
-        
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -267,7 +256,6 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
 
         jButton_RegistarVenta.setBackground(new java.awt.Color(51, 255, 255));
         jButton_RegistarVenta.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jButton_RegistarVenta.setIcon(new javax.swing.ImageIcon("C:\\Users\\Suyco\\Documents\\NetBeansProjects\\Clinica_Proyecto\\ClinicaProyecto\\src\\img\\impresora.png")); // NOI18N
         jButton_RegistarVenta.setText("Registrar Venta");
         jButton_RegistarVenta.setToolTipText("");
         jButton_RegistarVenta.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -311,7 +299,7 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
 
         try {
             cn = Repository.ConectarBD();
-            String sql ="SELECT nombre, apellido FROM paciente WHERE dni = ?";
+            String sql = "SELECT nombre, apellido FROM paciente WHERE dni = ?";
 
             pst = cn.prepareStatement(sql);
             pst.setString(1, clienteBuscar);
@@ -330,9 +318,15 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
             System.out.println("Error al buscar cliente: " + e);
         } finally {
             try {
-                if (rs != null) rs.close();
-                if (pst != null) pst.close();
-                if (cn != null) cn.close();
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (cn != null) {
+                    cn.close();
+                }
             } catch (SQLException ex) {
                 System.out.println("Error al cerrar conexiones: " + ex);
             }
@@ -344,9 +338,8 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txt_cambioActionPerformed
 
     private void jTextField_subtotal1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_subtotal1ActionPerformed
-       
-        
-        
+
+
     }//GEN-LAST:event_jTextField_subtotal1ActionPerformed
 
     private void jTextField_descuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_descuentoActionPerformed
@@ -366,101 +359,107 @@ public class objInterFacturacion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txt_efectivoActionPerformed
 
     private void jButton_calcular_cambioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_calcular_cambioActionPerformed
-    try {
-        // Obtener el texto ingresado en txt_efectivo
-        String textoEfectivo = txt_efectivo.getText().trim();
+        try {
+            // Obtener el texto ingresado en txt_efectivo
+            String textoEfectivo = txt_efectivo.getText().trim();
 
-        // Verificar si el campo no está vacío antes de intentar convertirlo
-        if (!textoEfectivo.isEmpty()) {
-            // Convertir el texto a double
-            double montoPagado = Double.parseDouble(textoEfectivo);
+            // Verificar si el campo no está vacío antes de intentar convertirlo
+            if (!textoEfectivo.isEmpty()) {
+                // Convertir el texto a double
+                double montoPagado = Double.parseDouble(textoEfectivo);
 
-            // Calcular el cambio
-            double cambio = montoPagado - cantidad;
+                // Calcular el cambio
+                double cambio = montoPagado - cantidad;
 
-            // Mostrar el cambio en txt_cambio
-            txt_cambio.setText(String.format("%.2f", cambio));
-        } else {
-            // Si el campo está vacío, mostrar un mensaje al usuario o tomar otra acción
-            txt_cambio.setText("Ingrese un monto válido");
-        }
-    } catch (NumberFormatException e) {
-        // Manejo de la excepción si el texto no se puede convertir a double
-        txt_cambio.setText("Ingrese un valor numérico válido");
-    }        // TODO add your handling code here:
+                // Mostrar el cambio en txt_cambio
+                txt_cambio.setText(String.format("%.2f", cambio));
+            } else {
+                // Si el campo está vacío, mostrar un mensaje al usuario o tomar otra acción
+                txt_cambio.setText("Ingrese un monto válido");
+            }
+        } catch (NumberFormatException e) {
+            // Manejo de la excepción si el texto no se puede convertir a double
+            txt_cambio.setText("Ingrese un valor numérico válido");
+        }        // TODO add your handling code here:
     }//GEN-LAST:event_jButton_calcular_cambioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Connection con = null;
-    try {
-        con = Repository.ConectarBD();
+        Connection con = null;
+        try {
+            con = Repository.ConectarBD();
 
-        String sqlPaciente = "SELECT * FROM paciente";
-        Statement st = con.createStatement();
-        ResultSet rsPaciente = st.executeQuery(sqlPaciente);
+            String sqlPaciente = "SELECT * FROM paciente";
+            Statement st = con.createStatement();
+            ResultSet rsPaciente = st.executeQuery(sqlPaciente);
 
-        while (rsPaciente.next()) {
-            int id = rsPaciente.getInt("id");
-            String nombre = rsPaciente.getString("nombre");
-            String apellido = rsPaciente.getString("apellido");
+            while (rsPaciente.next()) {
+                int id = rsPaciente.getInt("id");
+                String nombre = rsPaciente.getString("nombre");
+                String apellido = rsPaciente.getString("apellido");
 
-            String nombreCompleto = nombre + " " + apellido;
+                String nombreCompleto = nombre + " " + apellido;
 
-            // Comparar con el elemento seleccionado en el JComboBox
-            if (nombreCompleto.equals(jComboBox_cliente1.getSelectedItem())) {
-                idPaciente = id;
-                objMenuCitaPaciente.setIdPaciente(idPaciente);
-                break;
+                // Comparar con el elemento seleccionado en el JComboBox
+                if (nombreCompleto.equals(jComboBox_cliente1.getSelectedItem())) {
+                    idPaciente = id;
+                    objMenuCitaPaciente.setIdPaciente(idPaciente);
+                    break;
+                }
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al cargar clientes " + e);
+        } finally {
+            try {
+                if (con != null) {
+                    con.close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar la conexión: " + e);
             }
         }
 
-    } catch (SQLException e) {
-        System.out.println("Error al cargar clientes " + e);
-    } finally {
-        try {
-            if (con != null) con.close();
-        } catch (SQLException e) {
-            System.out.println("Error al cerrar la conexión: " + e);
-        }
-    }
-    
-    CargarTablaCita();                                   
+        CargarTablaCita();
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-private String obtenerNombreCompleto(int idPaciente) throws SQLException {
-    String nombreCompleto = null;
-    PreparedStatement pst = null;
-    ResultSet rs = null;
-    Connection con=Repository.ConectarBD();
-    try {
-        String sql = "SELECT CONCAT(nombre, ' ', apellido) AS nombreCompleto FROM paciente WHERE id = ?";
-        pst = con.prepareStatement(sql);
-        pst.setInt(1, idPaciente);
-        rs = pst.executeQuery();
+    private String obtenerNombreCompleto(int idPaciente) throws SQLException {
+        String nombreCompleto = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+        Connection con = Repository.ConectarBD();
+        try {
+            String sql = "SELECT CONCAT(nombre, ' ', apellido) AS nombreCompleto FROM paciente WHERE id = ?";
+            pst = con.prepareStatement(sql);
+            pst.setInt(1, idPaciente);
+            rs = pst.executeQuery();
 
-        if (rs.next()) {
-            nombreCompleto = rs.getString("nombreCompleto");
-        } else {
-            System.out.println("Paciente no encontrado");
+            if (rs.next()) {
+                nombreCompleto = rs.getString("nombreCompleto");
+            } else {
+                System.out.println("Paciente no encontrado");
+            }
+        } finally {
+            // Cerrar recursos
+            if (rs != null) {
+                rs.close();
+            }
+            if (pst != null) {
+                pst.close();
+            }
         }
-    } finally {
-        // Cerrar recursos
-        if (rs != null) rs.close();
-        if (pst != null) pst.close();
+
+        return nombreCompleto;
     }
-    
-    return nombreCompleto;
-}
     private void jButton_RegistarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_RegistarVentaActionPerformed
         int auxiliarPaciente = idPaciente;
-        int auxiliarDoctor=(int)idDoctor;
+        int auxiliarDoctor = (int) idDoctor;
         Connection con = null;
         PreparedStatement pst = null;
         ResultSet rs = null;
 
         try {
-  
+
             // Obtener el nombre completo del paciente
             String nombrePaciente = obtenerNombreCompleto(auxiliarPaciente);
 
@@ -477,9 +476,15 @@ private String obtenerNombreCompleto(int idPaciente) throws SQLException {
         } finally {
             // Cerrar recursos
             try {
-                if (rs != null) rs.close();
-                if (pst != null) pst.close();
-                if (con != null) con.close();
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (con != null) {
+                    con.close();
+                }
             } catch (SQLException e) {
                 System.out.println("Error al cerrar recursos: " + e);
             }
@@ -518,138 +523,135 @@ private String obtenerNombreCompleto(int idPaciente) throws SQLException {
     // End of variables declaration//GEN-END:variables
     //metodo para cargar clientes
 
-    private void CargarComboPacientes(){
-        Connection cn=Repository.ConectarBD();
-        String sql="select * from paciente";
+    private void CargarComboPacientes() {
+        Connection cn = Repository.ConectarBD();
+        String sql = "select * from paciente";
         Statement st;
-        try{
-           st =cn.createStatement();
-           ResultSet rs=st.executeQuery(sql); 
-           jComboBox_cliente1.removeAllItems();
-           jComboBox_cliente1.addItem("Seleccione Paciente:");
-           while(rs.next()){
-               jComboBox_cliente1.addItem(rs.getString("nombre")+" "+rs.getNString("apellido"));
-           }
-           
-           cn.close();
-        }catch(SQLException e){
-            System.out.println("Error al cargar clientes "+e);
-         }
-    }
-    
-    private void CargarTablaCita() {
-    try (Connection con = Repository.ConectarBD();
-         PreparedStatement pst = con.prepareStatement(
-                 "SELECT cita.idCita, doctor.nombre AS nombreDoctor, CONCAT(paciente.nombre, ' ', paciente.apellido) AS nombrePaciente, " +
-                         "cita.fechaCita, cita.fechaRegistro, cita.costoTotal, cita.estado, cita.idDoctor " +
-                         "FROM cita " +
-                         "JOIN doctor ON cita.idDoctor = doctor.idDoctor " +
-                         "JOIN paciente ON cita.idPaciente = paciente.id " +
-                         "WHERE paciente.id = ? AND cita.estado = 'atendido'");
-         ) {
-
-        pst.setInt(1, objMenuCitaPaciente.getIdPaciente());
-        try (ResultSet rs = pst.executeQuery()) {
-            DefaultTableModel model = new DefaultTableModel() {
-                @Override
-                public boolean isCellEditable(int row, int column) {
-                    return false;
-                }
-            };
-
-            // Añadir las columnas al modelo
-            model.addColumn("N");
-            model.addColumn("Nombre Paciente");
-            model.addColumn("Nombre Doctor");
-            model.addColumn("Fecha Cita");
-            model.addColumn("Descuento");
-            model.addColumn("Costo Total");
-            model.addColumn("Estado");
-
-            int contador = 1;
-            double subtotal = 0.0;
-            double descuentoTotal = 0.0;
-
+        try {
+            st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            jComboBox_cliente1.removeAllItems();
+            jComboBox_cliente1.addItem("Seleccione Paciente:");
             while (rs.next()) {
-                Object fila[] = new Object[7];
-                idDoctor = rs.getInt("idDoctor");
-                fila[0] = contador++;
-                fila[1] = rs.getString("nombrePaciente");
-                fila[2] = rs.getString("nombreDoctor");
-                fila[3] = rs.getString("fechaCita");
-
-                double descuento = (int)rs.getObject("costoTotal")*0.04;
-                String descuentoFormateado = String.format("%.2f", descuento);
-                fila[4] = descuentoFormateado;
-                descuentoTotal += descuento;
-                fila[5] = rs.getObject("costoTotal");
-                fila[6] = rs.getObject("estado");
-
-                // Añadir la fila al modelo
-                model.addRow(fila);
-                subtotal += rs.getDouble("costoTotal");
+                jComboBox_cliente1.addItem(rs.getString("nombre") + " " + rs.getNString("apellido"));
             }
 
-            double igv = 0.18;
-            double totalSinDescuento = subtotal - descuentoTotal;
-            double totalIGV = totalSinDescuento * igv;
-            double totalConIGV = totalSinDescuento + totalIGV;
-            cantidad=totalConIGV;
-            // Mostrar descuento total en el JTextField
-            jTextField_descuento.setText(String.format("%.2f", descuentoTotal));
-            // Mostrar subtotal en el JTextField_subtotal1
-            jTextField_subtotal1.setText(String.valueOf(subtotal));
-            jTextField_igv.setText(String.format("%.2f", totalIGV));
-
-            // Mostrar total a pagar (subtotal + igv - descuento) en jTextField_totalpagar
-            jTextField_totalpagar.setText(String.format("%.2f", totalConIGV));
-
-            // Crear la tabla y establecer el modelo
-            objInterFacturacion.jTable_citas.setModel(model);
-            if(totalConIGV!=0){
-                guardarFactura(idPaciente,(int)idDoctor,descuentoTotal,subtotal,totalIGV,totalConIGV,contador);
-            }
-            // Ajustar el ancho de las columnas
-            TableColumnModel columnModel = objInterFacturacion.jTable_citas.getColumnModel();
-            columnModel.getColumn(0).setPreferredWidth(50); // Ancho para la columna de número de fila
-            
-            for (int i = 1; i < columnModel.getColumnCount(); i++) {
-                columnModel.getColumn(i).setPreferredWidth(150); // Ancho para las otras columnas
-            }
-            
+            cn.close();
+        } catch (SQLException e) {
+            System.out.println("Error al cargar clientes " + e);
         }
-
-    } catch (SQLException e) {
-        System.out.println("Error al llenar la tabla citas: " + e);
     }
-}
-    
-     public void guardarFactura(int idPaciente, int idDoctor, double descuentoTotal,
-                                double subtotal, double igv, double totalPagar,int nfilas) {
-         // Sentencia SQL para la inserción
-         String sql = "INSERT INTO Facturas (idPaciente, idDoctor, descuentoTotal, subtotal, igv, totalPagar,nfilas,codigoFactura) " +
-                      "VALUES (?, ?, ?, ?, ?, ?,?,?)";
-         
-         Random random = new Random();
-         int numeroAleatorio = random.nextInt(9999) + 1;
-         try (
-             Connection conn = Repository.ConectarBD();  // Conexión a la base de datos
-             PreparedStatement pstmt = conn.prepareStatement(sql)
-         ) {
-             // Establecer los parámetros de la sentencia SQL
-             pstmt.setInt(1, idPaciente);
-             pstmt.setInt(2, idDoctor);
-             pstmt.setDouble(3, descuentoTotal);
-             pstmt.setDouble(4, subtotal);
-             pstmt.setDouble(5, igv);
-             pstmt.setDouble(6, totalPagar);
-             pstmt.setDouble(7, nfilas);
-             pstmt.setInt(8, numeroAleatorio);
 
-             // Ejecutar la inserción
-             pstmt.executeUpdate();             
-         } catch (SQLException e) {
-             System.out.println("Error al guardar la factura: " + e.getMessage());
-         }
+    private void CargarTablaCita() {
+        try (Connection con = Repository.ConectarBD(); PreparedStatement pst = con.prepareStatement(
+                "SELECT cita.idCita, doctor.nombre AS nombreDoctor, CONCAT(paciente.nombre, ' ', paciente.apellido) AS nombrePaciente, "
+                + "cita.fechaCita, cita.fechaRegistro, cita.costoTotal, cita.estado, cita.idDoctor "
+                + "FROM cita "
+                + "JOIN doctor ON cita.idDoctor = doctor.idDoctor "
+                + "JOIN paciente ON cita.idPaciente = paciente.id "
+                + "WHERE paciente.id = ? AND cita.estado = 'atendido'");) {
+
+            pst.setInt(1, objMenuCitaPaciente.getIdPaciente());
+            try (ResultSet rs = pst.executeQuery()) {
+                DefaultTableModel model = new DefaultTableModel() {
+                    @Override
+                    public boolean isCellEditable(int row, int column) {
+                        return false;
+                    }
+                };
+
+                // Añadir las columnas al modelo
+                model.addColumn("N");
+                model.addColumn("Nombre Paciente");
+                model.addColumn("Nombre Doctor");
+                model.addColumn("Fecha Cita");
+                model.addColumn("Descuento");
+                model.addColumn("Costo Total");
+                model.addColumn("Estado");
+
+                int contador = 1;
+                double subtotal = 0.0;
+                double descuentoTotal = 0.0;
+
+                while (rs.next()) {
+                    Object fila[] = new Object[7];
+                    idDoctor = rs.getInt("idDoctor");
+                    fila[0] = contador++;
+                    fila[1] = rs.getString("nombrePaciente");
+                    fila[2] = rs.getString("nombreDoctor");
+                    fila[3] = rs.getString("fechaCita");
+
+                    double descuento = (int) rs.getObject("costoTotal") * 0.04;
+                    String descuentoFormateado = String.format("%.2f", descuento);
+                    fila[4] = descuentoFormateado;
+                    descuentoTotal += descuento;
+                    fila[5] = rs.getObject("costoTotal");
+                    fila[6] = rs.getObject("estado");
+
+                    // Añadir la fila al modelo
+                    model.addRow(fila);
+                    subtotal += rs.getDouble("costoTotal");
+                }
+
+                double igv = 0.18;
+                double totalSinDescuento = subtotal - descuentoTotal;
+                double totalIGV = totalSinDescuento * igv;
+                double totalConIGV = totalSinDescuento + totalIGV;
+                cantidad = totalConIGV;
+                // Mostrar descuento total en el JTextField
+                jTextField_descuento.setText(String.format("%.2f", descuentoTotal));
+                // Mostrar subtotal en el JTextField_subtotal1
+                jTextField_subtotal1.setText(String.valueOf(subtotal));
+                jTextField_igv.setText(String.format("%.2f", totalIGV));
+
+                // Mostrar total a pagar (subtotal + igv - descuento) en jTextField_totalpagar
+                jTextField_totalpagar.setText(String.format("%.2f", totalConIGV));
+
+                // Crear la tabla y establecer el modelo
+                objInterFacturacion.jTable_citas.setModel(model);
+                if (totalConIGV != 0) {
+                    guardarFactura(idPaciente, (int) idDoctor, descuentoTotal, subtotal, totalIGV, totalConIGV, contador);
+                }
+                // Ajustar el ancho de las columnas
+                TableColumnModel columnModel = objInterFacturacion.jTable_citas.getColumnModel();
+                columnModel.getColumn(0).setPreferredWidth(50); // Ancho para la columna de número de fila
+
+                for (int i = 1; i < columnModel.getColumnCount(); i++) {
+                    columnModel.getColumn(i).setPreferredWidth(150); // Ancho para las otras columnas
+                }
+
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error al llenar la tabla citas: " + e);
+        }
+    }
+
+    public void guardarFactura(int idPaciente, int idDoctor, double descuentoTotal,
+            double subtotal, double igv, double totalPagar, int nfilas) {
+        // Sentencia SQL para la inserción
+        String sql = "INSERT INTO Facturas (idPaciente, idDoctor, descuentoTotal, subtotal, igv, totalPagar,nfilas,codigoFactura) "
+                + "VALUES (?, ?, ?, ?, ?, ?,?,?)";
+
+        Random random = new Random();
+        int numeroAleatorio = random.nextInt(9999) + 1;
+        try (
+                Connection conn = Repository.ConectarBD(); // Conexión a la base de datos
+                 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+            // Establecer los parámetros de la sentencia SQL
+            pstmt.setInt(1, idPaciente);
+            pstmt.setInt(2, idDoctor);
+            pstmt.setDouble(3, descuentoTotal);
+            pstmt.setDouble(4, subtotal);
+            pstmt.setDouble(5, igv);
+            pstmt.setDouble(6, totalPagar);
+            pstmt.setDouble(7, nfilas);
+            pstmt.setInt(8, numeroAleatorio);
+
+            // Ejecutar la inserción
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Error al guardar la factura: " + e.getMessage());
+        }
     }
 }

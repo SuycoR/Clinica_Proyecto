@@ -2,7 +2,7 @@ package Modelo_Menu;
 
 /**
  *
- * @author PROPIETARIO
+ * @author Cuenca
  */
 public class Doctor {
 
@@ -193,4 +193,4 @@ public class Doctor {
         this.sabado = sabado;
     }
 
-    }
+}
