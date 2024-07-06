@@ -1,7 +1,9 @@
 # Clinica_Proyecto
 Clinica Privada
 
+
 Integrantes:
+
   Cuenca Echevarria, Andre Alexander - 23200092
 
   Giron Altamirano, Miguel Alejandro - 23200100
