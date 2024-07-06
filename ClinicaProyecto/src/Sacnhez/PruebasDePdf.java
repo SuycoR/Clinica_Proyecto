@@ -42,7 +42,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class PruebasDePdf {
-    private static final String RUTA_IMAGEN = "src/img/timida.png"; // Ruta a la imagen del logo
+    private static final String RUTA_IMAGEN = "src/img/logo.png"; // Ruta a la imagen del logo
     private static final String RUTA_ARCHIVO = "src/pdf/";
     public static String ruta;
     public double idDoctor=0.0;
