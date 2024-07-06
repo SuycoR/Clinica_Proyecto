@@ -123,7 +123,6 @@ public class EnviarArchivoPDF {
         content = content.replace("[Teléfono de Contacto]", "+1234567890");
         content = content.replace("[Correo Electrónico de Contacto]", "ClinicaBienestar@clinica.com");
             cuerpoMensaje.setText(content,"ISO-8859-1","html");
-
             // Archivo adjunto
             BodyPart adjunto = new MimeBodyPart();
             try {

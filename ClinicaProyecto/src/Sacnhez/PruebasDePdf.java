@@ -42,15 +42,16 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 public class PruebasDePdf {
-    private static final String RUTA_IMAGEN = "src/img/timida.png"; // Ruta a la imagen del logo
+    private static final String RUTA_IMAGEN = "src/img/logo.png"; // Ruta a la imagen del logo
     private static final String RUTA_ARCHIVO = "src/pdf/";
     public static String ruta;
+    public double idDoctor=0.0;
     // Constructor de la clase
     public int contarFacturas() {
         int totalFacturas = 0;
 
         // Consulta SQL para contar el número de facturas
-        String sql = "SELECT COUNT(idFactura) AS totalFacturas FROM Facturas";
+        String sql = "SELECT idDoctor, COUNT(idFactura) AS totalFacturas FROM Facturas GROUP BY idDoctor";
 
         try (
             Connection conn = Repository.ConectarBD();  // Conexión a la base de datos
@@ -60,6 +61,7 @@ public class PruebasDePdf {
             // Obtener el resultado de la consulta
             if (rs.next()) {
                 totalFacturas = rs.getInt("totalFacturas");
+                idDoctor=rs.getInt("idDoctor");
             }
         } catch (SQLException e) {
             System.out.println("Error al contar las facturas: " + e.getMessage());
@@ -101,7 +103,7 @@ public class PruebasDePdf {
             // Consulta para obtener nombre del doctor
             String queryDoctor = "SELECT nombre,dni FROM doctor WHERE idDoctor = ?";
             stmt = conn.prepareStatement(queryDoctor);
-            stmt.setInt(1, 33); // Utilizando idPaciente como ejemplo, debería ser idDoctor
+            stmt.setInt(1, (int)idDoctor); 
             rs = stmt.executeQuery();
             String nombreDoctor = "";
             String RucDoctor="";
